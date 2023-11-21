@@ -1,0 +1,23 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+/* common */
+@import url('./common.css');
+/* header */
+@import url('./header.css');
+/* hero */
+@import url('./hero.css');
+/* filters */
+@import url('./filters.css');
+/* popular_products*/
+@import url('./popular_products.css');
+/* discount_products */
+@import url('./discount_products.css');
+/* products_list */
+@import url('./products_list.css');
+/*pagination  */
+@import url('./pagination.css');
+/* footer */
+@import url('./footer.css');
+/* modal */
+@import url('./modal.css');
+/* cart */
+@import url('./cart.css');
