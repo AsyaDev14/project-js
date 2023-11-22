@@ -1,9 +1,13 @@
+#products-list.section {
+  padding-top: 40px;
+}
+
 .products-list {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   column-gap: var(--indent-col);
   row-gap: var(--indent-row);
-  margin-top: 40px;
 }
 
 .product-item {
@@ -120,6 +124,7 @@
 /* DESKTOP 1272*/
 @media only screen and (min-width: 1272px) {
   .products-list {
+    width: 925px;
     --indent-col: 20px;
     --indent-row: 40px;
   }
