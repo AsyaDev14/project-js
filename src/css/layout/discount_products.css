@@ -49,6 +49,9 @@
   line-height: 1.11;
   font-weight: 500;
 }
+.price {
+  align-self: flex-end;
+}
 .discount-btn-buy {
   display: flex;
   justify-content: center;
