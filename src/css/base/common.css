@@ -63,7 +63,7 @@ button {
   fill: var(--color-btn-fill);
   color: var(--color-btn-fill);
   border: none;
-  border-radius: 50%;
+  border-radius: 30px;
 }
 
 button:hover,
