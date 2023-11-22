@@ -1,5 +1,5 @@
 #products-list.section {
-  padding-top: 40px;
+  padding-top: 0;
 }
 
 #products-list .products-list {
@@ -28,6 +28,7 @@
 
 #products-list .product-name {
   margin-top: 20px;
+  margin-bottom: 0;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11;
@@ -110,6 +111,12 @@
   #products-list .product-discount {
     top: -3px;
   }
+
+  #products-list .product-name,
+  #products-list .price {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 }
 
 /* DESKTOP 1272*/
@@ -126,6 +133,10 @@
 
   #products-list .product-props {
     flex-wrap: wrap;
+  }
+
+  #products-list .product-buy-container {
+    margin-top: 20px;
   }
 }
 
