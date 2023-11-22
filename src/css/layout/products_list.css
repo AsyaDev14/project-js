@@ -18,7 +18,7 @@
   flex-basis: calc((100% - (var(--items-number) - 1) * var(--indent-col)) / var(--items-number));
 }
 
-.product-img-container {
+#products-list .product-img-container {
   padding: 19px 0;
   display: flex;
   justify-content: center;
