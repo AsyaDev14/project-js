@@ -1,8 +1,8 @@
 .container {
   min-width: 320px;
-  max-width: 355px;
+  max-width: 480px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 20px;
 }
 
 .section {
@@ -12,10 +12,9 @@
 /* TABLET */
 
 @media only screen and (min-width: 768px) {
-
   .container {
-    max-width: 736px;
-    padding: 0 16px;
+    max-width: 768px;
+    padding: 0 32px;
   }
 
   .section {
@@ -25,9 +24,8 @@
 
 /* DESKTOP 1272*/
 @media only screen and (min-width: 1272px) {
-
   .container {
-    max-width: 1240px;
+    max-width: 1272px;
     padding: 0 16px;
   }
 
