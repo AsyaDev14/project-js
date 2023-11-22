@@ -2,7 +2,8 @@
   background: #e8e8e2;
   /* base body bg color */
   padding: 0 20px;
-  /* base container padding */
+  /* base mobile container padding */
+  height: fit-content;
 }
 @media only screen and (min-width: 768px) {
   .cart-section {
@@ -94,33 +95,35 @@
   background: transparent;
   border: none;
   position: absolute;
-  top: -40px;
-  right: 0px;
+  top: -52px;
+  right: 14px;
   padding: 0;
 }
 @media only screen and (min-width: 768px) {
   .delete-all {
     font-size: 16px;
     line-height: 1.25;
+
+    top: -66px;
+    right: 40px;
   }
 }
 @media only screen and (min-width: 1280px) {
   .delete-all {
-    top: -44px;
-    right: 0px;
+    top: -56px;
+    right: 40px;
   }
 }
 
 .delete-btn {
   position: absolute;
   top: -10px;
-  right: 0;
+  right: 7px;
   background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
   fill: #010101;
-  z-index: 100;
 }
 @media only screen and (min-width: 768px) {
   .delete-btn {
@@ -134,12 +137,13 @@
   gap: 30px;
   width: 100%;
   overflow: auto;
-  padding-top: 10px;
+  padding-top: 15px;
+  padding-right: 7px;
 }
 @media only screen and (min-width: 768px) {
   .cart-list {
     gap: 40px;
-    padding: 0;
+    padding: 0 40px 0 0;
   }
 }
 
@@ -161,9 +165,9 @@ hr {
   overflow: visible;
   text-align: center;
   height: 0;
-  width: 335px;
+  width: 100%;
 }
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
   hr {
     width: 672px;
   }
@@ -172,7 +176,7 @@ hr {
   hr {
     width: 500px;
   }
-}
+} */
 
 .product-img {
   width: 100px;
@@ -389,6 +393,34 @@ hr {
     padding: 15px 65px;
     width: auto;
   }
+}
+
+/*===== COUNTER =====*/
+.counter-container {
+  display: flex;
+  padding: 4px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  height: fit-content;
+  position: absolute;
+  bottom: -6px;
+  right: 7px;
+
+  border-radius: 100px;
+  border: 1px solid rgba(1, 1, 1, 0.1);
+}
+
+.counter-btn {
+  background: none;
+  font-size: 14px;
+  color: #010101;
+}
+
+.counter-value {
+  color: #010101;
+  font-size: 16px;
+  line-height: 1.12;
 }
 
 /*===== Empty Cart =====*/
