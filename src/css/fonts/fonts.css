@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('PPNeueMontreal-Bold.otf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('PPNeueMontreal-Book.otf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('PPNeueMontreal-Italic.otf');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('PPNeueMontreal-Medium.otf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('PPNeueMontreal-SemiBolditalic.otf');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('PPNeueMontreal-Thin.otf');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'FONTSPRING DEMO - Quincy CF Black';
+  src: url('QuincyCF-Black.ttf');
+  font-weight: normal;
+}
