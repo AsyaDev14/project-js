@@ -101,3 +101,23 @@
   fill: none;
   fill: #6d8434;
 }
+
+@media only screen and (min-width: 768px) {
+  .popular-title {
+    font-size: 28px;
+  }
+  .popular-item {
+    width: 275px;
+  }
+
+  .popular-item.is-hidden {
+    display: none;
+  }
+}
+
+/* DESKTOP 1272*/
+@media only screen and (min-width: 1272px) {
+  .popular-item.is-not-hidden {
+    display: flex;
+  }
+}
