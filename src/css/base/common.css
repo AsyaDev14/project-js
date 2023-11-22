@@ -65,3 +65,8 @@ button {
   border: none;
   border-radius: 50%;
 }
+
+button:hover,
+button:focus {
+  background-color: var(--color-btn-active);
+}

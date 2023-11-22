@@ -1,7 +1,7 @@
 .discount-products {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   row-gap: 20px;
 }
 
@@ -12,6 +12,7 @@
   position: relative;
 }
 .discount-img-box {
+  height: 150px;
   border-radius: 10px;
   background-color: var(--color-bckg);
   display: flex;
@@ -34,20 +35,20 @@
   justify-content: space-between;
   gap: 8px;
 }
-.discount-txt-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+
 .discount-title {
   font-size: 24px;
   line-height: 1.16;
   font-weight: 500;
+  margin-bottom: 20px;
 }
 .discount-txt {
   font-size: 18px;
   line-height: 1.11;
   font-weight: 500;
+}
+.discount-price {
+  margin-left: auto;
 }
 .discount-btn-buy {
   display: flex;
@@ -66,29 +67,37 @@
 }
 
 /* TABLET */
-.discount-section {
-  padding-top: 32px;
-  padding-bottom: 50px;
-}
-.discount-products {
-  width: 704px;
-  column-gap: 32px;
-}
-.discount-item {
-  width: 336px;
+@media only screen and (min-width: 768px) {
+  .discount-section {
+    padding-top: 32px;
+    padding-bottom: 50px;
+  }
+  .discount-products {
+    flex-direction: row;
+    width: 704px;
+    column-gap: 32px;
+  }
+  .discount-item {
+    width: 336px;
+  }
 }
 
 /* DESKTOP 1272*/
-.discount-section {
-  padding: 20px 0;
-}
-.discount-item {
-  width: 275px;
-}
-.discount-svg {
-  top: -3px;
-}
-.discount-img {
-  max-width: 105px;
-  max-height: 105px;
+@media only screen and (min-width: 1272px) {
+  .discount-section {
+    padding: 20px 0;
+  }
+  .discount-products {
+    flex-direction: column;
+  }
+  .discount-item {
+    width: 275px;
+  }
+  .discount-svg {
+    top: -3px;
+  }
+  .discount-img {
+    max-width: 105px;
+    max-height: 105px;
+  }
 }
