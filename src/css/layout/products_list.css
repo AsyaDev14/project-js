@@ -1,0 +1,159 @@
+#products-list.section {
+  padding-top: 40px;
+}
+
+.products-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--indent-col);
+  row-gap: var(--indent-row);
+}
+
+.product-item {
+  position: relative;
+  background-color: var(--color-card-bckg);
+  border-radius: 20px;
+  padding: 20px;
+  flex-basis: calc((100% - (var(--items-number) - 1) * var(--indent-col)) / var(--items-number));
+}
+
+.product-img-container {
+  padding: 19px 0;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: var(--color-img-bckg);
+}
+
+.product-name {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11;
+  color: var(--color-text)
+}
+
+.product-props {
+  margin-top: 10px;
+  display: flex;
+  gap: 9px;
+}
+
+.prop {
+  display: flex;
+  gap: 4px;
+  font-size: 12px;
+  line-height: 1.17;
+}
+
+.prop-name {
+  color: var(--color-prop-text);
+}
+
+.product-buy-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.price {
+  font-size: 18px;
+  line-height: 1.11;
+  font-weight: 500;
+  align-self: flex-end;
+}
+
+.btn-buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  background-color: var(--color-btn);
+  border: none;
+  border-radius: 50%;
+  fill: var(--color-btn-fill);
+}
+
+.btn-buy:hover,
+.btn-buy:focus {
+  background-color: var(--color-btn-active);
+}
+
+.product-discount {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+}
+
+.nothing-found {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.nothing-found-img {
+  margin-top: 20px;
+}
+
+.nothing-found-message {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* TABLET */
+@media only screen and (min-width: 768px) {
+  .products-list {
+    --indent-col: 32px;
+    --indent-row: 32px;
+  }
+
+  .product-item {
+    --items-number: 2;
+  }
+
+  .product-discount {
+    top: -3px;
+  }
+}
+
+/* DESKTOP 1272*/
+@media only screen and (min-width: 1272px) {
+  .products-list {
+    width: 925px;
+    --indent-col: 20px;
+    --indent-row: 40px;
+  }
+
+  .product-item {
+    --items-number: 3;
+  }
+}
+
+
+/* TODO: For test only. REMOVE*/
+
+.desktop {
+  display: none;
+}
+
+.tablet {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .tablet {
+    display: list-item;
+  }
+}
+@media only screen and (min-width: 1272px) {
+  .desktop {
+    display: list-item;
+  }
+}
+
+
