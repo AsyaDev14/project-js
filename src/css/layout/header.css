@@ -26,7 +26,8 @@
   gap: 6px;
 }
 
-.header-button_home {
+.header_home {
+  background-color: var(--color-btn);
   display: flex;
   padding: 10px 20px;
   justify-content: center;
@@ -34,16 +35,19 @@
   gap: 10px;
   border-radius: 30px;
   cursor: pointer;
+  color: #E8E8E2;
+
+  font-family: Neue Montreal;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
 }
 
-.header-button_buy {
-  border: none;
-  border-radius: 50%;
+.header_buy {
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 38px;
-  height: 38px;
-  display: flex;
   cursor: pointer;
 }
 
@@ -63,6 +67,7 @@
     font-weight: 500;
     line-height: 24px;
     text-transform: uppercase;
+    padding-left: 14px;
   }
 }
 

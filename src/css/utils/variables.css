@@ -1,29 +1,28 @@
 :root {
-
-  --color-text: #010101CC;
-  --color-bckg: #E8E8E2;
-  --color-card-bckg: #FAFAFA;
-  --color-img-bckg: #E8E8E2;
-  --color-btn: #6D8434;
-  --color-btn-fill: #E8E8E2;
-  --color-btn-active: #586F1F;
-  --color-btn-small: #E8E8E2;
-  --color-btn-small-fill: #6D8434;
-  --color-btn-small-active: #6D8434;
-  --color-btn-small-fill-active: #E8E8E2;
-  --color-btn-arrow: #FAFAFA;
-  --color-btn-arrow-fill: #A3A3A3;
-  --color-btn-arrow-active: #6D8434;
-  --color-btn-arrow-fill-active: #FAFAFA;
-  --color-btn-send: #E8E8E2;
-  --color-btn-send-text-active: #6D8434;
+  --color-text: #010101;
+  --color-bckg: #e8e8e2;
+  --color-card-bckg: #fafafa;
+  --color-img-bckg: #e8e8e2;
+  --color-btn: #6d8434;
+  --color-btn-fill: #e8e8e2;
+  --color-btn-active: #586f1f;
+  --color-btn-small: #e8e8e2;
+  --color-btn-small-fill: #6d8434;
+  --color-btn-small-active: #6d8434;
+  --color-btn-small-fill-active: #e8e8e2;
+  --color-btn-arrow: #fafafa;
+  --color-btn-arrow-fill: #a3a3a3;
+  --color-btn-arrow-active: #6d8434;
+  --color-btn-arrow-fill-active: #fafafa;
+  --color-btn-send: #e8e8e2;
+  --color-btn-send-text-active: #6d8434;
   --color-btn-cancel: #01010112;
   --color-btn-cancel-active: #010101;
-  --color-btn-cancel-text-active: #E8E8E2;
-  --color-prop-text: #0101014D;
+  --color-btn-cancel-text-active: #e8e8e2;
+  --color-prop-text: #0101014d;
 
-  --font-main: "Neue Montreal", sans-serif;
-  --font-logo: "FONTSPRING DEMO - Quincy CF Black", serif;
+  --font-main: 'Neue Montreal', sans-serif;
+  --font-logo: 'FONTSPRING DEMO - Quincy CF Black', serif;
 
   --indent-col: 20px;
   --indent-row: 20px;

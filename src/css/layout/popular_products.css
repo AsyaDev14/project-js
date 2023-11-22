@@ -17,6 +17,7 @@
   display: flex;
   position: relative;
   width: 335px;
+  height: 98px;
 
   border-radius: 10px;
   background: var(--color-card-bckg);
@@ -118,7 +119,17 @@
 
 /* DESKTOP 1272*/
 @media only screen and (min-width: 1272px) {
+  .desktop-section {
+    padding: 0 0 20px;
+  }
+
   .popular-item.is-not-hidden {
     display: flex;
+  }
+
+  .popular-list {
+    flex-direction: column;
+    align-items: start;
+    gap: 13px;
   }
 }
