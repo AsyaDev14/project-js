@@ -5,6 +5,8 @@
 @import url('../base/common.css');
 /* container */
 @import url('../base/container.css');
+/* fonts */
+@import url('../fonts/fonts.css');
 /* header */
 @import url('../layout/header.css');
 /* hero */
