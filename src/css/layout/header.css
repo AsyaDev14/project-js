@@ -1,0 +1,42 @@
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.boutique-logo {
+  color: #010101;
+  font-family: FONTSPRING DEMO - Quincy CF Black;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  letter-spacing: -0.36px;
+}
+
+.header-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-button_home {
+  width: 77px;
+  height: 38px;
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.header-button_buy {
+  border: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  display: flex;
+}
