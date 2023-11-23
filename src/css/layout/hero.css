@@ -1,20 +1,14 @@
-.hero-section,
-.hero-wrapper-text {}
-
-.hero-wrapper-text {
-  margin: 0 auto;
-  padding: 0;
+.hero-section {
+  margin-top: 26px;
 }
 
 .hero-title {
-  font-family: Neue Montreal;
-  font-size: 4rem;
+  font-size: 44px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1;
-  /* 100% */
-  letter-spacing: -1.6px;
-  margin: 0 auto;
+  line-height: 48px;
+  /* 109.091% */
+  letter-spacing: -0.88px;
   text-align: center;
 }
 
@@ -23,39 +17,40 @@
 }
 
 .hero-text {
-  padding-top: 20px;
+  padding: 16px 21.5px;
   color: rgba(1, 1, 1, 0.80);
 
   text-align: center;
   font-family: Neue Montreal;
-  font-size: .87rem;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.33;
-  /* 133.333% */
+  line-height: 18px;
+  /* 128.571% */
 }
 
 .hero-wrapper-img {
-  width: 100%;
-  height: 580px;
+  width: 375px;
+  /* height: 480px; */
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
   display: flex;
-  margin-top: 40px;
+  margin-top: 16px;
   position: relative;
 }
 
 .hero-working-out {
-  border-radius: 60px;
+  border-radius: 30px;
   object-fit: cover;
+  width: 100%;
 }
 
 .hero-mark {
   position: absolute;
-  top: -52px;
-  right: 30px;
+  top: -6px;
+  right: 27px;
   width: 100px;
-height: 100px;
-flex-shrink: 0;
+  height: 100px;
+  flex-shrink: 0;
 }
