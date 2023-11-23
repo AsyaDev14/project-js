@@ -1,6 +1,8 @@
 .right-part-products.container {
-  padding-right: 0;
+  padding-right: 0px;
   padding-left: 0;
+  min-width: 280px;
+  max-width: 440px;
 }
 .discount-section {
   padding-top: 40px;
@@ -73,12 +75,6 @@
 .discount-btn-buy:focus {
   background-color: var(--color-btn-active);
 }
-
-/* @media only screen and (min-width: 360px) {
-  .right-part-products.container {
-    padding: 0;
-  }
-} */
 
 /* TABLET */
 @media only screen and (min-width: 768px) {
