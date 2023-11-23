@@ -5,4 +5,5 @@ export const closeModalBtn = document.querySelector('[data-modal-close]');
 export const modalEl = document.querySelector('[data-modal]');
 export const popularListEl = document.querySelector('.popular-list');
 export const discountProductsEl = document.querySelector('.discount-products');
+export const filtersFormEL = document.querySelector('.filters-form-search')
 export default { productsListEl };

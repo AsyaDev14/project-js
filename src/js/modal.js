@@ -1,3 +1,4 @@
+import { getCardMarkup } from "./productsList";
 import { productListEl, closeModalBtn, modalEl, popularListEl, discountProductsEl } from "./refs";
 
 productListEl.addEventListener('click', onProductListElClick)
