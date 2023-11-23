@@ -4,6 +4,7 @@
 }
 
 .boutique-logo {
+  padding-left: 8px;
   color: #010101;
   font-family: FONTSPRING DEMO - Quincy CF Black;
   font-size: 18px;
@@ -14,29 +15,62 @@
 }
 
 .header-box {
+  padding-top: 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.header-button_home {
-  width: 77px;
-  height: 38px;
+.button-box {
+  display: flex;
+  gap: 6px;
+}
+
+.header_home {
+  background-color: var(--color-btn);
   display: flex;
   padding: 10px 20px;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  gap: 10px;
+  border-radius: 30px;
+  cursor: pointer;
+  color: #E8E8E2;
+
+  font-family: Neue Montreal;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
+  line-height: 24px;
 }
 
-.header-button_buy {
-  border: none;
-  border-radius: 50%;
+.header_buy {
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 34px;
-  height: 34px;
-  display: flex;
+  cursor: pointer;
 }
+
+.header-cart {
+  display: none;
+}
+
+/* tablet */
+@media only screen and (width >=768px) {
+  .header-cart {
+    display: flex;
+    align-items: center;
+    color: #010101;
+    font-family: Neue Montreal;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    text-transform: uppercase;
+    padding-left: 14px;
+  }
+}
+
+/* @media only screen and (width >=1272px) {
+
+} */

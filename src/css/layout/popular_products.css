@@ -1,6 +1,5 @@
 .popular-title {
-  color: #010101;
-  font-family: Neue Montreal;
+  color: var(--color-btn-cancel-active);
   font-size: 24px;
   font-weight: 500;
   line-height: 1.16;
@@ -18,9 +17,10 @@
   display: flex;
   position: relative;
   width: 335px;
+  height: 98px;
 
   border-radius: 10px;
-  background: #fafafa;
+  background: var(--color-card-bckg);
 
   border: 1px solid rgba(255, 255, 255, 0.2);
 
@@ -34,7 +34,7 @@
   height: 74px;
   flex-shrink: 0;
   border-radius: 10px;
-  background: #e8e8e2;
+  background: var(--color-bckg);
 
   margin-right: 10px;
 }
@@ -46,10 +46,8 @@
 }
 
 .popular-info-title {
-  color: #010101;
-  font-family: Neue Montreal;
+  color: var(--color-btn-cancel-active);
   font-size: 18px;
-  font-style: normal;
   font-weight: 500;
   line-height: 1.11;
   margin-bottom: 12px;
@@ -57,26 +55,21 @@
 
 .popular-accent {
   color: rgba(1, 1, 1, 0.3);
-  font-family: Neue Montreal;
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
   line-height: 1.17;
 }
 
 .popular-category {
-  color: #010101;
-  font-family: Neue Montreal;
+  color: var(--color-btn-cancel-active);
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
   line-height: 1.17;
   margin-bottom: 9px;
 }
 
 .popular-info-descr {
-  color: #010101;
-  font-family: Neue Montreal;
+  color: var(--color-btn-cancel-active);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -92,12 +85,51 @@
   width: 20px;
   height: 20px;
   border-radius: 30px;
-  background: #e8e8e2;
+  background: var(--color-bckg);
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.cart-btn:hover,
+.cart-btn:focus {
+  background-color: var(--color-btn);
+}
+
 .cart-btn-icon {
-  fill: none;
-  fill: #6d8434;
+  fill: var(--color-btn);
+}
+
+.cart-btn-icon:hover,
+.cart-btn-icon:focus {
+  fill: var(--color-bckg);
+}
+
+@media only screen and (min-width: 768px) {
+  .popular-title {
+    font-size: 28px;
+  }
+  .popular-item {
+    width: 275px;
+  }
+
+  .popular-item.is-hidden {
+    display: none;
+  }
+}
+
+/* DESKTOP 1272*/
+@media only screen and (min-width: 1272px) {
+  .desktop-section {
+    padding: 0 0 20px;
+  }
+
+  .popular-item.is-not-hidden {
+    display: flex;
+  }
+
+  .popular-list {
+    flex-direction: column;
+    align-items: start;
+    gap: 13px;
+  }
 }
