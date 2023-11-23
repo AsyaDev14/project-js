@@ -18,7 +18,8 @@ function onAddBtnClick(e) {
     return;
   }
 
-  disableBuyProductById(id)
+  disableBuyProductById(id);
+  increaseCartCounter();
 }
 
 function saveIdToStorage(id) {
@@ -43,4 +44,9 @@ function disableBuyProductById(id) {
     useTag.setAttribute('href', `${iconsPath}#icon-check`);
     button.disabled = true;
   });
+}
+
+function increaseCartCounter() {
+  let cartValue = Number(refs.cartCountSpan.textContent);
+  refs.cartCountSpan.textContent = (++cartValue).toString();
 }
