@@ -24,7 +24,7 @@
       </li>
     </ul>
     <div class='product-buy-container'>
-      <p class='price'>${s}</p>
+      <p class='price'>$${s}</p>
       <button class='btn-buy' type='button'>
         <svg width='18' height='18'>
           <use href='${u(eV)}#icon-cart' />
@@ -71,4 +71,4 @@
                 </button>
             </div>
         </li>`}let eX=new eH;async function eY(){try{var t,e;t=(await eX.fetchProductsByQuery()).results,eJ.default.productsListEl.innerHTML=t.map(eW).join("");let r=await eX.fetchPopular();eJ.default.popularListElement.innerHTML=r.map(eG).join(""),e=await eX.fetchDiscount(),eJ.default.discountProductsEl.innerHTML=e.map(eQ).slice(0,2).join("")}catch(t){console.log("err")}}window.addEventListener("DOMContentLoaded",eY)}();
-//# sourceMappingURL=index.6ee4bfb0.js.map
+//# sourceMappingURL=index.d9202750.js.map

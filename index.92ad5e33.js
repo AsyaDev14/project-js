@@ -24,7 +24,7 @@ function t(t,e,r,n){Object.defineProperty(t,e,{get:r,set:n,enumerable:!0,configu
       </li>
     </ul>
     <div class='product-buy-container'>
-      <p class='price'>${s}</p>
+      <p class='price'>$${s}</p>
       <button class='btn-buy' type='button'>
         <svg width='18' height='18'>
           <use href='${u(eJ)}#icon-cart' />
@@ -71,4 +71,4 @@ function t(t,e,r,n){Object.defineProperty(t,e,{get:r,set:n,enumerable:!0,configu
                 </button>
             </div>
         </li>`}const eX=new eH;async function eY(){try{var t,e;t=(await eX.fetchProductsByQuery()).results,eW.default.productsListEl.innerHTML=t.map(eG).join("");let r=await eX.fetchPopular();eW.default.popularListElement.innerHTML=r.map(eK).join(""),e=await eX.fetchDiscount(),eW.default.discountProductsEl.innerHTML=e.map(eQ).slice(0,2).join("")}catch(t){console.log("err")}}window.addEventListener("DOMContentLoaded",eY);
-//# sourceMappingURL=index.ce179599.js.map
+//# sourceMappingURL=index.92ad5e33.js.map
