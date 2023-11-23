@@ -1,7 +1,7 @@
 import refs from './refs'
 
-refs.productListEl.addEventListener('click', onProductListElClick)
-refs.popularListEl.addEventListener('click', onProductListElClick)
+refs.productsListEl.addEventListener('click', onProductListElClick)
+refs.popularListElement.addEventListener('click', onProductListElClick)
 refs.discountProductsEl.addEventListener('click', onProductListElClick)
 
 function onProductListElClick(event) {
