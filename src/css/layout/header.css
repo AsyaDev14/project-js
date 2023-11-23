@@ -1,17 +1,17 @@
+/* mobile */
 .logo {
-  display: flex;
+  justify-content: flex-start;
   align-items: center;
+  gap: 8px;
+  display: inline-flex;
 }
 
 .boutique-logo {
-  padding-left: 8px;
-  color: #010101;
-  font-family: FONTSPRING DEMO - Quincy CF Black;
+  color: var(--color-text);
+  font-family: var(--font-logo);
+  letter-spacing: -.02em;
   font-size: 18px;
-  font-style: normal;
-  font-weight: 900;
-  line-height: 20px;
-  letter-spacing: -0.36px;
+  line-height: 1.11;
 }
 
 .header-box {
@@ -23,6 +23,7 @@
 
 .button-box {
   display: flex;
+  align-items: center;
   gap: 6px;
 }
 
@@ -35,11 +36,11 @@
   gap: 10px;
   border-radius: 30px;
   cursor: pointer;
-  color: #E8E8E2;
-
+  color: var(--color-bckg);
+  width: 77px;
+  height: 38px;
   font-family: Neue Montreal;
   font-size: 18px;
-  font-style: normal;
   font-weight: 500;
   line-height: 24px;
 }
@@ -56,6 +57,10 @@
   display: none;
 }
 
+.header-logo-svg {
+  width: 28px;
+  height: 28px;
+}
 /* tablet */
 @media only screen and (width >=768px) {
   .header-cart {
@@ -70,6 +75,20 @@
     text-transform: uppercase;
     padding-left: 14px;
   }
+
+  .header_home {
+    width: 104px;
+    height: 48px;
+  }
+
+    .boutique-logo{
+      font-size: 24px;
+      font-weight: 900;
+    }
+        .header-logo-svg {
+          width: 32px;
+          height: 32px;
+        }
 }
 
 /* @media only screen and (width >=1272px) {

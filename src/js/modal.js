@@ -1,16 +1,8 @@
-const refs = {
-    productListEl: document.querySelector('.products-list'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modalEl: document.querySelector('[data-modal]'),
-    popularListEl: document.querySelector('.popular-list'),
-    discountProductsEl: document.querySelector('.discount-products'),
-}
+import refs from './refs'
 
-const { productListEl, closeModalBtn, modalEl, popularListEl, discountProductsEl } = refs;
-
-productListEl.addEventListener('click', onProductListElClick)
-popularListEl.addEventListener('click', onProductListElClick)
-discountProductsEl.addEventListener('click', onProductListElClick)
+refs.productListEl.addEventListener('click', onProductListElClick)
+refs.popularListEl.addEventListener('click', onProductListElClick)
+refs.discountProductsEl.addEventListener('click', onProductListElClick)
 
 function onProductListElClick(event) {
     event.preventDefault();
@@ -21,30 +13,30 @@ function onProductListElClick(event) {
         return;
     }
 
-    modalEl.classList.remove('is-hidden');
+    refs.modalEl.classList.remove('is-hidden');
 
     function onCloseModalBtnClick() {
-        modalEl.classList.add('is-hidden')
+        refs.modalEl.classList.add('is-hidden')
     }
 
     function onBackdropKeydown({ code }) {
         if (code === 'Escape') {
-            modalEl.classList.add('is-hidden')
+            refs.modalEl.classList.add('is-hidden')
             document.removeEventListener('keydown', onBackdropKeydown);
         }
     }
 
     function onBackdropCLick(event) {
         if (event.target.classList.contains('backdrop-modal')) {
-            modalEl.classList.add('is-hidden');
+            refs.modalEl.classList.add('is-hidden');
         }
 
-        modalEl.removeEventListener('click', onBackdropCLick)
+        refs.modalEl.removeEventListener('click', onBackdropCLick)
     }
 
-    closeModalBtn.addEventListener('click', onCloseModalBtnClick)
+    refs.closeModalBtn.addEventListener('click', onCloseModalBtnClick)
     document.addEventListener('keydown', onBackdropKeydown);
-    modalEl.addEventListener('click', onBackdropCLick)
+    refs.modalEl.addEventListener('click', onBackdropCLick)
 }
 
 

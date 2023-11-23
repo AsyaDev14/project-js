@@ -1,6 +1,6 @@
 import iconsPath from '../icons/icons.svg'
 
-function getCardMarkup({ _id: id, name, img, category, size, popularity, price, is10PercentOff }) {
+export function getCardMarkup({ _id: id, name, img, category, size, popularity, price, is10PercentOff }) {
   return `
   <li class='product-item' data-product-id='${id}'>
     <div class='product-img-container'>
@@ -27,7 +27,7 @@ function getCardMarkup({ _id: id, name, img, category, size, popularity, price, 
       </li>
     </ul>
     <div class='product-buy-container'>
-      <p class='price'>$${price}</p>
+      <p class='price'>${price}</p>
       <button class='btn-buy' type='button'>
         <svg width='18' height='18'>
           <use href='${iconsPath}#icon-cart' />
