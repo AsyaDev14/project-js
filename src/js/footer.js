@@ -1,10 +1,14 @@
-// import axios from 'axios';
-// const axios = axios.create({
-//   baseURL: 'https://food-boutique.b.goit.study/api',
-// });
+import axios from 'axios';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import refs from './refs';
 
-const footerFormEl = document.querySelector('.footer-form');
-footerFormEl.addEventListener('submit', onFooterFormElSubmit);
+refs.footerFormEl.addEventListener('submit', onFooterFormElSubmit);
+
+const paramsNotify = {
+  width: '500px',
+  position: 'right-bottom',
+  fontSize: '20px',
+};
 
 class SubscribersAPI {
   static #BASE_URL = 'https://food-boutique.b.goit.study/api';
@@ -12,16 +16,10 @@ class SubscribersAPI {
 
   static async createSubscriber(subscriber) {
     const url = `${this.#BASE_URL}${this.#END_POINT}`;
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(subscriber),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
+
     try {
-      const res = await fetch(url, options);
-      return res.json();
+      const response = await axios.post(url, subscriber);
+      return response.data;
     } catch (err) {
       console.log(err);
     }
@@ -31,16 +29,20 @@ class SubscribersAPI {
 async function onFooterFormElSubmit(event) {
   event.preventDefault();
   const form = event.target;
-  const { elements } = form;
-
   const subscriber = {
-    email: elements.subscriberEmail.value,
+    email: form.elements.userEmail.value,
   };
-
   try {
     const createdSubscriber = await SubscribersAPI.createSubscriber(subscriber);
+    Notify.success(
+      'Your subscription is confirmed! Welcome to the Food Boutique! 🥦🍓 ',
+      paramsNotify
+    );
   } catch (err) {
-    console.log(err);
+    Notify.failure(
+      'Sorry, something went wrong. Please try again later.',
+      paramsNotify
+    );
   }
   form.reset();
 }
