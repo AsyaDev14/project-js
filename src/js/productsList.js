@@ -27,7 +27,7 @@ export function getCardMarkup({ _id: id, name, img, category, size, popularity, 
       </li>
     </ul>
     <div class='product-buy-container'>
-      <p class='price'>${price}</p>
+      <p class='price'>$${price}</p>
       <button class='btn-buy' type='button'>
         <svg width='18' height='18'>
           <use href='${iconsPath}#icon-cart' />
