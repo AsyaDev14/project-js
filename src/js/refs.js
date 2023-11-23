@@ -1,3 +1,4 @@
+const allProductsWrapperEl = document.querySelector('.all-products');
 const productsListEl = document.querySelector('#products-list .products-list');
 const popularListElement = document.querySelector('.popular-list');
 const cartCountSpan = document.querySelector('.header-cart-span')
@@ -7,6 +8,7 @@ const modalEl = document.querySelector('[data-modal]');
 const discountProductsEl = document.querySelector('.discount-products');
 
 export default {
+    allProductsWrapperEl,
     productsListEl,
     popularListElement,
     cartCountSpan,
