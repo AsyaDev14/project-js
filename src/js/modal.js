@@ -1,4 +1,4 @@
-refs = {
+const refs = {
     productListEl: document.querySelector('.products-list'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modalEl: document.querySelector('[data-modal]'),
