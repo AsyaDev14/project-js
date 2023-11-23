@@ -1,8 +1,14 @@
+/* MOBILE */
+.container.hero-wrapper-img {
+  padding: 0;
+}
+
 .hero-section {
   margin-top: 26px;
 }
 
 .hero-title {
+  font-family: Neue Montreal;
   font-size: 44px;
   font-style: normal;
   font-weight: 500;
@@ -30,7 +36,7 @@
 }
 
 .hero-wrapper-img {
-  width: 375px;
+  width: 335px;
   /* height: 480px; */
   justify-content: center;
   align-items: center;
@@ -54,3 +60,44 @@
   height: 100px;
   flex-shrink: 0;
 }
+
+/* TABLET  */
+@media only screen and (min-width: 768px) {
+  .section.hero-section {
+    margin-top: 74px;
+  }
+
+  .hero-title {
+    font-family: Neue Montreal;
+    font-size: 80px;
+    line-height: 80px;
+    /* 100% */
+    letter-spacing: -1.6px;
+  }
+
+  .hero-text {
+    font-size: 18px;
+    line-height: 24px;
+    /* 133.333% */
+    margin: 20px 106px;
+    padding: 0;
+  }
+
+  .hero-wrapper-img {
+    width: 704px;
+    height: 580px;
+    margin-top: 40px;
+  }
+
+  .hero-working-out {
+    border-radius: 60px;
+  }
+
+  .hero-mark {
+    top: -30px;
+    right: 10px;
+  }
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1272px) {}
