@@ -114,7 +114,7 @@
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   gap: 14px;
 }
 
@@ -139,7 +139,8 @@
 .footer-subscribe-btn {
   width: 100%;
   height: 42px;
-  padding: 12px 149px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   color: #010101;
   font-size: 14px;
   font-weight: 500;
@@ -151,6 +152,11 @@
 .footer-subscribe-btn:hover,
 .footer-subscribe-btn:focus {
   color: var(--color-btn-send-text-active);
+}
+
+button:hover,
+button:focus {
+  background-color: var(--color-btn-send);
 }
 
 .footer-terms-wrapper {
