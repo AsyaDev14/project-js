@@ -28,6 +28,6 @@ function popularProductsTemplate(popularArr) {
   return popularArr.map(popularProductTemplate).join('');
 }
 
-function renderPopularProducts(popularArr) {
+export function renderPopularProducts(popularArr) {
   return popularProductsTemplate(popularArr);
 }
