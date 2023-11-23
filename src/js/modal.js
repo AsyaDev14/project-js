@@ -1,12 +1,4 @@
-const refs = {
-    productListEl: document.querySelector('.products-list'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modalEl: document.querySelector('[data-modal]'),
-    popularListEl: document.querySelector('.popular-list'),
-    discountProductsEl: document.querySelector('.discount-products'),
-}
-
-const { productListEl, closeModalBtn, modalEl, popularListEl, discountProductsEl } = refs;
+import { productListEl, closeModalBtn, modalEl, popularListEl, discountProductsEl } from "./refs";
 
 productListEl.addEventListener('click', onProductListElClick)
 popularListEl.addEventListener('click', onProductListElClick)
