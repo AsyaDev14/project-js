@@ -79,6 +79,7 @@
 .cart-btn {
   display: flex;
   justify-content: center;
+  align-items: center;
   position: absolute;
   top: 12px;
   right: 12px;
@@ -86,6 +87,7 @@
   height: 20px;
   border-radius: 30px;
   background: var(--color-bckg);
+  fill: var(--color-btn);
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -93,14 +95,6 @@
 .cart-btn:hover,
 .cart-btn:focus {
   background-color: var(--color-btn);
-}
-
-.cart-btn-icon {
-  fill: var(--color-btn);
-}
-
-.cart-btn-icon:hover,
-.cart-btn-icon:focus {
   fill: var(--color-bckg);
 }
 
