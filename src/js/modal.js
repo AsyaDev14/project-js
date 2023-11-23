@@ -3,28 +3,48 @@ const refs = {
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modalEl: document.querySelector('[data-modal]'),
     popularListEl: document.querySelector('.popular-list'),
-    discountProductsEl: document.querySelector('.discount-products')
-
+    discountProductsEl: document.querySelector('.discount-products'),
 }
+
 const { productListEl, closeModalBtn, modalEl, popularListEl, discountProductsEl } = refs;
+
+productListEl.addEventListener('click', onProductListElClick)
+popularListEl.addEventListener('click', onProductListElClick)
+discountProductsEl.addEventListener('click', onProductListElClick)
 
 function onProductListElClick(event) {
     event.preventDefault();
-    if (event.target.nodeName === 'UL' || event.target.nodeName === 'BUTTON' || event.target.nodeName === 'svg' || event.target.nodeName === 'use' || event.target.nodeName === 'A') {
+
+
+    if (event.target.nodeName === 'UL' || event.target.nodeName === 'BUTTON' || event.target.nodeName === 'svg'
+        || event.target.nodeName === 'use' || event.target.nodeName === 'A') {
         return;
     }
-    console.log(event.target.nodeName);
+
     modalEl.classList.remove('is-hidden');
 
     function onCloseModalBtnClick() {
         modalEl.classList.add('is-hidden')
     }
 
-    closeModalBtn.addEventListener('click', onCloseModalBtnClick)
-    productListEl.removeEventListener('click', onProductListElClick)
+    function onBackdropKeydown({ code }) {
+        if (code === 'Escape') {
+            modalEl.classList.add('is-hidden')
+            document.removeEventListener('keydown', onBackdropKeydown);
+        }
+    }
 
+    function onBackdropCLick(event) {
+        if (event.target.classList.contains('backdrop-modal')) {
+            modalEl.classList.add('is-hidden');
+        }
+
+        modalEl.removeEventListener('click', onBackdropCLick)
+    }
+
+    closeModalBtn.addEventListener('click', onCloseModalBtnClick)
+    document.addEventListener('keydown', onBackdropKeydown);
+    modalEl.addEventListener('click', onBackdropCLick)
 }
 
-productListEl.addEventListener('click', onProductListElClick)
-popularListEl.addEventListener('click', onProductListElClick)
-discountProductsEl.addEventListener('click', onProductListElClick)
+
