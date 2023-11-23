@@ -39,6 +39,7 @@
   margin-top: 10px;
   display: flex;
   gap: 9px;
+  flex-wrap: wrap;
 }
 
 #products-list .prop {
@@ -97,7 +98,11 @@
   line-height: 1;
 }
 
-/* TABLET */
+/*
+=================================================================
+    TABLET
+=================================================================
+*/
 @media only screen and (min-width: 768px) {
   #products-list .products-list {
     --indent-col: 32px;
@@ -119,7 +124,11 @@
   }
 }
 
-/* DESKTOP 1272*/
+/*
+=================================================================
+    DESKTOP
+=================================================================
+*/
 @media only screen and (min-width: 1272px) {
   #products-list .products-list {
     width: 925px;
@@ -131,35 +140,7 @@
     --items-number: 3;
   }
 
-  #products-list .product-props {
-    flex-wrap: wrap;
-  }
-
   #products-list .product-buy-container {
     margin-top: 20px;
   }
 }
-
-
-/* TODO: For test only. REMOVE*/
-
-.desktop {
-  display: none;
-}
-
-.tablet {
-  display: none;
-}
-
-@media only screen and (min-width: 768px) {
-  .tablet {
-    display: list-item;
-  }
-}
-@media only screen and (min-width: 1272px) {
-  .desktop {
-    display: list-item;
-  }
-}
-
-
