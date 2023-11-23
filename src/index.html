@@ -28,13 +28,17 @@
     <!-- Filters -->
     <include src="./partials/filters.html"></include>
     <!-- ProductsList -->
-    <include src="./partials/products_list.html"></include>
-    <!-- popular products -->
-    <include src="./partials/popular_products.html"></include>
-    <!-- discount products -->
-    <include src="./partials/discount_products.html"></include>
-    <!-- pagination -->
-    <include src="./partials/pagination.html"></include>
+    <div class="all-products container">
+      <include src="./partials/products_list.html"></include>
+      <!-- pagination -->
+      <include src="./partials/pagination.html"></include>
+      <!-- popular products -->
+      <div class="right-part-products container">
+        <include src="./partials/popular_products.html"></include>
+        <!-- discount products -->
+        <include src="./partials/discount_products.html"></include>
+      </div>
+    </div>
   </main>
   <!-- footer -->
   <include src="./partials/footer.html"></include>
