@@ -44,4 +44,24 @@ export class FoodBoutiqueAPI {
     const res = await axios.get('/api/products/discount');
     return res.data;
   }
+
+  async fetchCategories() {
+    const res = await axios.get('/api/products/categories');
+    return res.data;
+  }
+
+  async fetchById(id) {
+    const res = await axios.get(`/api/products/${id}`);
+    return res.data;
+  }
+
+  async postOrders() {
+    const res = await axios.post('/api/products/orders');
+    return res.data;
+  }
+
+  async postSubscription() {
+    const res = await axios.post('/api/products/subscription');
+    return res.data;
+  }
 }
