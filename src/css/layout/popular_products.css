@@ -16,7 +16,7 @@
 .popular-item {
   display: flex;
   position: relative;
-  width: 335px;
+  width: 100%;
   height: 98px;
 
   border-radius: 10px;
@@ -99,6 +99,9 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .desktop-section {
+    padding: 50px 0 32px;
+  }
   .popular-title {
     font-size: 28px;
   }
@@ -113,7 +116,8 @@
 
 /* DESKTOP 1272*/
 @media only screen and (min-width: 1272px) {
-  .desktop-section {
+  .section.desktop-section {
+    width: 275px;
     padding: 0 0 20px;
   }
 
