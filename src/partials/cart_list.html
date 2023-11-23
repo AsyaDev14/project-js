@@ -1,249 +1,252 @@
 <section class="cart-section">
-  <h1 class="cart-title">
-    <svg class="cart-icon" width="18" height="18">
-      <use href="./icons/icons.svg#icon-cart"></use>
-    </svg>
-    Cart (3)
-  </h1>
-  <!-- (3) -> selected goods -->
-  <div class="all-cart-content">
-    <div class="cart-container js-cart-container">
-      <button class="delete-all">
-        Delete all
-        <svg class="" width="24" height="24">
-          <use href="./icons/icons.svg#icon-close"></use>
-        </svg>
-      </button>
-      <ul class="cart-list list js-cart-list">
-        <li class="cart-list-item">
-          <img
-            class="product-img"
-            src="./images/common/product.webp"
-            alt="Avocado"
-            width="64"
-            height="64"
-          />
-          <!-- <img src="`${results.img}`" alt="`${results.name}`" /> -->
-          <div class="product-info-container">
-            <h3 class="product-name">Avocado</h3>
-            <!-- <h3>`${results.name}`</h3> -->
-            <p class="product-dscr">
-              <span class="notation">Category: </span>Fresh Produce
-              <span class="notation"> Size: </span>Each
-            </p>
-            <!-- <p>`<span class="notation">Category:</span> ${results.category} <span class="notation">Size:</span> ${results.size}`</p> -->
-            <p class="cart-price">$1.99</p>
-            <!-- <p>`$${results.price}`</p> -->
-          </div>
-          <button class="delete-btn" type="button">
-            <svg class="" width="18" height="18">
-              <use href="./icons/icons.svg#icon-close"></use>
-            </svg>
-          </button>
-          <div class="counter-container" id="counter">
-            <button class="counter-btn" type="button" data-action="decrement">
-              -
-            </button>
-            <span class="counter-value" id="value">0</span>
-            <button class="counter-btn" type="button" data-action="increment">
-              +
-            </button>
-          </div>
-          <!--
-              
-              =========JS========
-              const counterValueEl = document.querySelector("#value");
-              let counterValue = 0;
-              const buttonEl = document.querySelectorAll("#counter button");
-              buttonEl.forEach((button) => {
-              button.addEventListener("click", (event) => {
-                  const action = event.target.getAttribute("data-action");
-                  if (action === "decrement") {
-                  counterValue -= 1;
-                  } else if (action === "increment") {
-                  counterValue += 1;
-                  }
-                  counterValueEl.textContent = counterValue;
-              });
-              });
-          -->
-        </li>
-        <hr />
-        <li class="cart-list-item">
-          <img
-            class="product-img"
-            src="./images/common/product.webp"
-            alt="Chestnut Mushroom"
-          />
-          <!-- <img src="`${results.img}`" alt="`${results.name}`" /> -->
-          <div class="product-info-container">
-            <h3 class="product-name">Chestnut Mushroom</h3>
-            <!-- <h3>`${results.name}`</h3> -->
-            <p class="product-dscr">
-              <span class="notation">Category: </span>Fresh Produce
-              <span class="notation"> Size: </span>8oz package
-            </p>
-            <!-- <p>`<span class="notation">Category: </span>${results.category} <span class="notation">Size: </span>${results.size}`</p> -->
-            <p class="cart-price">$2.49</p>
-            <!-- <p>`$${results.price}`</p> -->
-            <!-- counter -->
-          </div>
-          <button class="delete-btn" type="button">
-            <svg class="" width="18" height="18">
-              <use href="./icons/icons.svg#icon-close"></use>
-            </svg>
-          </button>
-          <div class="counter-container" id="counter">
-            <button class="counter-btn" type="button" data-action="decrement">
-              -
-            </button>
-            <span class="counter-value" id="value">0</span>
-            <button class="counter-btn" type="button" data-action="increment">
-              +
-            </button>
-          </div>
-        </li>
-        <hr />
-        <li class="cart-list-item">
-          <img
-            class="product-img"
-            src="./images/common/product.webp"
-            alt="Cabbage"
-          />
-          <!-- <img src="`${results.img}`" alt="`${results.name}`" /> -->
-          <div class="product-info-container">
-            <h3 class="product-name">Cabbage</h3>
-            <!-- <h3>`${results.name}`</h3> -->
-            <p class="product-dscr">
-              <span class="notation">Category: </span>Fresh Produce
-              <span class="notation"> Size: </span>Per head
-            </p>
-            <!-- <p>`<span class="notation">Category: </span>${results.category} <span class="notation">Size: </span>${results.size}`</p> -->
-            <p class="cart-price">$1.99</p>
-            <!-- <p>`$${results.price}`</p> -->
-            <!-- counter -->
-          </div>
-          <button class="delete-btn" type="button">
-            <svg class="" width="18" height="18">
-              <use href="./icons/icons.svg#icon-close"></use>
-            </svg>
-          </button>
-          <div class="counter-container" id="counter">
-            <button class="counter-btn" type="button" data-action="decrement">
-              -
-            </button>
-            <span class="counter-value" id="value">0</span>
-            <button class="counter-btn" type="button" data-action="increment">
-              +
-            </button>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="js-order-container">
-      <h2 class="order-title">Your order</h2>
-      <div class="total-container">
-        <p class="sub-title">Total</p>
-        <p class="total-price">
-          <span class="notation">Sum: </span>$12,94
-          <!-- <span class="notation">Sum: </span>`$${totalPrice}` -->
-        </p>
-      </div>
-      <form class="cart-form" name="Order">
-        <div class="input-container">
-          <label class="notation" for="email">Mail:</label>
-          <input
-            type="email"
-            id="email"
-            pattern=".+@example\.com"
-            placeholder="Enter your email"
-            required
-          />
-        </div>
-        <button class="order-btn">Checkout</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- ======= EMPTY CART ======= -->
-  <div class="empty-cart">
-    <picture class="empty-cart-img">
-      <!-- Desktop screen 1280px -->
-      <source
-        media="(min-width: 1280px)"
-        srcset="
-          ./images/cart/basket-desc.webp    1x,
-          ./images/cart/basket-desc@2x.webp 2x
-        "
-      />
-      <!-- Tablet screen -->
-      <source
-        media="(min-width: 768px)"
-        srcset="
-          ./images/cart/basket-tablet.webp    1x,
-          ./images/cart/basket-tablet@2x.webp 2x
-        "
-      />
-      <!-- Mobile screen -->
-      <source
-        media="(max-width: 767px)"
-        srcset="
-          ./images/cart/basket-mob.webp    1x,
-          ./images/cart/basket-mob@2x.webp 2x
-        "
-      />
-      <img
-        src="./images/cart/basket-mob.webp"
-        alt="Empty Basket"
-        width="132"
-        height="114"
-        loading="lazy"
-      />
-    </picture>
-    <h3 class="empty-cart-title">
-      Your basket is<span class="accent"> empty...</span>
-    </h3>
-    <p class="empty-cart-descr">
-      Go to the main page to select your favorite products and add them to the
-      cart.
-    </p>
-  </div>
-
-  <!-- ======= SUCCESS MODAL ======= -->
-  <div class="backdrop js-success">
-    <div class="success-modal">
-      <div class="order-success-window">
-        <button class="success-delete-btn js-close-success">
+  <div class="container">
+    <h1 class="cart-title">
+      <svg class="cart-icon" width="18" height="18">
+        <use href="./icons/icons.svg#icon-cart"></use>
+      </svg>
+      Cart (3)
+    </h1>
+    <!-- (3) -> selected goods -->
+    <div class="all-cart-content">
+      <div class="cart-container js-cart-container">
+        <button class="delete-all">
+          Delete all
           <svg class="" width="24" height="24">
             <use href="./icons/icons.svg#icon-close"></use>
           </svg>
-          <!-- <img src="./images/cart/big-cross-icon.png" alt="Close Icon" /> -->
         </button>
-        <img
+        <ul class="cart-list list js-cart-list">
+          <li class="cart-list-item">
+            <img
+              class="product-img"
+              src="./images/common/product.webp"
+              alt="Avocado"
+              width="64"
+              height="64"
+            />
+            <!-- <img src="`${results.img}`" alt="`${results.name}`" /> -->
+            <div class="product-info-container">
+              <h3 class="product-name">Avocado</h3>
+              <!-- <h3>`${results.name}`</h3> -->
+              <div class="product-dscr">
+                <p class="product-category">
+                  <span class="notation">Category: </span>Fresh Produce
+                </p>
+                <p class="product-size">
+                  <span class="notation"> Size: </span>Each
+                </p>
+              </div>
+              <!-- <p>`<span class="notation">Category:</span> ${results.category} <span class="notation">Size:</span> ${results.size}`</p> -->
+              <p class="cart-price">$1.99</p>
+              <!-- <p>`$${results.price}`</p> -->
+            </div>
+            <button class="delete-btn" type="button">
+              <svg class="" width="18" height="18">
+                <use href="./icons/icons.svg#icon-close"></use>
+              </svg>
+            </button>
+            <div class="counter-container" id="counter">
+              <button class="counter-btn" type="button" data-action="decrement">
+                -
+              </button>
+              <span class="counter-value" id="value">0</span>
+              <button class="counter-btn" type="button" data-action="increment">
+                +
+              </button>
+            </div>
+            <!--
+                =========JS========
+                const counterValueEl = document.querySelector("#value");
+                let counterValue = 0;
+                const buttonEl = document.querySelectorAll("#counter button");
+                buttonEl.forEach((button) => {
+                button.addEventListener("click", (event) => {
+                    const action = event.target.getAttribute("data-action");
+                    if (action === "decrement") {
+                    counterValue -= 1;
+                    } else if (action === "increment") {
+                    counterValue += 1;
+                    }
+                    counterValueEl.textContent = counterValue;
+                });
+                });
+            -->
+          </li>
+          <hr />
+          <li class="cart-list-item">
+            <img
+              class="product-img"
+              src="./images/common/product.webp"
+              alt="Chestnut Mushroom"
+            />
+            <!-- <img src="`${results.img}`" alt="`${results.name}`" /> -->
+            <div class="product-info-container">
+              <h3 class="product-name">Chestnut Mushroom</h3>
+              <!-- <h3>`${results.name}`</h3> -->
+              <p class="product-dscr">
+                <span class="notation">Category: </span>Fresh Produce
+                <span class="notation"> Size: </span>8oz package
+              </p>
+              <!-- <p>`<span class="notation">Category: </span>${results.category} <span class="notation">Size: </span>${results.size}`</p> -->
+              <p class="cart-price">$2.49</p>
+              <!-- <p>`$${results.price}`</p> -->
+              <!-- counter -->
+            </div>
+            <button class="delete-btn" type="button">
+              <svg class="" width="18" height="18">
+                <use href="./icons/icons.svg#icon-close"></use>
+              </svg>
+            </button>
+            <div class="counter-container" id="counter">
+              <button class="counter-btn" type="button" data-action="decrement">
+                -
+              </button>
+              <span class="counter-value" id="value">0</span>
+              <button class="counter-btn" type="button" data-action="increment">
+                +
+              </button>
+            </div>
+          </li>
+          <hr />
+          <li class="cart-list-item">
+            <img
+              class="product-img"
+              src="./images/common/product.webp"
+              alt="Cabbage"
+            />
+            <!-- <img src="`${results.img}`" alt="`${results.name}`" /> -->
+            <div class="product-info-container">
+              <h3 class="product-name">Cabbage</h3>
+              <!-- <h3>`${results.name}`</h3> -->
+              <p class="product-dscr">
+                <span class="notation">Category: </span>Fresh Produce
+                <span class="notation"> Size: </span>Per head
+              </p>
+              <!-- <p>`<span class="notation">Category: </span>${results.category} <span class="notation">Size: </span>${results.size}`</p> -->
+              <p class="cart-price">$1.99</p>
+              <!-- <p>`$${results.price}`</p> -->
+              <!-- counter -->
+            </div>
+            <button class="delete-btn" type="button">
+              <svg class="" width="18" height="18">
+                <use href="./icons/icons.svg#icon-close"></use>
+              </svg>
+            </button>
+            <div class="counter-container" id="counter">
+              <button class="counter-btn" type="button" data-action="decrement">
+                -
+              </button>
+              <span class="counter-value" id="value">0</span>
+              <button class="counter-btn" type="button" data-action="increment">
+                +
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="js-order-container">
+        <h2 class="order-title">Your order</h2>
+        <div class="total-container">
+          <p class="sub-title">Total</p>
+          <p class="total-price">
+            <span class="notation">Sum: </span>$12,94
+            <!-- <span class="notation">Sum: </span>`$${totalPrice}` -->
+          </p>
+        </div>
+        <form class="cart-form" name="Order">
+          <div class="input-container">
+            <label class="notation" for="email">Mail:</label>
+            <input
+              type="email"
+              id="email"
+              pattern=".+@example\.com"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <button class="order-btn">Checkout</button>
+        </form>
+      </div>
+    </div>
+    <!-- ======= EMPTY CART ======= -->
+    <div class="empty-cart">
+      <picture class="empty-cart-img">
+        <!-- Desktop screen 1280px -->
+        <source
+          media="(min-width: 1280px)"
           srcset="
-            ./images/cart/success.webp    1x,
-            ./images/cart/success@2x.webp 2x
+            ./images/cart/basket-desc.webp    1x,
+            ./images/cart/basket-desc@2x.webp 2x
           "
-          src="./images/cart/success.webp"
+        />
+        <!-- Tablet screen -->
+        <source
+          media="(min-width: 768px)"
+          srcset="
+            ./images/cart/basket-tablet.webp    1x,
+            ./images/cart/basket-tablet@2x.webp 2x
+          "
+        />
+        <!-- Mobile screen -->
+        <source
+          media="(max-width: 767px)"
+          srcset="
+            ./images/cart/basket-mob.webp    1x,
+            ./images/cart/basket-mob@2x.webp 2x
+          "
+        />
+        <img
+          src="./images/cart/basket-mob.webp"
           alt="Empty Basket"
           width="132"
           height="114"
           loading="lazy"
         />
-        <!-- <img
-          class="success-img"
-          src="./images/cart/success.webp"
-          alt="Order success"
-        /> -->
-        <div class="success-text">
-          <h2 class="success-title">Order success</h2>
-          <p class="success-descr">
-            Thank you for shopping at Food Boutique. Your order has been
-            received and is now being freshly prepared just for you! Get ready
-            to indulge in nourishing goodness, delivered right to your doorstep.
-            We're thrilled to be part of your journey to better health and
-            happiness.
-          </p>
+      </picture>
+      <h3 class="empty-cart-title">
+        Your basket is<span class="accent"> empty...</span>
+      </h3>
+      <p class="empty-cart-descr">
+        Go to the main page to select your favorite products and add them to the
+        cart.
+      </p>
+    </div>
+    <!-- ======= SUCCESS MODAL ======= -->
+    <div class="backdrop js-success">
+      <div class="success-modal">
+        <div class="order-success-window">
+          <button class="success-delete-btn js-close-success">
+            <svg class="" width="24" height="24">
+              <use href="./icons/icons.svg#icon-close"></use>
+            </svg>
+            <!-- <img src="./images/cart/big-cross-icon.png" alt="Close Icon" /> -->
+          </button>
+          <img
+            srcset="
+              ./images/cart/success.webp    1x,
+              ./images/cart/success@2x.webp 2x
+            "
+            src="./images/cart/success.webp"
+            alt="Empty Basket"
+            width="132"
+            height="114"
+            loading="lazy"
+          />
+          <!-- <img
+            class="success-img"
+            src="./images/cart/success.webp"
+            alt="Order success"
+          /> -->
+          <div class="success-text">
+            <h2 class="success-title">Order success</h2>
+            <p class="success-descr">
+              Thank you for shopping at Food Boutique. Your order has been
+              received and is now being freshly prepared just for you! Get ready
+              to indulge in nourishing goodness, delivered right to your
+              doorstep. We're thrilled to be part of your journey to better
+              health and happiness.
+            </p>
+          </div>
         </div>
       </div>
     </div>
