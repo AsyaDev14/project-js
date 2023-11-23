@@ -23,6 +23,6 @@ function onCategorySelectChange(event) {
 
     foodBoutiqueAPI.fetchProductsByQuery().then(res => {
         const listOfProducts = res.results.map(item => getCardMarkup(item)).join('');
-        refs.productListEl.innerHTML = listOfProducts;
+        refs.productsListEl.innerHTML = listOfProducts;
     });
 }
