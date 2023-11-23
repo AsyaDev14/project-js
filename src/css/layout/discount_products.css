@@ -60,6 +60,9 @@
 .discount-price {
   margin-left: auto;
 }
+.discount-txt.discount-price {
+  text-align: right;
+}
 .discount-btn-buy {
   display: flex;
   justify-content: center;
@@ -99,6 +102,11 @@
     font-size: 28px;
     line-height: 1.14;
   }
+  .discount-txt {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 500;
+  }
 }
 
 /* DESKTOP 1272*/
@@ -120,6 +128,17 @@
   .discount-img {
     max-width: 105px;
     max-height: 105px;
+  }
+  .discount-txt {
+    display: -webkit-box;
+    width: 124px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .discount-txt.discount-price {
+    width: 62px;
   }
 }
 .all-products {
