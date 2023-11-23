@@ -100,4 +100,26 @@
 }
 
 /* DESKTOP */
-@media only screen and (min-width: 1272px) {}
+@media only screen and (min-width: 1272px) {
+  .section.hero-section {
+    margin-top: 2px;
+  }
+
+  .hero-title {
+    font-size: 80px;
+    line-height: 80px;
+    /* 100% */
+    letter-spacing: -1.6px;
+  }
+  .hero-text{
+    margin: 20px 374px;
+  }
+  .hero-wrapper-img {
+    width: 1240px;
+    height: 350px;
+  }
+  .hero-mark {
+    top: -50px;
+    right: 20px;
+  }
+}
