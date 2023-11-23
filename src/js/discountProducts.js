@@ -11,7 +11,7 @@ function discountProductsMarkup({ _id: id, name, img, price }) {
             </div>
             <div class="discount-bottom">
                 <p class="discount-txt">${name}</p>
-                <p class="discount-price">${price}</p>
+                <p class="discount-txt discount-price">$${price}</p>
                 <button class='discount-btn-buy' type='button'>
                     <svg width='18' height='18'>
                         <use href='${iconsPath}#icon-cart' />
@@ -22,5 +22,8 @@ function discountProductsMarkup({ _id: id, name, img, price }) {
 }
 
 export function renderDiscountCards(listOfProducts, listElement) {
-  listElement.innerHTML = listOfProducts.map(discountProductsMarkup).join('');
+  listElement.innerHTML = listOfProducts
+    .map(discountProductsMarkup)
+    .slice(0, 2)
+    .join('');
 }
