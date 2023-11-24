@@ -89,6 +89,8 @@
   line-height: 1.29;
   margin-bottom: 40px;
   color: rgba(1, 1, 1, 0.7);
+  max-height: 256px;
+  overflow: auto;
 }
 .product-price {
   font-size: 18px;
