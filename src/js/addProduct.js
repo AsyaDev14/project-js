@@ -1,13 +1,12 @@
-import iconsPath from '../icons/icons.svg';
 import refs from './refs.js';
 import Storage from './storage.js';
+import { updateCartOnHeader } from './header.js';
+import { changeBtnTo, disableBuyProductById } from './checkProducts.js';
 
 const STORAGE_KEY = 'localKey';
 
-refs.allProductsWrapperEl.addEventListener('click', onAddBtnClick);
-
-function onAddBtnClick(e) {
-  if (!e.target.closest('button')) {
+export function onAddBtnClick(e) {
+  if (!e.target.closest('button.js-buy-btn')) {
     return;
   }
 
@@ -19,7 +18,7 @@ function onAddBtnClick(e) {
   }
 
   disableBuyProductById(id);
-  increaseCartCounter();
+  updateCartOnHeader();
 }
 
 function saveIdToStorage(id) {
@@ -36,17 +35,14 @@ function saveIdToStorage(id) {
   }
 }
 
-function disableBuyProductById(id) {
-  const cardsEls = refs.allProductsWrapperEl.querySelectorAll(`[data-product-id='${id}']`);
-  cardsEls.forEach(cardEl => {
-    const button = cardEl.querySelector('button');
-    const useTag = cardEl.querySelector('button use');
-    useTag.setAttribute('href', `${iconsPath}#icon-check`);
-    button.disabled = true;
-  });
-}
+export function onModalAddBtnClick(button) {
+  const cardEl = button.closest('[data-product-id]');
+  const id = cardEl.dataset.productId;
+  if (!saveIdToStorage(id)) {
+    return;
+  }
 
-function increaseCartCounter() {
-  let cartValue = Number(refs.cartCountSpan.textContent);
-  refs.cartCountSpan.textContent = (++cartValue).toString();
+  changeBtnTo(button, 'remove');
+  disableBuyProductById(id);
+  updateCartOnHeader();
 }

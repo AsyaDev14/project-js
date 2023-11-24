@@ -40,6 +40,7 @@
   display: flex;
   gap: 9px;
   flex-wrap: wrap;
+  height: 14px;
 }
 
 #products-list .prop {
@@ -143,4 +144,9 @@
   #products-list .product-buy-container {
     margin-top: 20px;
   }
+
+  #products-list .product-props {
+    height: 37px;
+    width: 240px;
+  };
 }
