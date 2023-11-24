@@ -1,15 +1,12 @@
 import { FoodBoutiqueAPI } from "./foodBoutiqueApi";
 import refs from './refs'
-
+import storage from "./storage";
 import { getCardMarkup } from "./productsList";
 import { all } from "axios";
-
-const filtersFormSearchEL = document.querySelector('.filters-form-search')
 
 const foodBoutiqueAPI = new FoodBoutiqueAPI();
 
 filtersFormSearchEL.addEventListener('submit', onFiltersFormSubmit);
-
 
 foodBoutiqueAPI.fetchCategories().then((res) => {
 
@@ -25,10 +22,12 @@ function createMarkupForSelect(category) {
 
 function onFiltersFormSubmit(event) {
     event.preventDefault();
-    foodBoutiqueAPI.category = refs.categorySelectEl.value;
+    storage.save("category", refs.categorySelectEl.value);
+    foodBoutiqueAPI.category = storage.load("category")
+
     if (foodBoutiqueAPI.category === 'Show All') {
-        foodBoutiqueAPI.category = '';
-        console.log(foodBoutiqueAPI.category);
+        storage.save("category", "");
+        foodBoutiqueAPI.category = storage.load("category");
     }
 
     foodBoutiqueAPI.fetchProductsByQuery().then(res => {
