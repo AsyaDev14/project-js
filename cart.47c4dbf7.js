@@ -17,7 +17,7 @@ function t(t,e,n,r){Object.defineProperty(t,e,{get:n,set:r,enumerable:!0,configu
           <span class="popular-accent">Popularity:</span> ${l}
         </p>
       </div>
-    </li>`}function s(t){return t.sort(()=>Math.random()-.5).map(a).join("")}}),a("2CmVG",function(t,e){t.exports=new URL("icons.1c31bae1.svg",import.meta.url).toString()}),a("hXmjU",function(e,r){t(e.exports,"getCardMarkup",function(){return a}),t(e.exports,"renderProductsCards",function(){return s});var o=i("2CmVG");function a({_id:t,name:e,img:r,category:i,size:a,popularity:s,price:l,is10PercentOff:f}){return`
+    </li>`}function s(t){return t.sort(()=>Math.random()-.5).map(a).join("")}}),a("2CmVG",function(t,e){t.exports=new URL("icons.f68dd9ec.svg",import.meta.url).toString()}),a("hXmjU",function(e,r){t(e.exports,"getCardMarkup",function(){return a}),t(e.exports,"renderProductsCards",function(){return s});var o=i("2CmVG");function a({_id:t,name:e,img:r,category:i,size:a,popularity:s,price:l,is10PercentOff:f}){return`
   <li class='product-item' data-product-id='${t}'>
     <div class='product-img-container'>
       <img
@@ -71,4 +71,4 @@ function t(t,e,n,r){Object.defineProperty(t,e,{get:n,set:r,enumerable:!0,configu
                 </button>
             </div>
         </li>`}function s(t,e){let n=Math.ceil(7*Math.random());e.innerHTML=t.map(a).slice(n,n+2).join("")}});
-//# sourceMappingURL=cart.ea51eff8.js.map
+//# sourceMappingURL=cart.47c4dbf7.js.map
