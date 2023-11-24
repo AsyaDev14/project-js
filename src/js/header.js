@@ -16,11 +16,11 @@ import Storage from './storage.js';
 
 const STORAGE_KEY = 'localKey';
 
-function updateCartFromStorage() {
+export function updateCartFromStorage(showInEl) {
   const selectedProdIds = Storage.load(STORAGE_KEY) || [];
-  refs.cartCountSpan.textContent = selectedProdIds.length.toString();
+  showInEl.textContent = selectedProdIds.length.toString();
 }
 
-window.addEventListener('load', updateCartFromStorage);
-
-export default updateCartFromStorage;
+export function updateCartOnHeader() {
+  updateCartFromStorage(refs.cartCountSpan)
+}
