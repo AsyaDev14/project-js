@@ -1,5 +1,3 @@
-import axios from 'axios';
-import load from './storage.js';
 import { FoodBoutiqueAPI } from './foodBoutiqueApi';
 import cartRefs from './cartRefs.js';
 import iconsPath from '../icons/icons.svg';

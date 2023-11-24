@@ -12,6 +12,8 @@ function onDeleteAllClick() {
   cartRefs.productList.innerHTML = '';
   updateCartFromStorage(cartRefs.cartSpan);
   updateCartOnHeader();
+  cartRefs.cartContent.classList.add('visually-hidden');
+  cartRefs.emptyCart.classList.remove('visually-hidden');
 }
 function onDeleteItemClick(e) {
   const cardEl = e.target.closest('li');
