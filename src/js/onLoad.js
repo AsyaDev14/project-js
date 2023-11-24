@@ -11,6 +11,7 @@ window.addEventListener(`DOMContentLoaded`, onDOMContentLoaded);
 
 async function onDOMContentLoaded() {
   try {
+    console.log('here');
     updateCartOnHeader()
     
     let allProducts = await foodBoutiqueApi.fetchProductsByQuery();
