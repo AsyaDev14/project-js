@@ -12,7 +12,7 @@ function discountProductsMarkup({ _id: id, name, img, price }) {
             <div class="discount-bottom">
                 <p class="discount-txt">${name}</p>
                 <p class="discount-txt discount-price">$${price}</p>
-                <button class='discount-btn-buy' type='button' class='js-icon-buy'>
+                <button class='discount-btn-buy js-buy-btn' type='button'>
                     <svg width='18' height='18' class='js-icon-buy'>
                         <use href='${iconsPath}#icon-cart' class='js-icon-buy'/>
                     </svg>
