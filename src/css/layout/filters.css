@@ -1,0 +1,117 @@
+.filters {
+  background-color: var(--color-bckg);
+  padding-top: 37px;
+  padding-bottom: 20px;
+}
+
+.filters-label {
+  color: rgba(1, 1, 1, 0.3);
+  font-size: 14px;
+}
+
+.all-types-search-wrap {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.search-container,
+.select-wrapper,
+.sort-block-container {
+  position: relative;
+  width: 100%;
+}
+
+.search-input,
+.categories-search,
+.sort-block-select {
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.33;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  background-color: transparent;
+}
+
+.search-input::placeholder {
+  color: var(--color-text);
+}
+
+.sort-block-select {
+  background-color: var(--color-card-bckg);
+  border-color: transparent;
+}
+.search-input,
+.sort-block-select,
+.categories-search {
+  outline: none;
+}
+.search-input:focus,
+.sort-block-select:focus,
+.categories-search:focus,
+.search-input:hover,
+.sort-block-select:hover,
+.categories-search:hover {
+  outline: 1px solid #6d8434;
+}
+
+.search-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+}
+
+.search-icon {
+  fill: var(--color-btn-cancel-active);
+  /* stroke: var(--color-btn-fill); */
+  position: absolute;
+  /* top: 50%;
+  right: 10px; */
+}
+
+/* TABLET */
+@media only screen and (min-width: 768px) {
+  .all-types-search-wrap {
+    flex-direction: row;
+    width: fit-content;
+    gap: 8px;
+  }
+
+  .search-input {
+    width: 269px;
+  }
+
+  .categories-search {
+    width: 189px;
+  }
+
+  .sort-block-select {
+    width: 200px;
+  }
+  .search-input,
+  .categories-search,
+  .sort-block-select {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.filters-down-svg {
+  fill: var(--primary-bg-color);
+  stroke: var(--title-black-text-color);
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s;
+}
