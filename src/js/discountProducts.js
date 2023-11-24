@@ -22,8 +22,9 @@ function discountProductsMarkup({ _id: id, name, img, price }) {
 }
 
 export function renderDiscountCards(listOfProducts, listElement) {
+  let random = Math.ceil(Math.random() * 7);
   listElement.innerHTML = listOfProducts
     .map(discountProductsMarkup)
-    .slice(0, 2)
+    .slice(random, random + 2)
     .join('');
 }
