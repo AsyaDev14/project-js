@@ -7,8 +7,8 @@ function popularProductTemplate(popular) {
         <img src="${img}" alt="${name}" width="56" height="56" />
       </div>
       <button class="cart-btn" type="button">
-        <svg width="12" height="12">
-          <use href="${iconPath}#icon-cart"></use>
+        <svg width="12" height="12" class='js-icon-buy'>
+          <use href="${iconPath}#icon-cart" class='js-icon-buy'></use>
         </svg>
       </button>
       <div class="popular-item-info">

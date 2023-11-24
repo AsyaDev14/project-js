@@ -90,7 +90,7 @@ function renderOrder(data) {
     `;
 }
 
-async function onCartPageLoad() {
+export async function onCartPageLoad() {
   updateCartFromStorage(cartRefs.cartSpan);
 
   if (localStorage.getItem('localKey') === null) {
