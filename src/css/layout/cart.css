@@ -27,6 +27,7 @@
   width: 38px;
   height: 38px;
   padding: 10px;
+  margin-right: 14px;
 }
 @media only screen and (min-width: 768px) {
   .cart-icon {
@@ -39,7 +40,6 @@
 .cart-title {
   display: flex;
   align-items: center;
-  gap: 14px;
 
   font-size: 24px;
   font-weight: 500;
