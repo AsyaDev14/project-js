@@ -3,11 +3,9 @@ import load from './storage.js';
 import { FoodBoutiqueAPI } from './foodBoutiqueApi';
 import cartRefs from './cartRefs.js';
 import iconsPath from '../icons/icons.svg';
-import { updateCartFromStorage } from './header.js';
+import { updateCartFromStorage, updateCartOnHeader } from './header.js';
 
 window.addEventListener('load', onCartPageLoad);
-// deleteAll.addEventListener('click', onDeleteAllClick);
-// deleteThis.addEventListener('click', onDeleteThisllClick);
 
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
@@ -93,6 +91,7 @@ function renderOrder(data) {
 
 export async function onCartPageLoad() {
   updateCartFromStorage(cartRefs.cartSpan);
+  updateCartOnHeader();
 
   if (localStorage.getItem('localKey') === null) {
     cartRefs.cartContent.classList.add('visually-hidden');
