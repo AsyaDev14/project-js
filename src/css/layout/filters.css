@@ -86,6 +86,8 @@
   fill: var(--color-btn-fill);
   stroke: var(--color-btn-cancel-active);
   position: absolute;
+  top: 14px;
+  right: 20px;
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
