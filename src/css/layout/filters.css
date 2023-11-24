@@ -43,7 +43,13 @@
 .sort-block-select {
   background-color: var(--color-card-bckg);
   border-color: transparent;
+  -webkit-appearance: none;
 }
+
+.categories-search {
+  -webkit-appearance: none;
+}
+
 .search-input,
 .sort-block-select,
 .categories-search {
@@ -58,10 +64,11 @@
   outline: 1px solid #6d8434;
 }
 
-.search-button {
+.search-icon {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
   border: none;
   display: flex;
   justify-content: center;
@@ -69,14 +76,20 @@
   background-color: transparent;
   width: 20px;
   height: 20px;
+  fill: var(--color-btn-cancel-active);
+  position: absolute;
 }
 
-.search-icon {
-  fill: var(--color-btn-cancel-active);
-  /* stroke: var(--color-btn-fill); */
+.categories-icon {
+  fill: var(--color-btn-fill);
+  stroke: var(--color-btn-cancel-active);
   position: absolute;
-  /* top: 50%;
-  right: 10px; */
+  /* top: 14px;
+  right: 14px; */
+
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
 }
 
 /* TABLET */
