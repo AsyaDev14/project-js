@@ -29,6 +29,7 @@
 
 .popular-product-img {
   display: flex;
+  align-items: center;
   justify-content: center;
   width: 74px;
   height: 74px;
@@ -81,6 +82,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+  padding: 0;
   top: 12px;
   right: 12px;
   width: 20px;
