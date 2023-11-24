@@ -79,6 +79,11 @@
   background-color: var(--color-btn-active);
 }
 
+.discount-btn-buy:disabled {
+  background-color: var(--color-btn);
+  fill: var(--color-btn-fill);
+}
+
 /* TABLET */
 @media only screen and (min-width: 768px) {
   .right-part-products.container {
