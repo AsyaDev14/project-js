@@ -7,10 +7,9 @@ refs.discountProductsEl.addEventListener('click', onProductListElClick)
 function onProductListElClick(event) {
     event.preventDefault();
 
-    if (event.target.classList.contains('btn-buy') || event.target.classList.contains('products-list')
-        || event.target.classList.contains('discount-btn-buy') || event.target.classList.contains('js-discount-products')
-        || event.target.classList.contains('popular-list') || event.target.classList.contains('cart-btn')
-        || event.target.classList.contains('js-icon-buy')) {
+
+    if (event.target.nodeName === 'UL' || event.target.nodeName === 'BUTTON' || event.target.nodeName === 'svg'
+        || event.target.nodeName === 'use' || event.target.nodeName === 'A') {
         return;
     }
 

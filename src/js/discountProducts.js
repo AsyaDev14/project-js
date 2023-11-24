@@ -1,7 +1,7 @@
 import iconsPath from '../icons/icons.svg';
 
 function discountProductsMarkup({ _id: id, name, img, price }) {
-    return `
+  return `
   <li class="discount-item" data-product-id='${id}'>
             <div class="discount-img-box">
                 <img class="discount-img" src="${img}">
@@ -12,9 +12,9 @@ function discountProductsMarkup({ _id: id, name, img, price }) {
             <div class="discount-bottom">
                 <p class="discount-txt">${name}</p>
                 <p class="discount-txt discount-price">$${price}</p>
-                <button class='discount-btn-buy js-buy-btn' type='button'>
-                    <svg width='18' height='18' class='js-icon-buy'>
-                        <use href='${iconsPath}#icon-cart' class='js-icon-buy'/>
+                <button class='discount-btn-buy' type='button'>
+                    <svg width='18' height='18'>
+                        <use href='${iconsPath}#icon-cart' />
                     </svg>
                 </button>
             </div>
@@ -22,9 +22,9 @@ function discountProductsMarkup({ _id: id, name, img, price }) {
 }
 
 export function renderDiscountCards(listOfProducts, listElement) {
-    let random = Math.ceil(Math.random() * 7);
-    listElement.innerHTML = listOfProducts
-        .map(discountProductsMarkup)
-        .slice(random, random + 2)
-        .join('');
+  let random = Math.ceil(Math.random() * 7);
+  listElement.innerHTML = listOfProducts
+    .map(discountProductsMarkup)
+    .slice(random, random + 2)
+    .join('');
 }
