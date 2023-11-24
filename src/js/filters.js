@@ -6,7 +6,7 @@ import { all } from "axios";
 
 const foodBoutiqueAPI = new FoodBoutiqueAPI();
 
-filtersFormSearchEL.addEventListener('submit', onFiltersFormSubmit);
+refs.filtersFormSearchEL.addEventListener('submit', onFiltersFormSubmit);
 
 foodBoutiqueAPI.fetchCategories().then((res) => {
 
