@@ -64,9 +64,14 @@ button {
   color: var(--color-btn-fill);
   border: none;
   border-radius: 30px;
+  transition: background-color 250ms ease-in-out;
 }
 
-button:hover,
-button:focus {
+button:hover {
   background-color: var(--color-btn-active);
+}
+
+button:disabled {
+  background-color: var(--color-btn);
+  fill: var(--color-btn-fill);
 }

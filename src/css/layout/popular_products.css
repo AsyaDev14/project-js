@@ -98,6 +98,11 @@
   fill: var(--color-bckg);
 }
 
+.cart-btn:disabled {
+  background-color: var(--color-bckg);
+  fill: var(--color-btn);
+}
+
 @media only screen and (min-width: 768px) {
   .desktop-section {
     padding: 50px 0 32px;
