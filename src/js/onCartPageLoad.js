@@ -1,11 +1,9 @@
 import axios from 'axios';
 import load from './storage.js';
 import { FoodBoutiqueAPI } from './foodBoutiqueApi';
-import { cartContent } from './cartRefs.js';
-import { productList } from './cartRefs.js';
-import { customerOrder } from './cartRefs.js';
-import { emptyCart } from './cartRefs.js';
+import cartRefs from './cartRefs.js';
 import iconsPath from '../icons/icons.svg';
+import { updateCartFromStorage } from './header.js';
 
 window.addEventListener('load', onCartPageLoad);
 // deleteAll.addEventListener('click', onDeleteAllClick);
@@ -54,7 +52,7 @@ function productsTemplate(productsArr) {
 
 function renderProductsCards(data) {
   const productsHtml = productsTemplate(data);
-  productList.insertAdjacentHTML('beforeend', productsHtml);
+  cartRefs.productList.insertAdjacentHTML('beforeend', productsHtml);
 }
 
 function calcTotalPrice(data) {
@@ -68,7 +66,7 @@ function calcTotalPrice(data) {
 
 function renderOrder(data) {
   const totalPrice = calcTotalPrice(data);
-  customerOrder.innerHTML = `
+  cartRefs.customerOrder.innerHTML = `
         <h2 class="order-title">Your order</h2>
         <div class="total-container">
           <p class="sub-title">Total</p>
@@ -93,9 +91,11 @@ function renderOrder(data) {
 }
 
 async function onCartPageLoad() {
+  updateCartFromStorage(cartRefs.cartSpan);
+
   if (localStorage.getItem('localKey') === null) {
-    cartContent.classList.add('visually-hidden');
-    emptyCart.classList.remove('visually-hidden');
+    cartRefs.cartContent.classList.add('visually-hidden');
+    cartRefs.emptyCart.classList.remove('visually-hidden');
     return;
   }
 
