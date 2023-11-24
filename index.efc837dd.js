@@ -70,5 +70,5 @@ function t(t,e,r,n){Object.defineProperty(t,e,{get:r,set:n,enumerable:!0,configu
                     </svg>
                 </button>
             </div>
-        </li>`}const eZ=new eV;async function e0(){try{var t,e;t=(await eZ.fetchProductsByQuery()).results,d.default.productsListEl.innerHTML=t.map(eK).join("");let r=await eZ.fetchPopular();d.default.popularListElement.innerHTML=r.map(eX).join(""),e=await eZ.fetchDiscount(),d.default.discountProductsEl.innerHTML=e.map(eY).slice(0,2).join("")}catch(t){console.log("err")}}window.addEventListener("DOMContentLoaded",e0);
-//# sourceMappingURL=index.a52b4efd.js.map
+        </li>`}const eZ=new eV;async function e0(){try{var t,e,r;let n;t=(await eZ.fetchProductsByQuery()).results,d.default.productsListEl.innerHTML=t.map(eK).join("");let o=await eZ.fetchPopular();d.default.popularListElement.innerHTML=o.map(eX).join(""),e=await eZ.fetchDiscount(),r=d.default.discountProductsEl,n=Math.ceil(7*Math.random()),r.innerHTML=e.map(eY).slice(n,n+2).join("")}catch(t){console.log("err")}}window.addEventListener("DOMContentLoaded",e0);
+//# sourceMappingURL=index.efc837dd.js.map

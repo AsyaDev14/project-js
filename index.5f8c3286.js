@@ -70,5 +70,5 @@
                     </svg>
                 </button>
             </div>
-        </li>`}let eZ=new eK;async function e0(){try{var t,e;t=(await eZ.fetchProductsByQuery()).results,d.default.productsListEl.innerHTML=t.map(eG).join("");let r=await eZ.fetchPopular();d.default.popularListElement.innerHTML=r.map(eX).join(""),e=await eZ.fetchDiscount(),d.default.discountProductsEl.innerHTML=e.map(eY).slice(0,2).join("")}catch(t){console.log("err")}}window.addEventListener("DOMContentLoaded",e0)}();
-//# sourceMappingURL=index.a414d8a2.js.map
+        </li>`}let eZ=new eK;async function e0(){try{var t,e,r;let n;t=(await eZ.fetchProductsByQuery()).results,d.default.productsListEl.innerHTML=t.map(eG).join("");let o=await eZ.fetchPopular();d.default.popularListElement.innerHTML=o.map(eX).join(""),e=await eZ.fetchDiscount(),r=d.default.discountProductsEl,n=Math.ceil(7*Math.random()),r.innerHTML=e.map(eY).slice(n,n+2).join("")}catch(t){console.log("err")}}window.addEventListener("DOMContentLoaded",e0)}();
+//# sourceMappingURL=index.5f8c3286.js.map
