@@ -64,7 +64,7 @@
   outline: 1px solid #6d8434;
 }
 
-.search-icon {
+.search-button {
   position: absolute;
   top: 50%;
   right: 20px;
@@ -76,17 +76,16 @@
   background-color: transparent;
   width: 20px;
   height: 20px;
+}
+
+.search-icon {
   fill: var(--color-btn-cancel-active);
-  position: absolute;
 }
 
 .categories-icon {
   fill: var(--color-btn-fill);
   stroke: var(--color-btn-cancel-active);
   position: absolute;
-  /* top: 14px;
-  right: 14px; */
-
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
