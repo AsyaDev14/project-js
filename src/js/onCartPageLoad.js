@@ -61,7 +61,8 @@ function calcTotalPrice(data) {
   for (const product of data) {
     totalPrice += product.price;
   }
-  return totalPrice;
+
+  return parseFloat(totalPrice.toFixed(2));
 }
 
 function renderOrder(data) {

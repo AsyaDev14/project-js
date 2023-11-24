@@ -69,15 +69,18 @@
 
 .cart-container {
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
-  /* overflow: auto; */
   margin-bottom: 80px;
   position: relative;
+  width: 100%;
 }
 @media only screen and (min-width: 768px) {
   .cart-container {
     margin-bottom: 100px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .cart-container {
+    width: 500px;
   }
 }
 
