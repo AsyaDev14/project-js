@@ -115,6 +115,11 @@
   }
 }
 
+.delete-all:hover,
+.delete-all:focus {
+  background-color: transparent;
+}
+
 .delete-btn {
   position: absolute;
   top: -10px;
@@ -129,6 +134,11 @@
   .delete-btn {
     top: 0px;
   }
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+  background-color: transparent;
 }
 
 .cart-list {
@@ -262,6 +272,20 @@ hr {
   .cart-price {
     font-size: 20px;
     line-height: 1.2;
+  }
+}
+
+.order-container {
+  margin-bottom: 80px;
+}
+@media only screen and (min-width: 768px) {
+  .order-container {
+    margin-bottom: 100px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .order-container {
+    margin-bottom: 0;
   }
 }
 
@@ -417,7 +441,7 @@ hr {
 /*===== COUNTER =====*/
 .counter-container {
   display: flex;
-  padding: 4px 12px;
+  padding: 4px 14px;
   justify-content: center;
   align-items: center;
   gap: 6px;
@@ -429,11 +453,27 @@ hr {
   border-radius: 100px;
   border: 1px solid rgba(1, 1, 1, 0.1);
 }
+@media only screen and (min-width: 768px) {
+  .counter-container {
+    padding: 5px 16px;
+    gap: 10px;
+  }
+}
 
 .counter-btn {
   background: none;
   font-size: 14px;
   color: #010101;
+}
+@media only screen and (min-width: 768px) {
+  .counter-btn {
+    font-size: 18px;
+  }
+}
+
+.counter-btn:hover,
+.counter-btn:focus {
+  background-color: transparent;
 }
 
 .counter-value {
@@ -441,12 +481,16 @@ hr {
   font-size: 16px;
   line-height: 1.12;
 }
+@media only screen and (min-width: 768px) {
+  .counter-value {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
 
 /*===== Empty Cart =====*/
 
 .empty-cart {
-  visibility: hidden;
-
   display: flex;
   justify-content: center;
   align-items: center;
