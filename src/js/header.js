@@ -1,10 +1,26 @@
-import storage from './storage.js';
-import refs from './refs.js';
+// import load from './storage.js';
+// import refs from './refs.js';
 
-function updateCartCount() {
-  const cartCount = localStorage.getItem('cartCount');
-  // Update the cart count in the span element
-  if (refs.cartCountSpan) {
-    refs.cartCountSpan.textContent = cartCount || '0';
-  }
+// export const cartCount = [];
+// const localCartCount = load('localKey');
+// JSON => Array
+// const localCartCount = JSON.parse(localCartCountJson);
+
+// if (localCartCount) {
+//   localCartCount.forEach(element => cartCount.push(element));
+//   refs.cartCountSpan.textContent = cartCount.length;
+// }
+
+import refs from './refs.js';
+import Storage from './storage.js';
+
+const STORAGE_KEY = 'localKey';
+
+export function updateCartFromStorage(showInEl) {
+  const selectedProdIds = Storage.load(STORAGE_KEY) || [];
+  showInEl.textContent = selectedProdIds.length.toString();
+}
+
+export function updateCartOnHeader() {
+  updateCartFromStorage(refs.cartCountSpan)
 }
