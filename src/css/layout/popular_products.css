@@ -121,6 +121,12 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1272px) {
+  .popular-item:nth-child(n + 3) {
+    display: none;
+  }
+}
+
 /* DESKTOP 1272*/
 @media only screen and (min-width: 1272px) {
   .section.desktop-section {
