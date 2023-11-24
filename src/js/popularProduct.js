@@ -4,7 +4,7 @@ function popularProductTemplate(popular) {
   const { _id: id, name, img, category, size, popularity } = popular;
   return `<li class="popular-item" data-product-id='${id}'>
       <div class="popular-product-img">
-        <img src="${img}" alt="" width="56" height="56" />
+        <img src="${img}" alt="${name}" width="56" height="56" />
       </div>
       <button class="cart-btn" type="button">
         <svg width="12" height="12">
@@ -17,7 +17,7 @@ function popularProductTemplate(popular) {
           <span class="popular-accent">Category:</span> ${category}
         </p>
         <p class="popular-info-descr">
-          <span class="popular-accent">Size:</span>${size}
+          <span class="popular-accent">Size:</span> ${size}
           <span class="popular-accent">Popularity:</span> ${popularity}
         </p>
       </div>
@@ -25,7 +25,8 @@ function popularProductTemplate(popular) {
 }
 
 function popularProductsTemplate(popularArr) {
-  return popularArr.map(popularProductTemplate).join('');
+  const randomPopularArr = popularArr.sort(() => Math.random() - 0.5); // Перемішуємо масив рандомно
+  return randomPopularArr.map(popularProductTemplate).join('');
 }
 
 export function renderPopularProducts(popularArr) {
