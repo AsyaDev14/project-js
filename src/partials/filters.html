@@ -1,37 +1,44 @@
 <section class="section filters">
   <div class="filters-block container">
-    <label class="filters-label" for="search">Filters:</label>
     <form class="filters-form-search" action="/filters-block" method="get">
-      <div class="search-container">
-        <input
-          class="search"
-          type="text"
-          id="search"
-          name="search"
-          placeholder="Search for anything"
-        />
-        <button type="submit" class="search-button">
-          <svg class="search-form__icon" width="20" height="20">
-            <use href="./icons/icons.svg#icon-search"></use>
-          </svg>
-        </button>
-      </div>
-      <!-- Categories Dropdown -->
-      <select class="categories-search" name="categories" id="categories">
-        <option value="" disabled selected>Categories</option>
-      </select>
+      <label class="filters-label"
+        >Filters:
+        <div class="all-types-search-wrap">
+          <div class="search-container">
+            <input
+              class="search-input"
+              type="text"
+              id="search"
+              name="search"
+              placeholder="Search for anything"
+            />
+            <button type="submit" class="search-button">
+              <svg class="search-icon" width="20" height="20">
+                <use href="./icons/icons.svg#icon-search"></use>
+              </svg>
+            </button>
+          </div>
+          <!-- Categories Dropdown -->
+          <div class="select-wrapper">
+            <select class="categories-search" name="categories" id="categories">
+              <option value="" disabled selected>Categories</option>
+            </select>
+          </div>
+
+          <!-- Sort By -->
+          <div class="sort-block-container">
+            <select class="sort-block-select" name="sort-by" id="sort-by">
+              <option value="a-to-z">A to Z</option>
+              <option value="z-to-a">Z to A</option>
+              <option value="cheap">Cheap</option>
+              <option value="expensive">Expensive</option>
+              <option value="popular">Popular</option>
+              <option value="not-popular">Not popular</option>
+              <option value="show-all">Show all</option>
+            </select>
+          </div>
+        </div>
+      </label>
     </form>
-  </div>
-  <!-- Sort By -->
-  <div class="sort-block container">
-    <select class="sort-block-select" name="sort-by" id="sort-by">
-      <option value="a-to-z">A to Z</option>
-      <option value="z-to-a">Z to A</option>
-      <option value="cheap">Cheap</option>
-      <option value="expensive">Expensive</option>
-      <option value="popular">Popular</option>
-      <option value="not-popular">Not popular</option>
-      <option value="show-all">Show all</option>
-    </select>
   </div>
 </section>
