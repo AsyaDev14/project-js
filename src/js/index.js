@@ -5,4 +5,5 @@ import refs from './refs.js'
 import './modal.js';
 import './filters.js'
 import './onLoad.js';
+import './createPagination.js';
 
