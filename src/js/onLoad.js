@@ -8,8 +8,6 @@ import { checkProducts } from './checkProducts.js';
 import Storage from './storage.js';
 import { onAddBtnClick } from './addProduct.js';
 
-const STORAGE_KEY = 'localKey';
-
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
 window.addEventListener(`DOMContentLoaded`, onDOMContentLoaded);
@@ -28,8 +26,6 @@ async function onDOMContentLoaded() {
     renderDiscountCards(discountProducts, refs.discountProductsEl);
 
     refs.allProductsWrapperEl.addEventListener('click', onAddBtnClick);
-
-    checkProducts(Storage.load(STORAGE_KEY));
   } catch (err) {
     console.log(err);
   }
