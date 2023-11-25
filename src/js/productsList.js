@@ -1,6 +1,7 @@
-import iconsPath from '../icons/icons.svg'
+import iconsPath from '../icons/icons.svg';
 import { checkProducts } from './checkProducts';
 import Storage from './storage';
+import refs from './refs';
 
 const STORAGE_KEY = 'localKey';
 
@@ -45,6 +46,15 @@ export function getCardMarkup({ _id: id, name, img, category, size, popularity, 
 }
 
 export function renderProductsCards(listOfProducts, listElement) {
+  if (!listOfProducts.length) {
+    refs.productsListEl.classList.add('visually-hidden');
+    refs.nothingFoundEl.classList.remove('visually-hidden');
+    return
+  }
+
+  refs.productsListEl.classList.remove('visually-hidden');
+  refs.nothingFoundEl.classList.add('visually-hidden');
+
   listElement.innerHTML = listOfProducts.map(getCardMarkup).join('');
   let selectedProdIds = Storage.load(STORAGE_KEY);
 
