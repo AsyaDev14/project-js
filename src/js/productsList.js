@@ -1,4 +1,8 @@
 import iconsPath from '../icons/icons.svg'
+import { checkProducts } from './checkProducts';
+import Storage from './storage';
+
+const STORAGE_KEY = 'localKey';
 
 export function getCardMarkup({ _id: id, name, img, category, size, popularity, price, is10PercentOff }) {
   return `
@@ -42,4 +46,10 @@ export function getCardMarkup({ _id: id, name, img, category, size, popularity, 
 
 export function renderProductsCards(listOfProducts, listElement) {
   listElement.innerHTML = listOfProducts.map(getCardMarkup).join('');
+  let selectedProdIds = Storage.load(STORAGE_KEY);
+
+  if (!selectedProdIds) {
+    selectedProdIds = [];
+  }
+  checkProducts(selectedProdIds);
 }

@@ -1,6 +1,21 @@
+.all-products.container {
+  padding: 0;
+}
+
+.right-part-products.container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.product-list-with-pagination.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container {
   min-width: 320px;
-  max-width: 480px;
+  max-width: 375px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -25,11 +40,20 @@
 /* DESKTOP 1272*/
 @media only screen and (min-width: 1272px) {
   .container {
-    max-width: 1272px;
+    max-width: 1240px;
     padding: 0 16px;
   }
 
   .section {
     padding: 75px 0;
+  }
+
+  .product-list-with-pagination.container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .right-part-products.container {
+    margin: 0;
   }
 }

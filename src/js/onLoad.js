@@ -8,28 +8,35 @@ import { checkProducts } from './checkProducts.js';
 import Storage from './storage.js';
 import { onAddBtnClick } from './addProduct.js';
 
-const STORAGE_KEY = 'localKey';
-
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
 window.addEventListener(`DOMContentLoaded`, onDOMContentLoaded);
 
 async function onDOMContentLoaded() {
   try {
-    updateCartOnHeader()
+    updateCartOnHeader();
+    try {
+      let allProducts = await foodBoutiqueApi.fetchProductsByQuery();
+      renderProductsCards(allProducts.results, refs.productsListEl);
+    } catch (err) {
+      console.log(err);
+    }
 
-    let allProducts = await foodBoutiqueApi.fetchProductsByQuery();
-    renderProductsCards(allProducts.results, refs.productsListEl);
+    try {
+      let popularProducts = await foodBoutiqueApi.fetchPopular();
+      refs.popularListElement.innerHTML = renderPopularProducts(popularProducts);
+    } catch (err) {
+      console.log(err);
+    }
 
-    let popularProducts = await foodBoutiqueApi.fetchPopular();
-    refs.popularListElement.innerHTML = renderPopularProducts(popularProducts);
-
-    let discountProducts = await foodBoutiqueApi.fetchDiscount();
-    renderDiscountCards(discountProducts, refs.discountProductsEl);
+    try {
+      let discountProducts = await foodBoutiqueApi.fetchDiscount();
+      renderDiscountCards(discountProducts, refs.discountProductsEl);
+    } catch (err) {
+      console.log(err);
+    }
 
     refs.allProductsWrapperEl.addEventListener('click', onAddBtnClick);
-
-    checkProducts(Storage.load(STORAGE_KEY));
   } catch (err) {
     console.log(err);
   }
