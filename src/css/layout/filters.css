@@ -57,11 +57,17 @@
   outline: none;
 }
 .search-input:focus,
-.sort-block-select:focus,
-.categories-search:focus,
-.search-input:hover,
+.search-input:hover {
+  outline: 1px solid #6d8434;
+}
+
 .sort-block-select:hover,
-.categories-search:hover {
+.sort-block-select:focus {
+  outline: 1px solid #6d8434;
+}
+
+.categories-search:hover,
+.categories-search:focus {
   outline: 1px solid #6d8434;
 }
 
