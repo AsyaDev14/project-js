@@ -61,7 +61,7 @@ export class FoodBoutiqueAPI {
   }
 
   async postSubscription() {
-    const res = await axios.post('/api/subscription');
+    const res = await axios.post('/api/subscription', subscriber);
     return res.data;
   }
 }
