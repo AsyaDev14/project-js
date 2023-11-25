@@ -19,10 +19,15 @@ foodBoutiqueAPI.fetchCategories().then((res) => {
 function createMarkupForSelect(category) {
     return `<option value='${category}'>${category}</option>`
 }
+const productsQueryObj = storage.load('productsQuery') || { keyword: null, category: null, page: 1, limit: 6 }
+
+storage.save("productsQuery", productsQueryObj);
+
+
 
 function onFiltersFormSubmit(event) {
     event.preventDefault();
-    const productsQueryObj = { keyword: null, category: null, page: 1, limit: 6 };
+
     productsQueryObj.category = refs.categorySelectEl.value;
     productsQueryObj.keyword = refs.searchInputEl.value;
     storage.save("productsQuery", productsQueryObj);
