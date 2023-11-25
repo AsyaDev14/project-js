@@ -64,11 +64,11 @@ const END_POINT = 'products';
 
 let currentPage = 1;
 
-async function fetchPages(page, category = "") {
+async function fetchPages(page, category = "Dairy") {
   try {
     return await axios.get(`${BASE_URL}/${END_POINT}`, {
       params: {
-        limit: 9,
+        limit: 6,
         page: page,
         category: category,
         byABC: true,
@@ -85,19 +85,18 @@ export function getProductsList() {
   fetchPages(currentPage)
     .then(res => {
       console.log(res.data);
-      const { page, perPage, totalPages, results } = res.data
-      renderProductsCards(results, refs.productsListEl)
+            const { page, perPage, totalPages, results } = res.data
+            renderProductsCards(results, refs.productsListEl)
       const optionsPagination = {
         totalItems: (totalPages * perPage),
         itemsPerPage: perPage,
-        visiblePages: 3,
-        firstItemClassName: 'tui-first-child',
-        lastItemClassName: 'tui-last-child',
+        visiblePages: 4,
         page: page,
-        centerAlign: true,
         template: {
           moreButton:
-            "<span class= 'dots'>...</span>"
+            '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+            '<span class="tui-ico-ellip">...</span>' +
+            '</a>'
         }
       }
       const pagination = new Pagination('#pagination', optionsPagination);
