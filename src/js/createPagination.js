@@ -2,7 +2,8 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { FoodBoutiqueAPI } from './foodBoutiqueApi';
 import axios from 'axios';
-
+import {renderProductsCards} from './productsList'
+import refs from './refs';
 
 // 1variant
 
@@ -84,7 +85,8 @@ function getPages() {
   fetchPages(currentPage)
     .then(res => {
       console.log(res.data);
-      const { page, perPage, totalPages, results } = res.data
+            const { page, perPage, totalPages, results } = res.data
+            renderProductsCards(results, refs.productsListEl)
       const optionsPagination = {
         totalItems: (totalPages * perPage),
         itemsPerPage: perPage,
