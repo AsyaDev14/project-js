@@ -20,19 +20,22 @@ async function onFooterFormElSubmit(event) {
   };
   try {
     const newSubscriber = await foodBoutiqueAPI.postSubscription(subscriber);
+    form.reset();
+
     return Notify.success(
       'Your subscription is confirmed! Welcome to the Food Boutique! 🥦🍓 ',
       paramsNotify
     );
   } catch (error) {
+    form.reset();
+
     if (error.response.status === 409) {
       return Notify.warning('Subscription already exists', paramsNotify);
     } else {
       return Notify.failure(
-        'Sorry, something went wrong. Please try again later.',
+        'Sorry, something went wrong. Please try again.',
         paramsNotify
       );
     }
   }
-  form.reset();
 }
