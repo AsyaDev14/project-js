@@ -46,6 +46,10 @@ export function getCardMarkup({ _id: id, name, img, category, size, popularity, 
 
 export function renderProductsCards(listOfProducts, listElement) {
   listElement.innerHTML = listOfProducts.map(getCardMarkup).join('');
+  let selectedProdIds = Storage.load(STORAGE_KEY);
 
-  checkProducts(Storage.load(STORAGE_KEY));
+  if (!selectedProdIds) {
+    selectedProdIds = [];
+  }
+  checkProducts(selectedProdIds);
 }
