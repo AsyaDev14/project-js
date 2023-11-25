@@ -2,7 +2,7 @@ import { FoodBoutiqueAPI } from "./foodBoutiqueApi";
 import refs from './refs'
 import storage from "./storage";
 import { getCardMarkup } from "./productsList";
-import { all } from "axios";
+import { Notify } from "notiflix";
 
 const foodBoutiqueAPI = new FoodBoutiqueAPI();
 
@@ -22,15 +22,34 @@ function createMarkupForSelect(category) {
 
 function onFiltersFormSubmit(event) {
     event.preventDefault();
-    storage.save("category", refs.categorySelectEl.value);
-    foodBoutiqueAPI.category = storage.load("category")
+    const productsQueryObj = { keyword: null, category: null, page: 1, limit: 6 };
+    productsQueryObj.category = refs.categorySelectEl.value;
+    productsQueryObj.keyword = refs.searchInputEl.value;
+    storage.save("productsQuery", productsQueryObj);
+
+    foodBoutiqueAPI.category = storage.load('productsQuery').category;
+
+    foodBoutiqueAPI.query = storage.load('productsQuery').keyword;
+
 
     if (foodBoutiqueAPI.category === 'Show All') {
-        storage.save("category", "");
-        foodBoutiqueAPI.category = storage.load("category");
+        productsQueryObj.category = '';
+        storage.save("productsQuery", productsQueryObj);
+        foodBoutiqueAPI.category = storage.load('productsQuery').category;
     }
 
     foodBoutiqueAPI.fetchProductsByQuery().then(res => {
+        if (res.results.length === 0) {
+            productsQueryObj.keyword = '';
+            storage.save("productsQuery", productsQueryObj);
+            foodBoutiqueAPI.query = storage.load('productsQuery').keyword;
+
+            refs.searchInputEl.value = '';
+
+            Notify.failure('Sorry, there are no products matching your search query. Please try again.');
+        }
+        console.log(res);
+
         const listOfProducts = res.results.map(item => getCardMarkup(item)).join('');
         refs.productsListEl.innerHTML = listOfProducts;
     });
