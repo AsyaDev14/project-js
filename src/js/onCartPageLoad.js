@@ -33,7 +33,7 @@ function productTemplate({ _id: id, name, img, category, size, price }) {
               <button class="counter-btn" type="button" data-action="decrement">
                 -
               </button>
-              <span class="counter-value">0</span>
+              <span class="counter-value">1</span>
               <button class="counter-btn" type="button" data-action="increment">
                 +
               </button>
@@ -55,7 +55,8 @@ function calcTotalPrice(data) {
   let totalPrice = 0;
 
   for (const product of data) {
-    totalPrice += product.price;
+    const quantity = product.quantity === undefined ? 1 : product.quantity;
+    totalPrice += product.price * quantity;
   }
 
   return parseFloat(totalPrice.toFixed(2));
@@ -87,6 +88,35 @@ function renderOrder(data) {
     `;
 }
 
+function processCounterClick(data) {
+  cartRefs.productList.addEventListener('click', event => {
+    const target = event.target;
+
+    if (target.classList.contains('counter-btn')) {
+      const action = target.getAttribute('data-action');
+      const valueEl = target.parentElement.querySelector('.counter-value');
+      let counterValue = Number(valueEl.textContent);
+
+      if (action === 'increment') {
+        counterValue++;
+      } else if (action === 'decrement' && counterValue > 1) {
+        counterValue--;
+      }
+
+      valueEl.textContent = counterValue;
+      const productId = target.closest('.cart-list-item').dataset.productId;
+      const updatedData = data.map(product => {
+        if (product._id === productId) {
+          product.quantity = counterValue;
+        }
+        return product;
+      });
+      renderOrder(updatedData);
+      return;
+    }
+  });
+}
+
 export async function onCartPageLoad() {
   updateCartFromStorage(cartRefs.cartSpan);
   updateCartOnHeader();
@@ -106,6 +136,7 @@ export async function onCartPageLoad() {
 
     renderProductsCards(dataArray);
     renderOrder(dataArray);
+    processCounterClick(dataArray);
   } catch (error) {
     console.error(error);
   }
