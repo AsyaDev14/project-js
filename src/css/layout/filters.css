@@ -4,9 +4,10 @@
   padding-bottom: 20px;
 }
 
-.filters-label {
+.filters-subtitle {
   color: rgba(1, 1, 1, 0.3);
   font-size: 14px;
+  font-weight: 400;
 }
 
 .all-types-search-wrap {
