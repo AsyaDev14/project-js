@@ -63,7 +63,7 @@ const END_POINT = 'products';
 
 let currentPage = 1;
 
-async function fetchPages(page, category = "Pantry_Items") {
+async function fetchPages(page, category = "Dairy") {
   try {
     return await axios.get(`${BASE_URL}/${END_POINT}`, {
       params: {
@@ -88,7 +88,7 @@ function getPages() {
       const optionsPagination = {
         totalItems: (totalPages * perPage),
         itemsPerPage: perPage,
-        visiblePages: 5,
+        visiblePages: 4,
         page: page,
       }
       const pagination = new Pagination('#pagination', optionsPagination);
