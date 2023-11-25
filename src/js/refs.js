@@ -6,7 +6,8 @@ const categorySelectEl = document.querySelector('#categories');
 const modalEl = document.querySelector('[data-modal]');
 const discountProductsEl = document.querySelector('.discount-products');
 const footerFormEl = document.querySelector('.footer-form');
-const filtersFormSearchEL = document.querySelector('.filters-form-search')
+const filtersFormSearchEL = document.querySelector('.filters-form-search');
+const searchInputEl = document.querySelector('.search-input');
 
 export default {
     allProductsWrapperEl,
@@ -17,5 +18,6 @@ export default {
     modalEl,
     discountProductsEl,
     footerFormEl,
-    filtersFormSearchEL
+    filtersFormSearchEL,
+    searchInputEl
 }
