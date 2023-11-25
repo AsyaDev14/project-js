@@ -81,7 +81,7 @@ async function fetchPages(page, category = "Dairy") {
   }
 }
 
-function getPages() {
+export function getProductsList() {
   fetchPages(currentPage)
     .then(res => {
       console.log(res.data);
@@ -103,7 +103,7 @@ function getPages() {
 
       pagination.on('beforeMove', (event) => {
         currentPage = event.page;
-        getPages();
+        getProductsList();
         // function renderPages()
         if (currentPage === totalPages) {
           return false;
@@ -113,4 +113,4 @@ function getPages() {
     })
     .catch(err => console.log(err.message))
 }
-getPages();
+getProductsList();
