@@ -85,8 +85,8 @@ export function getProductsList() {
   fetchPages(currentPage)
     .then(res => {
       console.log(res.data);
-      const { page, perPage, totalPages, results } = res.data
-      renderProductsCards(results, refs.productsListEl)
+            const { page, perPage, totalPages, results } = res.data
+            renderProductsCards(results, refs.productsListEl)
       const optionsPagination = {
         totalItems: (totalPages * perPage),
         itemsPerPage: perPage,
