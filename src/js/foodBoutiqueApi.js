@@ -60,7 +60,7 @@ export class FoodBoutiqueAPI {
     return res.data;
   }
 
-  async postSubscription() {
+  async postSubscription(subscriber) {
     const res = await axios.post('/api/subscription', subscriber);
     return res.data;
   }
