@@ -30,6 +30,15 @@ function onDeleteItemClick(e) {
   }
 
   storage.remove('localKey');
+
+  if (newCartArr.length === 0) {
+    cartRefs.cartContent.classList.add('visually-hidden');
+    cartRefs.emptyCart.classList.remove('visually-hidden');
+    updateCartFromStorage(cartRefs.cartSpan);
+    updateCartOnHeader();
+    return;
+  }
+
   storage.save('localKey', newCartArr);
 
   cartRefs.productList.innerHTML = '';
