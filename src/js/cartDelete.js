@@ -16,6 +16,9 @@ function onDeleteAllClick() {
   cartRefs.emptyCart.classList.remove('visually-hidden');
 }
 function onDeleteItemClick(e) {
+  if (!e.target.closest('.delete-btn.js-delete')) {
+    return;
+  }
   const cardEl = e.target.closest('li');
   const id = cardEl.dataset.productId;
 
