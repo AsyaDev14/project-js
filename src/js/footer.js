@@ -30,7 +30,10 @@ async function onFooterFormElSubmit(event) {
     form.reset();
 
     if (error.response.status === 409) {
-      return Notify.warning('Subscription already exists', paramsNotify);
+      return Notify.warning(
+        'It looks you are already subscribed to our newsletter! Thank you 🥦🍓',
+        paramsNotify
+      );
     } else {
       return Notify.failure(
         'Sorry, something went wrong. Please try again.',
