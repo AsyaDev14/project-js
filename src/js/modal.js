@@ -4,6 +4,7 @@ import iconsPath from '../icons/icons.svg';
 import { onModalAddBtnClick } from './addProduct';
 import { checkProductStatusOnModal } from './checkProducts.js';
 import { onModalRemoveBtnClick } from './removeProduct';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 refs.productsListEl.addEventListener('click', onProductListElClick);
 refs.popularListElement.addEventListener('click', onProductListElClick);
@@ -22,10 +23,12 @@ function onProductListElClick(event) {
   }
 
   refs.modalEl.classList.remove('is-hidden');
+  disableBodyScroll(refs.modalEl);
 
   function onCloseModalBtnClick() {
     refs.modalEl.classList.add('is-hidden');
     refs.modalEl.innerHTML = '';
+    enableBodyScroll(refs.modalEl);
   }
 
   function onBackdropKeydown({ code }) {
@@ -34,6 +37,7 @@ function onProductListElClick(event) {
       document.removeEventListener('keydown', onBackdropKeydown);
       refs.modalEl.innerHTML = '';
     }
+    enableBodyScroll(refs.modalEl);
   }
 
   function onBackdropCLick(event) {
@@ -41,7 +45,7 @@ function onProductListElClick(event) {
       refs.modalEl.classList.add('is-hidden');
       refs.modalEl.innerHTML = '';
     }
-
+    enableBodyScroll(refs.modalEl);
     refs.modalEl.removeEventListener('click', onBackdropCLick);
   }
 
