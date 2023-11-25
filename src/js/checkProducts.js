@@ -32,10 +32,10 @@ export function changeBtnTo(button, changeTo) {
   button.dataset.state = changeTo;
   switch (changeTo) {
     case 'add':
-      button.textContent = 'Add to ';
+      button.firstChild.textContent = 'Add to ';
       break;
     case 'remove':
-      button.textContent = 'Remove from ';
+      button.firstChild.textContent = 'Remove from ';
       break;
     default:
       console.log(`No such option as "${changeTo}"`);
