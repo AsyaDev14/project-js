@@ -15,10 +15,8 @@ const foodBoutiqueAPI = new FoodBoutiqueAPI();
 async function onFooterFormElSubmit(event) {
   event.preventDefault();
   const form = event.target;
-  const { elements } = form;
-
   const subscriber = {
-    email: elements.userEmail.value,
+    email: form.elements.userEmail.value,
   };
   try {
     const newSubscriber = await foodBoutiqueAPI.postSubscription(subscriber);
