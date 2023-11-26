@@ -14,6 +14,8 @@ function productTemplate({ _id: id, name, img, category, size, price }) {
               class="product-img"
               src="${img}"
               alt="${name}"
+              width="64"
+              height="64"
               loading='lazy'
             />
             <div class="product-info-container">
@@ -72,7 +74,7 @@ function renderOrder(data) {
             <span class="notation">Sum: </span>$${totalPrice}
           </p>
         </div>
-        <form class="cart-form" name="Order">
+        <form class="cart-form js-cart-form" name="Order">
           <div class="input-container">
             <label class="notation" for="email">Mail:</label>
             <input
@@ -83,7 +85,7 @@ function renderOrder(data) {
               required
             />
           </div>
-          <button class="order-btn">Checkout</button>
+          <button class="order-btn" type="submit">Checkout</button>
         </form>
     `;
 }
@@ -121,7 +123,8 @@ export async function onCartPageLoad() {
   updateCartFromStorage(cartRefs.cartSpan);
   updateCartOnHeader();
 
-  if (localStorage.getItem('localKey') === null) {
+  const storageValue = localStorage.getItem('localKey');
+  if (!storageValue || storageValue === '[]') {
     cartRefs.cartContent.classList.add('visually-hidden');
     cartRefs.emptyCart.classList.remove('visually-hidden');
     return;
