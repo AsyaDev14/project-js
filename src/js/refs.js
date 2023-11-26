@@ -9,6 +9,8 @@ const footerFormEl = document.querySelector('.footer-form');
 const filtersFormSearchEL = document.querySelector('.filters-form-search');
 const searchInputEl = document.querySelector('.search-input');
 const nothingFoundEl = document.querySelector('div.nothing-found');
+const btnUpEl = document.querySelector('button.btn-up');
+const filtersBlockEl = document.querySelector('.filters-block');
 
 export default {
   allProductsWrapperEl,
@@ -22,4 +24,6 @@ export default {
   filtersFormSearchEL,
   searchInputEl,
   nothingFoundEl,
+  btnUpEl,
+  filtersBlockEl
 };
