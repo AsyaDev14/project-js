@@ -49,7 +49,7 @@ function onProductListElClick(event) {
     refs.modalEl.removeEventListener('click', onBackdropCLick);
   }
 
-  const itemId = event.target.closest('li').dataset.productId;
+  const itemId = event.target.closest('li:not(.prop)').dataset.productId;
 
   foodBoutiqueAPI.fetchById(itemId).then(res => {
     refs.modalEl.insertAdjacentHTML('beforeend', getModalMarkup(res));
