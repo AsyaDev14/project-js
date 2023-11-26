@@ -137,3 +137,10 @@
   transform: translate(-50%, -50%);
   transition: all 0.3s;
 }
+
+/* DESKTOP 1272*/
+@media only screen and (min-width: 1272px) {
+  .filters-block {
+    padding: 0;
+  }
+}
