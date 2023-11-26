@@ -14,6 +14,10 @@
   align-items: center;
 }
 
+.section.desktop-section {
+  padding-top: 80px;
+}
+
 .container {
   min-width: 320px;
   max-width: 375px;
@@ -36,6 +40,10 @@
   .section {
     padding: 50px 0;
   }
+
+  .section.desktop-section {
+    padding-top: 100px;
+  }
 }
 
 /* DESKTOP 1272*/
@@ -56,5 +64,6 @@
 
   .right-part-products.container {
     margin: 0;
+    padding-bottom: 120px;
   }
 }
