@@ -29,7 +29,7 @@ function onFiltersFormSubmit(event) {
     event.preventDefault();
 
     productsQueryObj.category = refs.categorySelectEl.value;
-    productsQueryObj.keyword = refs.searchInputEl.value;
+    productsQueryObj.keyword = refs.searchInputEl.value.trim();
     storage.save("productsQuery", productsQueryObj);
 
     foodBoutiqueAPI.category = storage.load('productsQuery').category;
