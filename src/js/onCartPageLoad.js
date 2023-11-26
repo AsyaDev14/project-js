@@ -3,7 +3,7 @@ import cartRefs from './cartRefs.js';
 import iconsPath from '../icons/icons.svg';
 import { updateCartFromStorage, updateCartOnHeader } from './header.js';
 
-window.addEventListener('load', () => onCartPageLoad(true));
+window.addEventListener('load', onCartPageLoad);
 
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
@@ -91,36 +91,7 @@ function renderOrder(data) {
     `;
 }
 
-function processCounterClick(data) {
-  cartRefs.productList.addEventListener('click', event => {
-    const target = event.target;
-
-    if (target.classList.contains('counter-btn')) {
-      const action = target.getAttribute('data-action');
-      const valueEl = target.parentElement.querySelector('.counter-value');
-      let counterValue = Number(valueEl.textContent);
-
-      if (action === 'increment') {
-        counterValue++;
-      } else if (action === 'decrement' && counterValue > 1) {
-        counterValue--;
-      }
-
-      valueEl.textContent = counterValue;
-      const productId = target.closest('.cart-list-item').dataset.productId;
-      const updatedData = data.map(product => {
-        if (product._id === productId) {
-          product.quantity = counterValue;
-        }
-        return product;
-      });
-      renderOrder(updatedData);
-      return;
-    }
-  });
-}
-
-export async function onCartPageLoad(firstLoad = false) {
+export async function onCartPageLoad() {
   updateCartFromStorage(cartRefs.cartSpan);
   updateCartOnHeader();
 
@@ -141,9 +112,6 @@ export async function onCartPageLoad(firstLoad = false) {
     renderProductsCards(dataArray);
 
     renderOrder(dataArray);
-    if (firstLoad) {
-      processCounterClick(dataArray);
-    }
   } catch (error) {
     console.error(error);
   }
@@ -156,3 +124,49 @@ export async function onCartPageLoad(firstLoad = false) {
 
 const cartFormInput = document.querySelector('.input-container #email');
 console.dir(cartFormInput);
+
+// counter buttons
+cartRefs.productList.addEventListener('click', event => {
+  const target = event.target;
+
+  if (target.classList.contains('counter-btn')) {
+    const listItem = target.closest('.cart-list-item');
+    const counterValue = listItem.querySelector('.counter-value');
+    const action = target.getAttribute('data-action');
+    let counter = parseInt(counterValue.textContent);
+
+    if (action === 'increment') {
+      counter++;
+    } else if (action === 'decrement' && counter > 1) {
+      counter--;
+    }
+
+    counterValue.textContent = counter;
+
+    recalculateTotal();
+  }
+});
+
+function recalculateTotal() {
+  const productListItems =
+    cartRefs.productList.querySelectorAll('.cart-list-item');
+  const productsData = [];
+
+  productListItems.forEach(item => {
+    const productId = item.getAttribute('data-product-id');
+    const productPrice = parseFloat(
+      item.querySelector('.cart-price').textContent.replace('$', '')
+    );
+    const quantity = parseInt(item.querySelector('.counter-value').textContent);
+
+    const product = {
+      _id: productId,
+      price: productPrice,
+      quantity: quantity,
+    };
+
+    productsData.push(product);
+  });
+
+  renderOrder(productsData);
+}
