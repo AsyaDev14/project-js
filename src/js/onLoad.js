@@ -7,6 +7,7 @@ import { onAddBtnClick } from './addProduct.js';
 import throttle from 'lodash/throttle';
 import { manageUpBtn, scrollUp } from './scrollUp';
 import { changeProductsCount, queryDesktop, queryTablet } from './windowSizeChange';
+import { fetchPages, getProductsList } from './createPagination';
 
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
@@ -15,25 +16,18 @@ window.addEventListener(`DOMContentLoaded`, onDOMContentLoaded);
 async function onDOMContentLoaded() {
   try {
     updateCartOnHeader();
-    try {
-      changeProductsCount();
-    } catch (err) {
-      console.log(err);
-    }
+    changeProductsCount();
 
-    try {
-      let popularProducts = await foodBoutiqueApi.fetchPopular();
-      refs.popularListElement.innerHTML = renderPopularProducts(popularProducts);
-    } catch (err) {
-      console.log(err);
-    }
+    getProductsList();
 
-    try {
-      let discountProducts = await foodBoutiqueApi.fetchDiscount();
-      renderDiscountCards(discountProducts, refs.discountProductsEl);
-    } catch (err) {
-      console.log(err);
-    }
+    const [popularProducts, discountProducts] = await Promise.all([
+      foodBoutiqueApi.fetchPopular(),
+      foodBoutiqueApi.fetchDiscount(),
+      fetchPages()
+    ]);
+
+    refs.popularListElement.innerHTML = renderPopularProducts(popularProducts);
+    renderDiscountCards(discountProducts, refs.discountProductsEl);
 
     try {
       document.onscroll = throttle(manageUpBtn, 300);

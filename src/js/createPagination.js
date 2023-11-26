@@ -11,23 +11,22 @@ function getRequestData() {
   return  Storage.load(Storage.KEY_QUERY);
 }
 
-async function fetchPages() {
-  try {
+export async function fetchPages() {
     const { keyword, category, page, limit } = getRequestData();
     foodBoutiqueAPI.query = keyword;
     foodBoutiqueAPI.limit = limit;
     foodBoutiqueAPI.page = page;
     foodBoutiqueAPI.category = category;
     return await foodBoutiqueAPI.fetchProductsByQuery();
-
-  } catch (error) {
-    console.log(error.code);
-  }
 }
 
 export function getProductsList() {
+  /*refs.loaderEl.classList.remove('is-hidden');
+  refs.productsListEl.classList.add('is-hidden');*/
   fetchPages()
     .then(res => {
+      /*refs.loaderEl.classList.add('is-hidden');
+      refs.productsListEl.classList.remove('is-hidden');*/
       const { page, perPage, totalPages, results } = res
       if (totalPages < 2) {
         refs.paginationSectionEl.classList.add('visually-hidden')
@@ -35,7 +34,7 @@ export function getProductsList() {
       else {
         refs.paginationSectionEl.classList.remove('visually-hidden')
       }
-      renderProductsCards(results, refs.productsListEl)
+
       const optionsPagination = {
         totalItems: (totalPages * perPage),
         itemsPerPage: perPage,
@@ -62,4 +61,8 @@ export function getProductsList() {
 
     })
     .catch(err => console.log(err.message))
+}
+
+export function renderFilteredProducts(results) {
+  renderProductsCards(results, refs.productsListEl)
 }

@@ -7,7 +7,6 @@ export const queryDesktop = matchMedia('(min-width: 1280px)');
 
 export function changeProductsCount() {
   setProductsPerPage()
-  getProductsList();
 }
 
 function calcProductsPerPage() {

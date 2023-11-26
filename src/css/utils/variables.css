@@ -24,6 +24,12 @@
   --color-btn-up-fill: #010101;
   --color-btn-up-fill-active: #586f1f;
 
+  --color-car-trunk-dark: #586f1f;
+  --color-car-trunk-light: #8ca44a;
+  --color-car-cabin-dark: #FDC152;
+  --color-car-cabin-light: #ffdd99;
+  --color-car-wheel: #010101;
+
   --font-main: 'Neue Montreal', sans-serif;
   --font-logo: 'FONTSPRING DEMO - Quincy CF Black', serif;
 
