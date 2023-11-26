@@ -1,13 +1,12 @@
 import { FoodBoutiqueAPI } from './foodBoutiqueApi';
 import refs from './refs';
 import { renderPopularProducts } from './popularProduct';
-import { renderProductsCards } from './productsList';
 import { renderDiscountCards } from './discountProducts';
 import { updateCartOnHeader } from './header';
 import { onAddBtnClick } from './addProduct.js';
 import throttle from 'lodash/throttle';
 import { manageUpBtn, scrollUp } from './scrollUp';
-import { getProductsList } from './createPagination.js'
+import { changeProductsCount, queryDesktop, queryTablet } from './windowSizeChange';
 
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
@@ -17,7 +16,7 @@ async function onDOMContentLoaded() {
   try {
     updateCartOnHeader();
     try {
-      getProductsList();
+      changeProductsCount();
     } catch (err) {
       console.log(err);
     }
@@ -39,6 +38,13 @@ async function onDOMContentLoaded() {
     try {
       document.onscroll = throttle(manageUpBtn, 300);
       refs.btnUpEl.onclick = scrollUp;
+    } catch (err) {
+      console.log(err);
+    }
+
+    try {
+      queryTablet.addEventListener('change', throttle(changeProductsCount, 300));
+      queryDesktop.addEventListener('change', throttle(changeProductsCount, 300));
     } catch (err) {
       console.log(err);
     }

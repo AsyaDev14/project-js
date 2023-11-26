@@ -10,6 +10,5 @@ export function manageUpBtn() {
 }
 
 export function scrollUp() {
-  const rect = refs.filtersBlockEl.getBoundingClientRect();
-  window.scrollTo({ top: rect.top + window.scrollY, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }

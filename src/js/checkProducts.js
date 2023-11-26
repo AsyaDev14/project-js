@@ -2,7 +2,6 @@ import refs from './refs';
 import iconsPath from '../icons/icons.svg';
 import Storage from './storage';
 
-const STORAGE_KEY = 'localKey';
 
 export function disableBuyProductById(id) {
   const cardsEls = refs.allProductsWrapperEl.querySelectorAll(`[data-product-id='${id}']`);
@@ -43,7 +42,7 @@ export function changeBtnTo(button, changeTo) {
 }
 
 export function checkProductStatusOnModal(button, id) {
-  let selectedProdIds = Storage.load(STORAGE_KEY);
+  let selectedProdIds = Storage.load(Storage.STORAGE_KEY);
 
   if (!selectedProdIds) {
     selectedProdIds = [];

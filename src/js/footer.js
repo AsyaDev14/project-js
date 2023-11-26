@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { FoodBoutiqueAPI } from './foodBoutiqueApi';
 import refs from './refs';
