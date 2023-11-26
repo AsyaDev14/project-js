@@ -143,14 +143,14 @@
   .cart-list {
     gap: 40px;
     padding: 0 40px 0 0;
-    max-height: 450x;
+    max-height: 450px;
   }
 }
 @media only screen and (min-width: 1440px) {
   .cart-list {
     gap: 40px;
     padding: 0 40px 0 0;
-    max-height: 525px;
+    max-height: 455px;
   }
 }
 
