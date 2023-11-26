@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Storage from './storage.js';
 
 export class FoodBoutiqueAPI {
   constructor() {
@@ -52,7 +53,18 @@ export class FoodBoutiqueAPI {
 
   async fetchById(id) {
     const res = await axios.get(`/api/products/${id}`);
-    return res.data;
+    const data = res.data;
+    Storage.save(`product_${id}`, data);
+    return data;
+  }
+
+  async fetchCachedById(id) {
+    const product = Storage.load(`product_${id}`);
+    if (!product) {
+      return this.fetchById(id);
+    } else {
+      return product;
+    }
   }
 
   async postOrders() {

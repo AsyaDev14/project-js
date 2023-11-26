@@ -134,7 +134,7 @@ export async function onCartPageLoad(firstLoad = false) {
   const idsArr = JSON.parse(idsArrString);
 
   try {
-    const dataPromises = idsArr.map(id => foodBoutiqueApi.fetchById(id));
+    const dataPromises = idsArr.map(id => foodBoutiqueApi.fetchCachedById(id));
     const dataArray = await Promise.all(dataPromises);
 
     renderProductsCards(dataArray);
