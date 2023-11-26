@@ -28,7 +28,7 @@ export class FoodBoutiqueAPI {
       },
     };
     const res = await axios.get('/api/products', foodBoutiqueOptions);
-    return res.data;
+    return mapPaginationProduct(res);
   }
 
   async fetchPopular() {
@@ -38,22 +38,22 @@ export class FoodBoutiqueAPI {
       },
     };
     const res = await axios.get('/api/products/popular', popularOptions);
-    return res.data;
+    return mapProducts(res);
   }
 
   async fetchDiscount() {
     const res = await axios.get('/api/products/discount');
-    return res.data;
+    return mapProducts(res);
   }
 
   async fetchCategories() {
     const res = await axios.get('/api/products/categories');
-    return res.data;
+    return res.data.map(mapCategory);
   }
 
   async fetchById(id) {
     const res = await axios.get(`/api/products/${id}`);
-    const data = res.data;
+    const data = mapProduct(res.data);
     Storage.save(`product_${id}`, data);
     return data;
   }
@@ -76,4 +76,27 @@ export class FoodBoutiqueAPI {
     const res = await axios.post('/api/subscription', subscriber);
     return res.data;
   }
+}
+
+function mapCategory(str) {
+  return str.replaceAll('_', ' ');
+}
+
+function mapProduct(product) {
+  return {
+    ...product,
+    category: mapCategory(product.category),
+  };
+}
+
+function mapProducts(res) {
+  return res.data.map(mapProduct);
+}
+
+function mapPaginationProduct(res) {
+  const pagination = res.data
+  return {
+    ...pagination,
+    results: pagination.results.map(mapProduct),
+  };
 }
