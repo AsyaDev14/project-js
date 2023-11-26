@@ -82,6 +82,7 @@ function renderOrder(data) {
               id="email"
               pattern=".+@example\.com"
               placeholder="Enter your email"
+              autocomplete="email"
               required
             />
           </div>
@@ -138,6 +139,7 @@ export async function onCartPageLoad(firstLoad = false) {
     const dataArray = await Promise.all(dataPromises);
 
     renderProductsCards(dataArray);
+
     renderOrder(dataArray);
     if (firstLoad) {
       processCounterClick(dataArray);
@@ -145,4 +147,12 @@ export async function onCartPageLoad(firstLoad = false) {
   } catch (error) {
     console.error(error);
   }
+  if (cartRefs.productList.children.length > 3) {
+    cartRefs.productList.classList.add('show-scroll');
+  } else {
+    cartRefs.productList.classList.remove('show-scroll');
+  }
 }
+
+const cartFormInput = document.querySelector('.input-container #email');
+console.dir(cartFormInput);
