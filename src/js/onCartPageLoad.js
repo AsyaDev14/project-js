@@ -122,9 +122,6 @@ export async function onCartPageLoad() {
   }
 }
 
-const cartFormInput = document.querySelector('.input-container #email');
-console.dir(cartFormInput);
-
 // counter buttons
 cartRefs.productList.addEventListener('click', event => {
   const target = event.target;
