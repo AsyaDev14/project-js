@@ -1,13 +1,11 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { FoodBoutiqueAPI } from './foodBoutiqueApi';
-import { renderProductsCards } from './productsList'
+import { renderProductsCards } from './productsList';
 import refs from './refs';
-import Storage from "./storage";
+import Storage from './storage';
 
 const foodBoutiqueAPI = new FoodBoutiqueAPI();
-
-refs.filtersFormSearchEL.addEventListener('submit', getProductsList);
 
 function getRequestData() {
   return  Storage.load(Storage.KEY_QUERY);
@@ -23,7 +21,7 @@ async function fetchPages() {
     return await foodBoutiqueAPI.fetchProductsByQuery();
 
   } catch (error) {
-    console.log(error.code)
+    console.log(error.code);
   }
 }
 
