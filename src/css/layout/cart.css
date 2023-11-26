@@ -134,6 +134,7 @@
   flex-direction: column;
   gap: 30px;
   width: 100%;
+  max-height: 385px;
   overflow: auto;
   padding-top: 15px;
   padding-right: 7px;
@@ -142,6 +143,14 @@
   .cart-list {
     gap: 40px;
     padding: 0 40px 0 0;
+    max-height: 450x;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .cart-list {
+    gap: 40px;
+    padding: 0 40px 0 0;
+    max-height: 525px;
   }
 }
 

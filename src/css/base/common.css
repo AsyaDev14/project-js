@@ -75,3 +75,38 @@ button:disabled {
   background-color: var(--color-btn);
   fill: var(--color-btn-fill);
 }
+
+#btn-up-section {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+}
+
+.btn-up {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--color-btn-up);
+  fill: var(--color-btn-up-fill);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transform: scale(0);
+
+  transition: transform var(--animation-duration) var(--timing-function),
+  fill var(--animation-duration) var(--timing-function);
+}
+
+.btn-up:hover {
+  fill: var(--color-btn-up-fill-active);
+  background-color: var(--color-btn-up);
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1272px) {
+  .btn-up {
+    display: none;
+  }
+}
