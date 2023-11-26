@@ -90,13 +90,12 @@ export function getProductsList() {
       const optionsPagination = {
         totalItems: (totalPages * perPage),
         itemsPerPage: perPage,
-        visiblePages: 4,
+        visiblePages: 3,
         page: page,
+        centerAlign: true,
         template: {
           moreButton:
-            '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-            '<span class="tui-ico-ellip">...</span>' +
-            '</a>'
+            "<span class= 'dots'>...</span>"
         }
       }
       const pagination = new Pagination('#pagination', optionsPagination);

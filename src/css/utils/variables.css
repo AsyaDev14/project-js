@@ -20,6 +20,9 @@
   --color-btn-cancel-active: #010101;
   --color-btn-cancel-text-active: #e8e8e2;
   --color-prop-text: #0101014d;
+  --color-btn-up: #FDC152;
+  --color-btn-up-fill: #010101;
+  --color-btn-up-fill-active: #586f1f;
 
   --font-main: 'Neue Montreal', sans-serif;
   --font-logo: 'FONTSPRING DEMO - Quincy CF Black', serif;
@@ -27,4 +30,7 @@
   --indent-col: 20px;
   --indent-row: 20px;
   --items-number: 1;
+
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-duration: 250ms;
 }

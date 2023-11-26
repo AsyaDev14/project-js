@@ -4,9 +4,9 @@ import { renderPopularProducts } from './popularProduct';
 import { renderProductsCards } from './productsList';
 import { renderDiscountCards } from './discountProducts';
 import { updateCartOnHeader } from './header';
-import { checkProducts } from './checkProducts.js';
-import Storage from './storage.js';
 import { onAddBtnClick } from './addProduct.js';
+import throttle from 'lodash/throttle';
+import { manageUpBtn, scrollUp } from './scrollUp';
 
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
@@ -32,6 +32,13 @@ async function onDOMContentLoaded() {
     try {
       let discountProducts = await foodBoutiqueApi.fetchDiscount();
       renderDiscountCards(discountProducts, refs.discountProductsEl);
+    } catch (err) {
+      console.log(err);
+    }
+
+    try{
+      document.onscroll = throttle(manageUpBtn, 300);
+      refs.btnUpEl.onclick = scrollUp;
     } catch (err) {
       console.log(err);
     }
