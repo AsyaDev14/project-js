@@ -2,8 +2,6 @@ import { changeBtnTo, enabledBuyProductById } from './checkProducts';
 import { updateCartOnHeader } from './header';
 import Storage from './storage.js';
 
-const STORAGE_KEY = 'localKey';
-
 export function onModalRemoveBtnClick(button) {
   const cardEl = button.closest('[data-product-id]');
   const id = cardEl.dataset.productId;
@@ -17,7 +15,7 @@ export function onModalRemoveBtnClick(button) {
 }
 
 function removeIdFromStorage(id) {
-  let selectedProdIds = Storage.load(STORAGE_KEY);
+  let selectedProdIds = Storage.load(Storage.STORAGE_KEY);
   if (!selectedProdIds) {
     selectedProdIds = [];
   }
@@ -25,7 +23,7 @@ function removeIdFromStorage(id) {
     return false;
   } else {
     selectedProdIds = selectedProdIds.filter(productId => (productId !== id))
-    Storage.save(STORAGE_KEY, selectedProdIds);
+    Storage.save(Storage.STORAGE_KEY, selectedProdIds);
     return true;
   }
 }

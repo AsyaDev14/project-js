@@ -1,3 +1,6 @@
+const KEY_QUERY = 'productsQuery';
+const STORAGE_KEY = 'localKey';
+
 function save(key, value){
   try {
     const serializedState = JSON.stringify(value)
@@ -24,5 +27,7 @@ function remove(key) {
 export default {
   save,
   load,
-  remove
+  remove,
+  KEY_QUERY,
+  STORAGE_KEY
 }

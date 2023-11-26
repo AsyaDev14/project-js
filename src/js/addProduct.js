@@ -1,9 +1,6 @@
-import refs from './refs.js';
 import Storage from './storage.js';
 import { updateCartOnHeader } from './header.js';
 import { changeBtnTo, disableBuyProductById } from './checkProducts.js';
-
-const STORAGE_KEY = 'localKey';
 
 export function onAddBtnClick(e) {
   if (!e.target.closest('button.js-buy-btn')) {
@@ -22,7 +19,7 @@ export function onAddBtnClick(e) {
 }
 
 function saveIdToStorage(id) {
-  let selectedProdIds = Storage.load(STORAGE_KEY);
+  let selectedProdIds = Storage.load(Storage.STORAGE_KEY);
   if (!selectedProdIds) {
     selectedProdIds = [];
   }
@@ -30,7 +27,7 @@ function saveIdToStorage(id) {
     return false;
   } else {
     selectedProdIds.push(id);
-    Storage.save(STORAGE_KEY, selectedProdIds);
+    Storage.save(Storage.STORAGE_KEY, selectedProdIds);
     return true;
   }
 }

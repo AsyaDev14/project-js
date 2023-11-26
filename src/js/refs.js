@@ -11,6 +11,7 @@ const searchInputEl = document.querySelector('.search-input');
 const nothingFoundEl = document.querySelector('div.nothing-found');
 const btnUpEl = document.querySelector('button.btn-up');
 const filtersBlockEl = document.querySelector('.filters-block');
+const paginationSectionEl = document.querySelector('#pagination-section');
 
 export default {
   allProductsWrapperEl,
@@ -25,5 +26,6 @@ export default {
   searchInputEl,
   nothingFoundEl,
   btnUpEl,
-  filtersBlockEl
+  filtersBlockEl,
+  paginationSectionEl
 };
