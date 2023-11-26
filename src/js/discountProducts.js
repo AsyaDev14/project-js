@@ -1,10 +1,15 @@
 import iconsPath from '../icons/icons.svg';
 
 function discountProductsMarkup({ _id: id, name, img, price }) {
-    return `
+  return `
   <li class="discount-item" data-product-id='${id}'>
             <div class="discount-img-box">
-                <img class="discount-img" src="${img}">
+                <img class="discount-img"
+                src="${img}"
+                alt='${name}'
+                width='114'
+                height='114'
+                loading='lazy'/>
                 <svg class="discount-svg" width="60" height="60">
                     <use href="${iconsPath}#icon-discount"></use>
                 </svg>
@@ -22,9 +27,9 @@ function discountProductsMarkup({ _id: id, name, img, price }) {
 }
 
 export function renderDiscountCards(listOfProducts, listElement) {
-    let random = Math.ceil(Math.random() * 7);
-    listElement.innerHTML = listOfProducts
-        .map(discountProductsMarkup)
-        .slice(random, random + 2)
-        .join('');
+  let random = Math.ceil(Math.random() * 7);
+  listElement.innerHTML = listOfProducts
+    .map(discountProductsMarkup)
+    .slice(random, random + 2)
+    .join('');
 }
