@@ -3,7 +3,7 @@ import cartRefs from './cartRefs.js';
 import iconsPath from '../icons/icons.svg';
 import { updateCartFromStorage, updateCartOnHeader } from './header.js';
 
-window.addEventListener('load', onCartPageLoad);
+window.addEventListener('load', () => onCartPageLoad(true));
 
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
@@ -119,7 +119,7 @@ function processCounterClick(data) {
   });
 }
 
-export async function onCartPageLoad() {
+export async function onCartPageLoad(firstLoad = false) {
   updateCartFromStorage(cartRefs.cartSpan);
   updateCartOnHeader();
 
@@ -139,7 +139,9 @@ export async function onCartPageLoad() {
 
     renderProductsCards(dataArray);
     renderOrder(dataArray);
-    processCounterClick(dataArray);
+    if (firstLoad) {
+      processCounterClick(dataArray);
+    }
   } catch (error) {
     console.error(error);
   }
