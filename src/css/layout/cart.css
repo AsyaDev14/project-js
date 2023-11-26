@@ -93,7 +93,7 @@
     line-height: 1.25;
 
     top: -66px;
-    right: 45px;
+    right: 7px;
   }
 }
 @media only screen and (min-width: 1280px) {
@@ -134,22 +134,36 @@
   flex-direction: column;
   gap: 30px;
   width: 100%;
-  max-height: 385px;
-  overflow: auto;
+  height: fit-content;
+  overflow: hidden;
   padding-top: 15px;
   padding-right: 7px;
+  padding-bottom: 6px;
 }
 @media only screen and (min-width: 768px) {
   .cart-list {
     gap: 40px;
-    padding: 0 40px 0 0;
-    max-height: 450px;
+    padding-top: 0;
+    padding-right: 0;
   }
 }
 @media only screen and (min-width: 1440px) {
   .cart-list {
     gap: 40px;
-    padding: 0 40px 0 0;
+    padding: 0 40px 6px 0;
+  }
+}
+.cart-list.show-scroll {
+  max-height: 385px;
+  overflow: auto;
+}
+@media only screen and (min-width: 768px) {
+  .cart-list.show-scroll {
+    max-height: 450px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .cart-list.show-scroll {
     max-height: 455px;
   }
 }
@@ -379,12 +393,16 @@ hr {
   border: none;
   width: 88%;
 }
+.input-container #email:focus {
+  outline: none;
+}
 @media only screen and (min-width: 768px) {
   .input-container #email {
     line-height: 1.33;
   }
 }
 
+#email,
 #email::placeholder {
   color: var(--color-text);
   font-size: 14px;
@@ -392,6 +410,7 @@ hr {
   opacity: 1;
 }
 @media only screen and (min-width: 768px) {
+  #email,
   #email::placeholder {
     font-size: 18px;
   }
