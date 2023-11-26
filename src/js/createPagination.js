@@ -4,13 +4,19 @@ import { FoodBoutiqueAPI } from './foodBoutiqueApi';
 import axios from 'axios';
 import { renderProductsCards } from './productsList'
 import refs from './refs';
-
-
+import storage from "./storage";
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 const END_POINT = 'products';
-
+let currentCategory='';
 let currentPage = 1;
+
+refs.filtersFormSearchEL.addEventListener('submit', getCurrentCategory);
+
+function getCurrentCategory(){
+  currentCategory = storage.load('productsQuery').category;
+  console.log(currentCategory)
+}
 
 async function fetchPages(page, category = "Dairy") {
   try {
