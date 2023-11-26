@@ -59,6 +59,7 @@
 .search-input:focus,
 .search-input:hover {
   outline: 1px solid #6d8434;
+  border: none;
 }
 
 .sort-block-select:hover,
@@ -69,6 +70,7 @@
 .categories-search:hover,
 .categories-search:focus {
   outline: 1px solid #6d8434;
+  border: none;
 }
 
 .search-button {

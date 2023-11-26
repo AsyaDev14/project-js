@@ -19,7 +19,7 @@ foodBoutiqueAPI.fetchCategories().then((res) => {
 function createMarkupForSelect(category) {
     return `<option value='${category}'>${category}</option>`
 }
-const productsQueryObj = storage.load('productsQuery') || { keyword: null, category: null, page: 1, limit: 6 }
+const productsQueryObj = storage.load('productsQuery') || { keyword: '', category: '', page: 1, limit: 6 }
 
 storage.save("productsQuery", productsQueryObj);
 
@@ -29,7 +29,7 @@ function onFiltersFormSubmit(event) {
     event.preventDefault();
 
     productsQueryObj.category = refs.categorySelectEl.value;
-    productsQueryObj.keyword = refs.searchInputEl.value;
+    productsQueryObj.keyword = refs.searchInputEl.value.trim();
     storage.save("productsQuery", productsQueryObj);
 
     foodBoutiqueAPI.category = storage.load('productsQuery').category;
