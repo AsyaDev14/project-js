@@ -3,7 +3,7 @@ import refs from './refs'
 import storage from "./storage";
 import { getCardMarkup } from "./productsList";
 import { Notify } from "notiflix";
-import { getProductsList } from "./createPagination";
+import { fetchPages, getProductsList } from './createPagination';
 
 const foodBoutiqueAPI = new FoodBoutiqueAPI();
 
@@ -61,16 +61,25 @@ storage.save("productsQuery", productsQueryObj);
 //     });
 // }
 
-function onFiltersFormSubmit(event) {
+async function onFiltersFormSubmit(event) {
     event.preventDefault();
 
     productsQueryObj.category = refs.categorySelectEl.value;
-    if (foodBoutiqueAPI.category === 'Show All') {
+    if ( productsQueryObj.category === 'Show All') {
         productsQueryObj.category = '';
     }
     productsQueryObj.keyword = refs.searchInputEl.value.trim();
     productsQueryObj.page = 1;
     storage.save("productsQuery", productsQueryObj);
 
-    getProductsList();
+  refs.loaderEl.classList.remove('is-hidden');
+  refs.productsListEl.classList.add('is-hidden');
+  refs.nothingFoundEl.classList.add('visually-hidden');
+
+  const filteredProducts = await fetchPages();
+
+  refs.loaderEl.classList.add('is-hidden');
+  refs.productsListEl.classList.remove('is-hidden');
+
+  getProductsList(filteredProducts);
 }

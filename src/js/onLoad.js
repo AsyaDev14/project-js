@@ -6,34 +6,32 @@ import { updateCartOnHeader } from './header';
 import { onAddBtnClick } from './addProduct.js';
 import throttle from 'lodash/throttle';
 import { manageUpBtn, scrollUp } from './scrollUp';
-import { changeProductsCount, queryDesktop, queryTablet } from './windowSizeChange';
+import { onChangeProductsCount, queryDesktop, queryTablet, setProductsPerPage } from './windowSizeChange';
+import { fetchPages, getProductsList } from './createPagination';
 
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
 window.addEventListener(`DOMContentLoaded`, onDOMContentLoaded);
 
-async function onDOMContentLoaded() {
+function onDOMContentLoaded() {
   try {
     updateCartOnHeader();
-    try {
-      changeProductsCount();
-    } catch (err) {
-      console.log(err);
-    }
+    setProductsPerPage();
 
-    try {
-      let popularProducts = await foodBoutiqueApi.fetchPopular();
-      refs.popularListElement.innerHTML = renderPopularProducts(popularProducts);
-    } catch (err) {
-      console.log(err);
-    }
-
-    try {
-      let discountProducts = await foodBoutiqueApi.fetchDiscount();
-      renderDiscountCards(discountProducts, refs.discountProductsEl);
-    } catch (err) {
-      console.log(err);
-    }
+    refs.loaderEl.classList.remove('is-hidden');
+    refs.productsListEl.classList.add('is-hidden');
+    Promise.all([
+      foodBoutiqueApi.fetchPopular(),
+      foodBoutiqueApi.fetchDiscount(),
+      fetchPages()
+    ])
+      .then(([popularProducts, discountProducts, filteredProducts]) => {
+        refs.loaderEl.classList.add('is-hidden');
+        refs.productsListEl.classList.remove('is-hidden');
+        getProductsList(filteredProducts);
+        refs.popularListElement.innerHTML = renderPopularProducts(popularProducts);
+        renderDiscountCards(discountProducts, refs.discountProductsEl);
+      });
 
     try {
       document.onscroll = throttle(manageUpBtn, 300);
@@ -43,8 +41,8 @@ async function onDOMContentLoaded() {
     }
 
     try {
-      queryTablet.addEventListener('change', throttle(changeProductsCount, 300));
-      queryDesktop.addEventListener('change', throttle(changeProductsCount, 300));
+      queryTablet.addEventListener('change', throttle(onChangeProductsCount, 300));
+      queryDesktop.addEventListener('change', throttle(onChangeProductsCount, 300));
     } catch (err) {
       console.log(err);
     }

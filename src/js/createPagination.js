@@ -8,58 +8,59 @@ import Storage from './storage';
 const foodBoutiqueAPI = new FoodBoutiqueAPI();
 
 function getRequestData() {
-  return  Storage.load(Storage.KEY_QUERY);
+  return Storage.load(Storage.KEY_QUERY);
 }
 
-async function fetchPages() {
-  try {
-    const { keyword, category, page, limit } = getRequestData();
-    foodBoutiqueAPI.query = keyword;
-    foodBoutiqueAPI.limit = limit;
-    foodBoutiqueAPI.page = page;
-    foodBoutiqueAPI.category = category;
-    return await foodBoutiqueAPI.fetchProductsByQuery();
+export async function fetchPages() {
+  const { keyword, category, page, limit } = getRequestData();
+  foodBoutiqueAPI.query = keyword;
+  foodBoutiqueAPI.limit = limit;
+  foodBoutiqueAPI.page = page;
+  foodBoutiqueAPI.category = category;
+  return await foodBoutiqueAPI.fetchProductsByQuery();
+}
 
-  } catch (error) {
-    console.log(error.code);
+export function getProductsList(data) {
+  const { page, perPage, totalPages, results } = data;
+  if (totalPages < 2) {
+    refs.paginationSectionEl.classList.add('visually-hidden');
+  } else {
+    refs.paginationSectionEl.classList.remove('visually-hidden');
   }
-}
+  renderProductsCards(results, refs.productsListEl);
 
-export function getProductsList() {
-  fetchPages()
-    .then(res => {
-      const { page, perPage, totalPages, results } = res
-      if (totalPages < 2) {
-        refs.paginationSectionEl.classList.add('visually-hidden')
-      }
-      else {
-        refs.paginationSectionEl.classList.remove('visually-hidden')
-      }
-      renderProductsCards(results, refs.productsListEl)
-      const optionsPagination = {
-        totalItems: (totalPages * perPage),
-        itemsPerPage: perPage,
-        visiblePages: 3,
-        page: page,
-        centerAlign: true,
-        template: {
-          moreButton:
-            "<span class= 'dots'>...</span>"
-        }
-      }
-      const pagination = new Pagination('#pagination', optionsPagination);
+  const optionsPagination = {
+    totalItems: (totalPages * perPage),
+    itemsPerPage: perPage,
+    visiblePages: 3,
+    page: page,
+    centerAlign: true,
+    template: {
+      moreButton:
+        '<span class= \'dots\'>...</span>',
+    },
+  };
+  const pagination = new Pagination('#pagination', optionsPagination);
 
-      pagination.on('beforeMove', (event) => {
-        const currentPage = event.page;
-        const requestData = Storage.load(Storage.KEY_QUERY);
-        requestData.page = currentPage;
-        Storage.save(Storage.KEY_QUERY, requestData)
-        getProductsList();
-        if (currentPage === totalPages) {
-          return false;
-        }
-      });
+  pagination.on('beforeMove', async (event) => {
+    const currentPage = event.page;
+    const requestData = Storage.load(Storage.KEY_QUERY);
+    requestData.page = currentPage;
+    Storage.save(Storage.KEY_QUERY, requestData);
 
-    })
-    .catch(err => console.log(err.message))
+    refs.loaderEl.classList.remove('is-hidden');
+    refs.productsListEl.classList.add('is-hidden');
+    refs.nothingFoundEl.classList.add('visually-hidden');
+
+    const filteredProducts = await fetchPages();
+
+    refs.loaderEl.classList.add('is-hidden');
+    refs.productsListEl.classList.remove('is-hidden');
+
+    getProductsList(filteredProducts);
+
+    if (currentPage === totalPages) {
+      return false;
+    }
+  });
 }

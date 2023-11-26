@@ -1,5 +1,6 @@
 const allProductsWrapperEl = document.querySelector('.all-products');
 const productsListEl = document.querySelector('#products-list .products-list');
+const productsListWithPaginationEl = document.querySelector('.product-list-with-pagination');
 const popularListElement = document.querySelector('.popular-list');
 const cartCountSpan = document.querySelector('.header-cart-span');
 const categorySelectEl = document.querySelector('#categories');
@@ -12,6 +13,7 @@ const nothingFoundEl = document.querySelector('div.nothing-found');
 const btnUpEl = document.querySelector('button.btn-up');
 const filtersBlockEl = document.querySelector('.filters-block');
 const paginationSectionEl = document.querySelector('#pagination-section');
+const loaderEl = document.querySelector('p.loader');
 
 export default {
   allProductsWrapperEl,
@@ -27,5 +29,7 @@ export default {
   nothingFoundEl,
   btnUpEl,
   filtersBlockEl,
-  paginationSectionEl
+  paginationSectionEl,
+  loaderEl,
+  productsListWithPaginationEl
 };

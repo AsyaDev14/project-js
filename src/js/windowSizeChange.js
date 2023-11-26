@@ -1,14 +1,9 @@
-import { getProductsList } from './createPagination';
 import storage from './storage';
-
+import refs from './refs';
+import { fetchPages, getProductsList } from './createPagination';
 
 export const queryTablet = matchMedia('(min-width: 768px)');
 export const queryDesktop = matchMedia('(min-width: 1280px)');
-
-export function changeProductsCount() {
-  setProductsPerPage()
-  getProductsList();
-}
 
 function calcProductsPerPage() {
   const width = window.innerWidth;
@@ -21,8 +16,26 @@ function calcProductsPerPage() {
   return productsPerPage;
 }
 
-function setProductsPerPage() {
+export function setProductsPerPage() {
   const requestData = storage.load(storage.KEY_QUERY);
-  requestData.limit = calcProductsPerPage();
+  const { limit, page } = requestData;
+  const newLimit = calcProductsPerPage();
+  const newPage = Math.ceil((page * limit - limit + 1) / newLimit);
+  requestData.limit = newLimit;
+  requestData.page = newPage;
   storage.save(storage.KEY_QUERY, requestData);
+}
+
+export async function onChangeProductsCount() {
+  setProductsPerPage();
+  refs.loaderEl.classList.remove('is-hidden');
+  refs.productsListEl.classList.add('is-hidden');
+  refs.nothingFoundEl.classList.add('visually-hidden');
+
+  const filteredProducts = await fetchPages();
+
+  refs.loaderEl.classList.add('is-hidden');
+  refs.productsListEl.classList.remove('is-hidden');
+
+  getProductsList(filteredProducts);
 }

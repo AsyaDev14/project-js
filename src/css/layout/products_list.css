@@ -2,6 +2,7 @@
   padding-top: 0;
   padding-bottom: 0;
   width: 100%;
+  position: relative;
 }
 
 #products-list .products-list {
@@ -109,6 +110,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 1;
+  text-align: center;
 }
 
 /*
