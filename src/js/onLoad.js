@@ -6,28 +6,32 @@ import { updateCartOnHeader } from './header';
 import { onAddBtnClick } from './addProduct.js';
 import throttle from 'lodash/throttle';
 import { manageUpBtn, scrollUp } from './scrollUp';
-import { changeProductsCount, queryDesktop, queryTablet } from './windowSizeChange';
+import { onChangeProductsCount, queryDesktop, queryTablet, setProductsPerPage } from './windowSizeChange';
 import { fetchPages, getProductsList } from './createPagination';
 
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
 window.addEventListener(`DOMContentLoaded`, onDOMContentLoaded);
 
-async function onDOMContentLoaded() {
+function onDOMContentLoaded() {
   try {
     updateCartOnHeader();
-    changeProductsCount();
+    setProductsPerPage();
 
-    getProductsList();
-
-    const [popularProducts, discountProducts] = await Promise.all([
+    refs.loaderEl.classList.remove('is-hidden');
+    refs.productsListEl.classList.add('is-hidden');
+    Promise.all([
       foodBoutiqueApi.fetchPopular(),
       foodBoutiqueApi.fetchDiscount(),
       fetchPages()
-    ]);
-
-    refs.popularListElement.innerHTML = renderPopularProducts(popularProducts);
-    renderDiscountCards(discountProducts, refs.discountProductsEl);
+    ])
+      .then(([popularProducts, discountProducts, filteredProducts]) => {
+        refs.loaderEl.classList.add('is-hidden');
+        refs.productsListEl.classList.remove('is-hidden');
+        getProductsList(filteredProducts);
+        refs.popularListElement.innerHTML = renderPopularProducts(popularProducts);
+        renderDiscountCards(discountProducts, refs.discountProductsEl);
+      });
 
     try {
       document.onscroll = throttle(manageUpBtn, 300);
@@ -37,8 +41,8 @@ async function onDOMContentLoaded() {
     }
 
     try {
-      queryTablet.addEventListener('change', throttle(changeProductsCount, 300));
-      queryDesktop.addEventListener('change', throttle(changeProductsCount, 300));
+      queryTablet.addEventListener('change', throttle(onChangeProductsCount, 300));
+      queryDesktop.addEventListener('change', throttle(onChangeProductsCount, 300));
     } catch (err) {
       console.log(err);
     }
