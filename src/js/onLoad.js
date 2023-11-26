@@ -7,6 +7,7 @@ import { updateCartOnHeader } from './header';
 import { onAddBtnClick } from './addProduct.js';
 import throttle from 'lodash/throttle';
 import { manageUpBtn, scrollUp } from './scrollUp';
+import { getProductsList } from './createPagination.js'
 
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
@@ -16,8 +17,7 @@ async function onDOMContentLoaded() {
   try {
     updateCartOnHeader();
     try {
-      let allProducts = await foodBoutiqueApi.fetchProductsByQuery();
-      renderProductsCards(allProducts.results, refs.productsListEl);
+      getProductsList();
     } catch (err) {
       console.log(err);
     }
@@ -36,7 +36,7 @@ async function onDOMContentLoaded() {
       console.log(err);
     }
 
-    try{
+    try {
       document.onscroll = throttle(manageUpBtn, 300);
       refs.btnUpEl.onclick = scrollUp;
     } catch (err) {

@@ -8,38 +8,36 @@ import storage from "./storage";
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 const END_POINT = 'products';
-let currentCategory='';
-let currentPage = 1;
+const KEY_QUERY = 'productsQuery';
+const foodBoutiqueAPI = new FoodBoutiqueAPI();
 
-refs.filtersFormSearchEL.addEventListener('submit', getCurrentCategory);
+refs.filtersFormSearchEL.addEventListener('submit', getProductsList);
 
-function getCurrentCategory(){
-  currentCategory = storage.load('productsQuery').category;
-  console.log(currentCategory)
+function getRequestData() {
+  const requestData = storage.load(KEY_QUERY);
+  console.log(requestData)
+  return requestData;
 }
 
-async function fetchPages(page, category = "Dairy") {
+async function fetchPages() {
   try {
-    return await axios.get(`${BASE_URL}/${END_POINT}`, {
-      params: {
-        limit: 6,
-        page: page,
-        category: category,
-        byABC: true,
-        byPrice: true,
-        byPopularity: true,
-      }
-    })
+    const { keyword, category, page, limit } = getRequestData();
+    foodBoutiqueAPI.query = keyword;
+    foodBoutiqueAPI.limit = limit;
+    foodBoutiqueAPI.page = page;
+    foodBoutiqueAPI.category = category;
+    return await foodBoutiqueAPI.fetchProductsByQuery();
+
   } catch (error) {
     console.log(error.code)
   }
 }
 
 export function getProductsList() {
-  fetchPages(currentPage)
+  fetchPages()
     .then(res => {
-      console.log(res.data);
-      const { page, perPage, totalPages, results } = res.data
+      console.log(res);
+      const { page, perPage, totalPages, results } = res
       renderProductsCards(results, refs.productsListEl)
       const optionsPagination = {
         totalItems: (totalPages * perPage),
@@ -55,9 +53,11 @@ export function getProductsList() {
       const pagination = new Pagination('#pagination', optionsPagination);
 
       pagination.on('beforeMove', (event) => {
-        currentPage = event.page;
+        const currentPage = event.page;
+        const requestData = storage.load(KEY_QUERY);
+        requestData.page = currentPage;
+        storage.save(KEY_QUERY, requestData)
         getProductsList();
-        // function renderPages()
         if (currentPage === totalPages) {
           return false;
         }
