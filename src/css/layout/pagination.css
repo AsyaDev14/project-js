@@ -45,13 +45,10 @@
   }
 }
 
-#pagination.tui-pagination .tui-first,
-#pagination.tui-pagination .tui-last {
-  display: none;
-}
-
 #pagination.tui-pagination .tui-next,
-#pagination.tui-pagination .tui-prev {
+#pagination.tui-pagination .tui-prev,
+#pagination.tui-pagination .tui-first,
+#pagination.tui-pagination .tui-last{
   background-color: var(--color-btn-arrow);
   color: var(--color-btn-arrow-fill);
   display: inline-flex;
@@ -60,7 +57,9 @@
 }
 
 #pagination.tui-pagination .tui-next:not(.tui-is-disabled):hover,
-#pagination.tui-pagination .tui-prev:not(.tui-is-disabled):hover {
+#pagination.tui-pagination .tui-prev:not(.tui-is-disabled):hover,
+#pagination.tui-pagination .tui-first:not(.tui-is-disabled):hover,
+#pagination.tui-pagination .tui-last:not(.tui-is-disabled):hover {
   background-color: var(--color-btn);
   color: var(--color-btn-fill);
 }
