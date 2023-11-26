@@ -39,6 +39,10 @@
   height: 24px;
   padding: 0;
 }
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  background-color: transparent;
+}
 .cart-modal-container {
   display: flex;
   justify-content: space-between;
