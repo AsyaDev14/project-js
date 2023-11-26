@@ -1,6 +1,5 @@
 #pagination-section {
   padding-top: 40px;
-  padding-bottom: 40px;
 }
 
 @media only screen and (max-width: 374px) {
@@ -22,6 +21,7 @@
   width: 334px;
   justify-content: center;
   gap: 4px;
+  margin: 0;
 }
 
 #pagination.tui-pagination .tui-page-btn {
@@ -99,15 +99,8 @@
   }
 }
 
-@media only screen and (min-width: 1272px) {
-  #pagination-section {
-    padding-bottom: 61px;
-  }
-}
-
 @media only screen and (min-width: 768px) and (max-width: 1271px) {
   #pagination-section {
     padding-top: 50px;
-    padding-bottom: 50px;
   }
 }

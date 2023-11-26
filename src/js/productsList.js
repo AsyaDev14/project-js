@@ -33,7 +33,7 @@ export function getCardMarkup({ _id: id, name, img, category, size, popularity, 
     </ul>
     <div class='product-buy-container'>
       <p class='price'>$${price}</p>
-      <button class='btn-buy js-buy-btn' type='button'>
+      <button class='btn-buy js-buy-btn' type='button' aria-label="Button Buy" >
         <svg width='18' height='18' class='js-icon-buy'>
           <use href='${iconsPath}#icon-cart' class='js-icon-buy'/>
         </svg>
