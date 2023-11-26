@@ -109,8 +109,7 @@
 @media only screen and (min-width: 768px) {
   .all-types-search-wrap {
     flex-direction: row;
-    width: fit-content;
-    gap: 8px;
+    justify-content: space-between;
   }
 
   .search-input {
@@ -118,7 +117,7 @@
   }
 
   .categories-search {
-    width: 189px;
+    width: 205px;
   }
 
   .sort-block-select {
@@ -146,5 +145,10 @@
 @media only screen and (min-width: 1272px) {
   .filters-block {
     padding: 0;
+  }
+  .all-types-search-wrap {
+    flex-direction: row;
+    gap: 8px;
+    width: fit-content;
   }
 }
