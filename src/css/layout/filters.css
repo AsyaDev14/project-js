@@ -85,6 +85,10 @@
   background-color: transparent;
 }
 
+.search-button:hover,
+.search-button:focus {
+  background-color: transparent;
+}
 .search-icon {
   fill: var(--color-btn-cancel-active);
 }
