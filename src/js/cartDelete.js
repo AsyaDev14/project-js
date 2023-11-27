@@ -6,7 +6,7 @@ import { updateCartFromStorage, updateCartOnHeader } from './header.js';
 cartRefs.deleteAll.addEventListener('click', onDeleteAllClick);
 cartRefs.productList.addEventListener('click', onDeleteItemClick);
 
-function onDeleteAllClick() {
+export function onDeleteAllClick() {
   localStorage.clear();
   // storage.remove('localKey');
   // storage.save('localKey', []);
