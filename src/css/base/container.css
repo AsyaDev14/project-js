@@ -3,16 +3,18 @@
   position: relative;
 }
 
-.right-part-products.container {
-  /*padding-left: 20px;
-  padding-right: 20px;*/
-}
-
 .product-list-with-pagination.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0;
+}
+
+@media only screen and (max-width: 374px) {
+  .product-list-with-pagination.container {
+    min-width: 280px;
+    max-width: 335px;
+  }
 }
 
 .right-part-products.container {

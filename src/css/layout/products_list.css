@@ -1,12 +1,10 @@
 #products-list.section {
   padding-top: 0;
   padding-bottom: 0;
-  width: 100%;
   position: relative;
 }
 
 #products-list .products-list {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   column-gap: var(--indent-col);
@@ -20,9 +18,11 @@
   border-radius: 20px;
   padding: 20px;
   flex-basis: calc((100% - (var(--items-number) - 1) * var(--indent-col)) / var(--items-number));
+  transition: box-shadow var(--animation-duration) var(--timing-function);
 }
 
-#products-list .product-item:hover {
+#products-list .product-item:hover,
+#products-list .product-item:focus {
   box-shadow:
     0 9px 17px 0 rgba(0, 0, 0, 0.02),
     0 42px 46px 0 rgba(0, 0, 0, 0.04),
