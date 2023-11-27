@@ -578,6 +578,7 @@
 }
 
 .success-modal {
+  min-width: 280px;
   position: absolute;
   float: left;
   left: 50%;
@@ -585,12 +586,17 @@
   transform: translate(-50%, -50%);
 }
 
+@media only screen and (min-width: 375px) {
+  .success-modal {
+    width: 335px;
+  }
+}
+
 .order-success-window {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   align-items: center;
-  width: 335px;
   height: auto;
 
   border-radius: 20px;
@@ -656,9 +662,20 @@
   .backdrop-cart-modal > .container {
     max-width: 600px;
   }
-  .order-success-window {
+  .success-modal {
     width: 560px;
     height: 509px;
-    padding: 80px 40px;
+  }
+
+  .success-text {
+    max-width: 480px;
+  }
+
+  .success-title {
+    font-size: 32px;
+  }
+
+  .success-descr {
+    font-size: 18px;
   }
 }
