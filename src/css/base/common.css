@@ -77,7 +77,8 @@ button {
   transition: background-color 250ms ease-in-out;
 }
 
-button:hover {
+button:hover,
+button:focus {
   background-color: var(--color-btn-active);
 }
 

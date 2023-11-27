@@ -115,6 +115,7 @@ function getModalMarkup({ _id, name, img, category, size, popularity, price, des
 }
 
 function onModalAddRemoveBtnClick({ currentTarget: button }) {
+  button.blur();
   if (button.dataset.state === 'add') {
     onModalAddBtnClick(button);
   } else {
