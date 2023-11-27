@@ -122,7 +122,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1272px) {
+@media (min-width: 768px) and (max-width: 1271px) {
   .popular-item:nth-child(n + 3) {
     display: none;
   }
