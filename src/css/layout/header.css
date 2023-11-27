@@ -43,7 +43,7 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
-  transition: background-color (--animation-duration) var(--timing-function);
+  transition: background-color var(--animation-duration) var(--timing-function);
 }
 
 .header_home:hover,
@@ -70,7 +70,7 @@
 
 .icon-cart-header {
   fill: var(--color-btn);
-  transition: fill (--animation-duration) var(--timing-function);
+  transition: fill var(--animation-duration) var(--timing-function);
 }
 
 .icon-cart-header:hover,
