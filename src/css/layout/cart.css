@@ -38,14 +38,14 @@
     margin-bottom: 88px;
   }
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1272px) {
   .cart-title {
     margin-top: 81px;
     margin-bottom: 82px;
   }
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1272px) {
   .all-cart-content {
     display: flex;
     gap: 101px;
@@ -63,7 +63,7 @@
     margin-bottom: 100px;
   }
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1272px) {
   .cart-container {
     width: 500px;
   }
@@ -96,7 +96,7 @@
     right: 7px;
   }
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1272px) {
   .delete-all {
     top: -56px;
     right: 45px;
@@ -147,7 +147,7 @@
     padding-right: 0;
   }
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1272px) {
   .cart-list {
     gap: 40px;
     padding: 0 40px 6px 0;
@@ -163,7 +163,7 @@
     max-height: 450px;
   }
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1272px) {
   .cart-list.show-scroll {
     max-height: 455px;
   }
@@ -367,7 +367,7 @@
     width: 100%;
   }
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1272px) {
   .input-container {
     display: inline-flex;
     justify-content: center;
@@ -521,7 +521,7 @@
     padding-top: 42px;
   }
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1272px) {
   .empty-cart {
     padding-top: 68px;
   }
