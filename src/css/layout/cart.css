@@ -237,7 +237,7 @@
 }
 
 .product-category {
-  width: fit-content;
+  width: max-content;
 }
 
 .product-size {
