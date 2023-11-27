@@ -67,8 +67,15 @@ export class FoodBoutiqueAPI {
     }
   }
 
-  async postOrders() {
-    const res = await axios.post('/api/products/orders');
+  async postOrders(email, productsData) {
+    const payload = {
+      email: email,
+      products: productsData.map(product => ({
+        productId: product._id,
+        amount: product.quantity,
+      })),
+    };
+    const res = await axios.post('/api/orders', payload);
     return res.data;
   }
 
@@ -94,7 +101,7 @@ function mapProducts(res) {
 }
 
 function mapPaginationProduct(res) {
-  const pagination = res.data
+  const pagination = res.data;
   return {
     ...pagination,
     results: pagination.results.map(mapProduct),
