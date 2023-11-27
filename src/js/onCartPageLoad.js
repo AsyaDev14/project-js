@@ -205,6 +205,7 @@ function renderCartModal(message) {
   const closeModalBtn =
     cartRefs.successModal.querySelector('.js-close-success');
   closeModalBtn.addEventListener('click', onCloseModalBtnClick);
+  document.addEventListener('keydown', onKeydownClick);
 }
 
 cartRefs.customerOrder.addEventListener('submit', async event => {
@@ -243,9 +244,22 @@ cartRefs.customerOrder.addEventListener('submit', async event => {
 });
 
 function onCloseModalBtnClick() {
+  document.removeEventListener('keydown', onKeydownClick);
+
   cartRefs.successModal.classList.add('is-hidden');
   enableBodyScroll(cartRefs.successModal);
 
   onDeleteAllClick();
+}
 
+function onKeydownClick({ code }) {
+  const closeModalBtn =
+    cartRefs.successModal.querySelector('.js-close-success');
+  closeModalBtn.removeEventListener('click', onCloseModalBtnClick);
+
+  if (code === 'Escape') {
+    onCloseModalBtnClick();
+  }
+
+  document.removeEventListener('keydown', onKeydownClick);
 }
