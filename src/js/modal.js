@@ -36,24 +36,25 @@ function onProductListElClick(event) {
       refs.modalEl.classList.add('is-hidden');
       document.removeEventListener('keydown', onBackdropKeydown);
       refs.modalEl.innerHTML = '<p class=\'loader is-hidden\'></p>';
+      enableBodyScroll(refs.modalEl);
     }
-    enableBodyScroll(refs.modalEl);
   }
 
   function onBackdropCLick(event) {
     if (event.target.classList.contains('backdrop-modal')) {
       refs.modalEl.classList.add('is-hidden');
       refs.modalEl.innerHTML = '<p class=\'loader is-hidden\'></p>';
+      enableBodyScroll(refs.modalEl);
+      refs.modalEl.removeEventListener('click', onBackdropCLick);
     }
-    enableBodyScroll(refs.modalEl);
-    refs.modalEl.removeEventListener('click', onBackdropCLick);
   }
 
   const itemId = event.target.closest('li:not(.prop)').dataset.productId;
 
   const loaderEl = refs.modalEl.querySelector('.loader');
   loaderEl.classList.remove('is-hidden');
-  foodBoutiqueAPI.fetchById(itemId).then(res => {
+  foodBoutiqueAPI.fetchById(itemId)
+    .then(res => {
     loaderEl.classList.add('is-hidden');
     refs.modalEl.insertAdjacentHTML('beforeend', getModalMarkup(res));
 
