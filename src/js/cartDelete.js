@@ -7,7 +7,8 @@ cartRefs.deleteAll.addEventListener('click', onDeleteAllClick);
 cartRefs.productList.addEventListener('click', onDeleteItemClick);
 
 function onDeleteAllClick() {
-  storage.remove('localKey');
+  localStorage.clear();
+  // storage.remove('localKey');
   // storage.save('localKey', []);
   cartRefs.productList.innerHTML = '';
   updateCartFromStorage(cartRefs.cartSpan);
