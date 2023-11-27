@@ -15,6 +15,10 @@ foodBoutiqueAPI.fetchCategories().then((res) => {
 
     refs.categorySelectEl.insertAdjacentHTML('beforeend', categoriesList);
     refs.categorySelectEl.insertAdjacentHTML('beforeend', `<option value='Show All'>Show All</option>`);
+
+    const selectedCategory = storage.load('productsQuery').category.replace('_', ' ');
+    const selectedOption = document.querySelector(`[value = '${selectedCategory}']`);
+    selectedOption.setAttribute('selected', '');
 });
 
 function createMarkupForSelect(category) {
