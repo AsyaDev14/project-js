@@ -72,6 +72,7 @@
   border: none;
   border-radius: 50%;
   fill: var(--color-btn-fill);
+  transition: background-color var(--animation-duration) var(--timing-function);
 }
 .discount-btn-buy:hover,
 .discount-btn-buy:focus {

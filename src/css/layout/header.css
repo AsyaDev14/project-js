@@ -43,6 +43,12 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
+  transition: background-color (----animation-duration) var(--timing-function);
+}
+
+.header_home:hover,
+.header_home:focus{
+  background-color: var(--color-btn-active);
 }
 
 .header_buy {
@@ -60,6 +66,16 @@
 .header-logo-svg {
   width: 28px;
   height: 28px;
+}
+
+.icon-cart-header {
+  fill:var(--color-btn);
+  transition: fill (----animation-duration) var(--timing-function);
+}
+
+.icon-cart-header:hover,
+.icon-cart-header:focus {
+  fill: var(--color-btn-active);
 }
 /* tablet */
 @media only screen and (width >=768px) {
@@ -90,6 +106,7 @@
           height: 32px;
         }
 }
+
 
 /* @media only screen and (width >=1272px) {
 
