@@ -8,6 +8,7 @@ import { fetchPages, getProductsList } from './createPagination';
 const foodBoutiqueAPI = new FoodBoutiqueAPI();
 
 refs.filtersFormSearchEL.addEventListener('submit', onFiltersFormSubmit);
+refs.categorySelectEl.addEventListener('change', onCategorySelectChange)
 
 foodBoutiqueAPI.fetchCategories().then((res) => {
 
@@ -30,7 +31,26 @@ const productsQueryObj = storage.load('productsQuery') || { keyword: '', categor
 storage.save("productsQuery", productsQueryObj);
 
 
+async function onCategorySelectChange() {
+    productsQueryObj.category = refs.categorySelectEl.value.replaceAll(' ', '_');
+    productsQueryObj.page = 1;
+    productsQueryObj.keyword = '';
+    refs.searchInputEl.value = '';
+    if (productsQueryObj.category === 'Show All') {
+        productsQueryObj.category = '';
+    }
 
+    storage.save("productsQuery", productsQueryObj);
+    refs.loaderEl.classList.remove('is-hidden');
+    refs.productsListEl.classList.add('is-hidden');
+    refs.nothingFoundEl.classList.add('visually-hidden');
+    const filteredProducts = await fetchPages();
+
+    refs.loaderEl.classList.add('is-hidden');
+    refs.productsListEl.classList.remove('is-hidden');
+
+    getProductsList(filteredProducts);
+}
 // function onFiltersFormSubmit(event) {
 //     event.preventDefault();
 
