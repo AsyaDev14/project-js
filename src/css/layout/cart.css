@@ -154,18 +154,13 @@
   }
 }
 .cart-list.show-scroll {
-  max-height: 385px;
+  max-height: 465px;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
 @media only screen and (min-width: 768px) {
   .cart-list.show-scroll {
-    max-height: 450px;
-  }
-}
-@media only screen and (min-width: 1272px) {
-  .cart-list.show-scroll {
-    max-height: 455px;
+    max-height: 560px;
   }
 }
 
