@@ -36,7 +36,11 @@ svg {
   height: auto;
 }
 
-body {
+body,
+html {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-main);
   font-size: 14px;
   line-height: 1.29;
@@ -102,7 +106,7 @@ button:disabled {
   transform: scale(0);
 
   transition: transform var(--animation-duration) var(--timing-function),
-  fill var(--animation-duration) var(--timing-function);
+    fill var(--animation-duration) var(--timing-function);
 }
 
 .btn-up:hover {
