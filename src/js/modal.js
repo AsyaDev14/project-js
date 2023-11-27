@@ -30,7 +30,7 @@ function onProductListElClick(event) {
     refs.modalEl.classList.add('is-hidden');
     refs.modalEl.innerHTML = '<p class=\'loader is-hidden\'></p>';
     enableBodyScroll(refs.modalEl);
-
+    document.body.style.paddingRight = '0px';
   }
 
   function onBackdropKeydown({ code }) {
@@ -40,6 +40,7 @@ function onProductListElClick(event) {
       refs.modalEl.innerHTML = '<p class=\'loader is-hidden\'></p>';
       enableBodyScroll(refs.modalEl);
     }
+    document.body.style.paddingRight = '0px';
   }
 
   function onBackdropCLick(event) {
@@ -48,8 +49,8 @@ function onProductListElClick(event) {
       refs.modalEl.innerHTML = '<p class=\'loader is-hidden\'></p>';
       enableBodyScroll(refs.modalEl);
       refs.modalEl.removeEventListener('click', onBackdropCLick);
+      document.body.style.paddingRight = '0px';
     }
-    document.body.style.paddingRight = '0px';
   }
 
   const itemId = event.target.closest('li:not(.prop)').dataset.productId;
