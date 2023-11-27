@@ -55,21 +55,25 @@
 .sort-block-select,
 .categories-search {
   outline: none;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    outline (250ms cubic-bezier(0.4, 0, 0.2, 1));
 }
+
 .search-input:focus,
 .search-input:hover {
-  outline: 1px solid #6d8434;
+  outline: 1px solid var(--color-btn);
   border: none;
 }
 
-.sort-block-select:hover,
-.sort-block-select:focus {
-  outline: 1px solid #6d8434;
+.sort-block-select:focus,
+.sort-block-select:hover {
+  outline: 1px solid var(--color-btn);
+  border: none;
 }
 
-.categories-search:hover,
-.categories-search:focus {
-  outline: 1px solid #6d8434;
+.categories-search:focus,
+.categories-search:hover {
+  outline: 1px solid var(--color-btn);
   border: none;
 }
 
@@ -89,6 +93,7 @@
 .search-button:focus {
   background-color: transparent;
 }
+
 .search-icon {
   fill: var(--color-btn-cancel-active);
 }
@@ -129,16 +134,6 @@
     font-size: 18px;
     line-height: 1.33;
   }
-}
-
-.filters-down-svg {
-  fill: var(--primary-bg-color);
-  stroke: var(--title-black-text-color);
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s;
 }
 
 /* DESKTOP 1272*/
