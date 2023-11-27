@@ -171,7 +171,7 @@
 
 .cart-list-item {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   position: relative;
 }
 @media only screen and (min-width: 768px) {
@@ -183,6 +183,11 @@
 .cart-list-item:not(:last-child) {
   border-bottom: 1px solid rgba(1, 1, 1, 0.1);
   padding-bottom: 30px;
+}
+@media only screen and (min-width: 768px) {
+  .cart-list-item:not(:last-child) {
+    padding-bottom: 40px;
+  }
 }
 
 .product-img {
@@ -463,6 +468,11 @@
 
 .cart-list-item:not(:last-child) .counter-container {
   bottom: 24px;
+}
+@media only screen and (min-width: 768px) {
+  .cart-list-item:not(:last-child) .counter-container {
+    bottom: 40px;
+  }
 }
 
 .counter-container:hover {
