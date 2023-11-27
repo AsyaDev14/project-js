@@ -82,9 +82,10 @@ function renderOrder(data) {
             <input
               type="email"
               id="email"
-              pattern=".+@example\.com"
+              pattern=".{8,}"
               placeholder="Enter your email"
               autocomplete="email"
+              title="valid@email.com"
               required
             />
           </div>
