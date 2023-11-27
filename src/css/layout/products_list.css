@@ -40,12 +40,18 @@
 }
 
 #products-list .product-name {
+  height: 20px;
   margin-top: 20px;
   margin-bottom: 0;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11;
-  color: var(--color-text)
+  color: var(--color-text);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #products-list .product-props {
@@ -136,6 +142,10 @@
   #products-list .price {
     font-size: 20px;
     line-height: 1.2;
+  }
+
+  #products-list .product-name {
+    height: 24px;
   }
 }
 
