@@ -5,19 +5,18 @@
     <form class="filters-form-search" action="/filters-block" method="get">
       <div class="all-types-search-wrap">
         <div class="search-container">
+          <button type="submit" class="search-button">
+            <svg class="search-icon" width="20" height="20">
+              <use href="./icons/icons.svg#icon-baseline-search"></use>
+            </svg>
+          </button>
           <input
             class="search-input"
             type="text"
             id="search"
             name="search"
             placeholder="Search for anything"
-            required
           />
-          <button type="submit" class="search-button">
-            <svg class="search-icon" width="20" height="20">
-              <use href="./icons/icons.svg#icon-baseline-search"></use>
-            </svg>
-          </button>
         </div>
         <!-- Categories Dropdown -->
         <div class="select-wrapper">

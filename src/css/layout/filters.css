@@ -87,11 +87,17 @@
   justify-content: center;
   align-content: center;
   background-color: transparent;
+  outline: none;
 }
 
 .search-button:hover,
 .search-button:focus {
   background-color: transparent;
+}
+
+.search-button:hover + .search-input {
+  outline: 1px solid var(--color-btn);
+  border: none;
 }
 
 .search-icon {
