@@ -43,13 +43,13 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
-  /* transition: background-color (--animation-duration) var(--timing-function); */
+  transition: background-color (--animation-duration) var(--timing-function);
 }
 
-/* .header_home:hover,
+.header_home:hover,
 .header_home:focus {
   background-color: var(--color-btn-active);
-} */
+}
 
 .header_buy {
   display: flex;
@@ -70,13 +70,13 @@
 
 .icon-cart-header {
   fill: var(--color-btn);
-  /* transition: fill (--animation-duration) var(--timing-function); */
+  transition: fill (--animation-duration) var(--timing-function);
 }
 
-/* .icon-cart-header:hover,
+.icon-cart-header:hover,
 .icon-cart-header:focus {
   fill: var(--color-btn-active);
-} */
+}
 
 /* tablet */
 @media only screen and (width >=768px) {
