@@ -43,6 +43,12 @@
   position: relative;
 }
 
+.courses-icon {
+  right: 8px;
+  top: -7px;
+  position: absolute;
+}
+
 .hero-working-out {
   border-radius: 30px;
   object-fit: cover;
@@ -93,6 +99,12 @@
     top: -40px;
     right: 35px;
   }
+
+  .courses-icon {
+    right: 10px;
+    top: -30px;
+    position: absolute;
+  }
 }
 
 @media only screen and (width: 1024px) {
@@ -125,5 +137,10 @@
   .hero-mark {
     top: -60px;
     right: 112px;
+  }
+
+  .courses-icon {
+    right: 20px;
+    top: -50px;
   }
 }
