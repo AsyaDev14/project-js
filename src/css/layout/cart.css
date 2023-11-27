@@ -165,7 +165,7 @@
 }
 @media only screen and (min-width: 1272px) {
   .cart-list.show-scroll {
-    max-height: 455px;
+    max-height: 560px;
   }
 }
 
