@@ -2,6 +2,8 @@ import { FoodBoutiqueAPI } from './foodBoutiqueApi';
 import cartRefs from './cartRefs.js';
 import iconsPath from '../icons/icons.svg';
 import { updateCartFromStorage, updateCartOnHeader } from './header.js';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import img from '../images/cart/success.webp';
 
 window.addEventListener('load', onCartPageLoad);
 
@@ -166,4 +168,79 @@ function recalculateTotal() {
   });
 
   renderOrder(productsData);
+}
+
+function cartModalMarkup(message) {
+  return `<div class="success-modal">
+        <div class="order-success-window">
+          <button class="success-delete-btn js-close-success" data-modal-close>
+            <svg  width="22" height="22">
+              <use href="${iconsPath}#icon-close"></use>
+            </svg>
+          </button>
+          <img class="success-img"
+            src="${img}"
+            alt="Success Order"
+            width="140"
+            height="140"
+            loading="lazy"
+          />
+          <div class="success-text">
+            <h2 class="success-title">Order success</h2>
+            <p class="success-descr">
+              ${message}
+            </p>
+          </div>
+        </div>
+      </div>`;
+}
+
+function renderCartModal(message) {
+  cartRefs.successModal.innerHTML = cartModalMarkup(message);
+  cartRefs.successModal.classList.remove('is-hidden');
+  disableBodyScroll(cartRefs.successModal);
+
+  const closeModalBtn =
+    cartRefs.successModal.querySelector('.js-close-success');
+  closeModalBtn.addEventListener('click', onCloseModalBtnClick);
+}
+
+cartRefs.customerOrder.addEventListener('submit', async event => {
+  event.preventDefault();
+
+  const email = document.getElementById('email').value;
+
+  const productListItems =
+    cartRefs.productList.querySelectorAll('.cart-list-item');
+  const productsData = [];
+
+  productListItems.forEach(item => {
+    const productId = item.getAttribute('data-product-id');
+    const productPrice = parseFloat(
+      item.querySelector('.cart-price').textContent.replace('$', '')
+    );
+    const quantity = parseInt(item.querySelector('.counter-value').textContent);
+
+    const product = {
+      _id: productId,
+      price: productPrice,
+      quantity: quantity,
+    };
+
+    productsData.push(product);
+  });
+
+  try {
+    const response = await foodBoutiqueApi.postOrders(email, productsData);
+    if (response) {
+      renderCartModal(response.message);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+function onCloseModalBtnClick() {
+  cartRefs.successModal.classList.add('is-hidden');
+  enableBodyScroll(cartRefs.successModal);
 }
