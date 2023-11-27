@@ -105,13 +105,20 @@ button:disabled {
   cursor: pointer;
   transform: scale(0);
 
-  transition: transform var(--animation-duration) var(--timing-function),
-    fill var(--animation-duration) var(--timing-function);
+  transition:
+    transform var(--animation-duration) var(--timing-function),
+    fill var(--animation-duration) var(--timing-function),
+    box-shadow var(--animation-duration) var(--timing-function);
 }
 
-.btn-up:hover {
+.btn-up:hover,
+.btn-up:focus {
   fill: var(--color-btn-up-fill-active);
   background-color: var(--color-btn-up);
+  box-shadow:
+    1px 2px 1px 0 rgba(46, 47, 66, 0.08),
+    1px 1px 1px 0 rgba(46, 47, 66, 0.16),
+    1px 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 /* DESKTOP */

@@ -289,7 +289,7 @@
 /* DESKTOP 1272*/
 @media only screen and (min-width: 1272px) {
   .footer-container {
-    padding: 0;
+    padding: 0 16px;
   }
 
   .flex-tab-footer {

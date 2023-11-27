@@ -144,7 +144,7 @@
 /* DESKTOP 1272*/
 @media only screen and (min-width: 1272px) {
   .filters-block {
-    padding: 0;
+    padding: 0 16px;
   }
   .all-types-search-wrap {
     flex-direction: row;
