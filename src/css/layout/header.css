@@ -39,15 +39,15 @@
   color: var(--color-bckg);
   width: 77px;
   height: 38px;
-  font-family: Neue Montreal;
+  font-family: 'Neue Montreal';
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
-  transition: background-color (----animation-duration) var(--timing-function);
+  transition: background-color (--animation-duration) var(--timing-function);
 }
 
 .header_home:hover,
-.header_home:focus{
+.header_home:focus {
   background-color: var(--color-btn-active);
 }
 
@@ -69,21 +69,22 @@
 }
 
 .icon-cart-header {
-  fill:var(--color-btn);
-  transition: fill (----animation-duration) var(--timing-function);
+  fill: var(--color-btn);
+  transition: fill (--animation-duration) var(--timing-function);
 }
 
 .icon-cart-header:hover,
 .icon-cart-header:focus {
   fill: var(--color-btn-active);
 }
+
 /* tablet */
 @media only screen and (width >=768px) {
   .header-cart {
     display: flex;
     align-items: center;
     color: #010101;
-    font-family: Neue Montreal;
+    font-family: 'Neue Montreal';
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -97,14 +98,15 @@
     height: 48px;
   }
 
-    .boutique-logo{
-      font-size: 24px;
-      font-weight: 900;
-    }
-        .header-logo-svg {
-          width: 32px;
-          height: 32px;
-        }
+  .boutique-logo {
+    font-size: 24px;
+    font-weight: 900;
+  }
+
+  .header-logo-svg {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 
