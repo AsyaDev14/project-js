@@ -1,5 +1,6 @@
 import { FoodBoutiqueAPI } from './foodBoutiqueApi';
 import cartRefs from './cartRefs.js';
+import storage from './storage';
 import iconsPath from '../icons/icons.svg';
 import { updateCartFromStorage, updateCartOnHeader } from './header.js';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
@@ -10,7 +11,18 @@ window.addEventListener('load', onCartPageLoad);
 
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
-function productTemplate({ _id: id, name, img, category, size, price }) {
+function productTemplate({
+  _id: id,
+  name,
+  img,
+  category,
+  size,
+  price,
+  counter,
+}) {
+  if (!counter) {
+    counter = 1;
+  }
   return `
         <li class="cart-list-item" data-product-id=${id}>
             <img
@@ -38,7 +50,7 @@ function productTemplate({ _id: id, name, img, category, size, price }) {
               <button class="counter-btn" type="button" data-action="decrement">
                 -
               </button>
-              <span class="counter-value">1</span>
+              <span class="counter-value">${counter}</span>
               <button class="counter-btn" type="button" data-action="increment">
                 +
               </button>
@@ -51,7 +63,7 @@ function productsTemplate(productsArr) {
   return productsArr.map(productTemplate).join('');
 }
 
-function renderProductsCards(data) {
+export function renderProductsCards(data) {
   const productsHtml = productsTemplate(data);
   cartRefs.productList.insertAdjacentHTML('beforeend', productsHtml);
 }
@@ -67,7 +79,7 @@ function calcTotalPrice(data) {
   return parseFloat(totalPrice.toFixed(2));
 }
 
-function renderOrder(data) {
+export function renderOrder(data) {
   const totalPrice = calcTotalPrice(data);
   cartRefs.customerOrder.innerHTML = `
         <h2 class="order-title">Your order</h2>
@@ -143,6 +155,12 @@ cartRefs.productList.addEventListener('click', event => {
     }
 
     counterValue.textContent = counter;
+
+    const id = listItem.dataset.productId;
+    const product = storage.load(`product_${id}`);
+    product.counter = counter;
+
+    storage.save(`product_${id}`, product);
 
     recalculateTotal();
   }

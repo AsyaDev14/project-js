@@ -51,6 +51,12 @@ export class FoodBoutiqueAPI {
     return res.data.map(mapCategory);
   }
 
+  async fetchByIdForModal(id) {
+    const res = await axios.get(`/api/products/${id}`);
+    const data = mapProduct(res.data);
+    return data;
+  }
+
   async fetchById(id) {
     const res = await axios.get(`/api/products/${id}`);
     const data = mapProduct(res.data);
