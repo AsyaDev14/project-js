@@ -3,14 +3,14 @@ import refs from './refs';
 import { fetchPages, getProductsList } from './createPagination';
 
 export const queryTablet = matchMedia('(min-width: 768px)');
-export const queryDesktop = matchMedia('(min-width: 1280px)');
+export const queryDesktop = matchMedia('(min-width: 1272px)');
 
 function calcProductsPerPage() {
   const width = window.innerWidth;
   let productsPerPage = 6;
-  if (width >= 768 && width < 1280) {
+  if (width >= 768 && width < 1272) {
     productsPerPage = 8;
-  } else if (width >= 1280) {
+  } else if (width >= 1272) {
     productsPerPage = 9;
   }
   return productsPerPage;
