@@ -245,4 +245,7 @@ function onCloseModalBtnClick() {
   enableBodyScroll(cartRefs.successModal);
 
   localStorage.clear();
+
+  cartRefs.cartContent.classList.add('visually-hidden');
+  cartRefs.emptyCart.classList.remove('visually-hidden');
 }
