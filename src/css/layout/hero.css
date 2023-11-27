@@ -1,7 +1,4 @@
 /* MOBILE */
-.container.hero-wrapper-img {
-  /* padding: 0; */
-}
 
 .hero-section {
   margin-top: 32px;
@@ -41,6 +38,12 @@
   display: flex;
   margin-top: 16px;
   position: relative;
+}
+
+.courses-icon {
+  right: 8px;
+  top: -7px;
+  position: absolute;
 }
 
 .hero-working-out {
@@ -93,6 +96,12 @@
     top: -40px;
     right: 35px;
   }
+
+  .courses-icon {
+    right: 10px;
+    top: -30px;
+    position: absolute;
+  }
 }
 
 @media only screen and (width: 1024px) {
@@ -125,5 +134,10 @@
   .hero-mark {
     top: -60px;
     right: 112px;
+  }
+
+  .courses-icon {
+    right: 20px;
+    top: -50px;
   }
 }
