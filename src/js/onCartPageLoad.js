@@ -243,4 +243,6 @@ cartRefs.customerOrder.addEventListener('submit', async event => {
 function onCloseModalBtnClick() {
   cartRefs.successModal.classList.add('is-hidden');
   enableBodyScroll(cartRefs.successModal);
+
+  localStorage.clear();
 }
