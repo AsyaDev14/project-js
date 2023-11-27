@@ -24,11 +24,13 @@ function onProductListElClick(event) {
 
   refs.modalEl.classList.remove('is-hidden');
   disableBodyScroll(refs.modalEl);
+  document.body.style.paddingRight = '16px';
 
   function onCloseModalBtnClick() {
     refs.modalEl.classList.add('is-hidden');
     refs.modalEl.innerHTML = '<p class=\'loader is-hidden\'></p>';
     enableBodyScroll(refs.modalEl);
+    document.body.style.paddingRight = '0px';
   }
 
   function onBackdropKeydown({ code }) {
@@ -38,6 +40,7 @@ function onProductListElClick(event) {
       refs.modalEl.innerHTML = '<p class=\'loader is-hidden\'></p>';
       enableBodyScroll(refs.modalEl);
     }
+    document.body.style.paddingRight = '0px';
   }
 
   function onBackdropCLick(event) {
@@ -46,6 +49,7 @@ function onProductListElClick(event) {
       refs.modalEl.innerHTML = '<p class=\'loader is-hidden\'></p>';
       enableBodyScroll(refs.modalEl);
       refs.modalEl.removeEventListener('click', onBackdropCLick);
+      document.body.style.paddingRight = '0px';
     }
   }
 
@@ -55,12 +59,12 @@ function onProductListElClick(event) {
   loaderEl.classList.remove('is-hidden');
   foodBoutiqueAPI.fetchById(itemId)
     .then(res => {
-    loaderEl.classList.add('is-hidden');
-    refs.modalEl.insertAdjacentHTML('beforeend', getModalMarkup(res));
+      loaderEl.classList.add('is-hidden');
+      refs.modalEl.insertAdjacentHTML('beforeend', getModalMarkup(res));
 
-    const closeModalBtn = refs.modalEl.querySelector('[data-modal-close]');
-    closeModalBtn.addEventListener('click', onCloseModalBtnClick);
-  })
+      const closeModalBtn = refs.modalEl.querySelector('[data-modal-close]');
+      closeModalBtn.addEventListener('click', onCloseModalBtnClick);
+    })
     .then(() => {
       const addRemoveBtn = refs.modalEl.querySelector('button.modal-cart-btn');
       checkProductStatusOnModal(addRemoveBtn, itemId);
