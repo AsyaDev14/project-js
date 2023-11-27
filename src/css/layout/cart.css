@@ -366,6 +366,11 @@
   }
 }
 
+.input-container:hover,
+.input-container:focus-within {
+  border: 1px solid #6d8434;
+}
+
 .input-container #email {
   color: #010101;
   line-height: 1.28;
@@ -450,6 +455,10 @@
     padding: 5px 16px;
     gap: 10px;
   }
+}
+
+.counter-container:hover {
+  border: 1px solid #6d8434;
 }
 
 .counter-btn {
