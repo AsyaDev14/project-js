@@ -64,22 +64,22 @@ storage.save("productsQuery", productsQueryObj);
 async function onFiltersFormSubmit(event) {
     event.preventDefault();
 
-    productsQueryObj.category = refs.categorySelectEl.value;
-    if ( productsQueryObj.category === 'Show All') {
+    productsQueryObj.category = refs.categorySelectEl.value.replaceAll(' ', '_');
+    if (productsQueryObj.category === 'Show All') {
         productsQueryObj.category = '';
     }
     productsQueryObj.keyword = refs.searchInputEl.value.trim();
     productsQueryObj.page = 1;
     storage.save("productsQuery", productsQueryObj);
 
-  refs.loaderEl.classList.remove('is-hidden');
-  refs.productsListEl.classList.add('is-hidden');
-  refs.nothingFoundEl.classList.add('visually-hidden');
+    refs.loaderEl.classList.remove('is-hidden');
+    refs.productsListEl.classList.add('is-hidden');
+    refs.nothingFoundEl.classList.add('visually-hidden');
 
-  const filteredProducts = await fetchPages();
+    const filteredProducts = await fetchPages();
 
-  refs.loaderEl.classList.add('is-hidden');
-  refs.productsListEl.classList.remove('is-hidden');
+    refs.loaderEl.classList.add('is-hidden');
+    refs.productsListEl.classList.remove('is-hidden');
 
-  getProductsList(filteredProducts);
+    getProductsList(filteredProducts);
 }
