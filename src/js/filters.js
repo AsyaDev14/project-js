@@ -36,14 +36,17 @@ async function onCategorySelectChange() {
     productsQueryObj.page = 1;
     productsQueryObj.keyword = '';
     refs.searchInputEl.value = '';
-    if (productsQueryObj.category === 'Show All') {
+
+    if (productsQueryObj.category === 'Show_All') {
         productsQueryObj.category = '';
     }
 
     storage.save("productsQuery", productsQueryObj);
+
     refs.loaderEl.classList.remove('is-hidden');
     refs.productsListEl.classList.add('is-hidden');
     refs.nothingFoundEl.classList.add('visually-hidden');
+
     const filteredProducts = await fetchPages();
 
     refs.loaderEl.classList.add('is-hidden');
@@ -51,46 +54,12 @@ async function onCategorySelectChange() {
 
     getProductsList(filteredProducts);
 }
-// function onFiltersFormSubmit(event) {
-//     event.preventDefault();
-
-//     productsQueryObj.category = refs.categorySelectEl.value;
-//     productsQueryObj.keyword = refs.searchInputEl.value.trim();
-//     storage.save("productsQuery", productsQueryObj);
-
-//     foodBoutiqueAPI.category = storage.load('productsQuery').category;
-
-//     foodBoutiqueAPI.query = storage.load('productsQuery').keyword;
-
-
-//     if (foodBoutiqueAPI.category === 'Show All') {
-//         productsQueryObj.category = '';
-//         storage.save("productsQuery", productsQueryObj);
-//         foodBoutiqueAPI.category = storage.load('productsQuery').category;
-//     }
-
-//     foodBoutiqueAPI.fetchProductsByQuery().then(res => {
-//         if (res.results.length === 0) {
-//             productsQueryObj.keyword = '';
-//             storage.save("productsQuery", productsQueryObj);
-//             foodBoutiqueAPI.query = storage.load('productsQuery').keyword;
-
-//             refs.searchInputEl.value = '';
-
-//             Notify.failure('Sorry, there are no products matching your search query. Please try again.');
-//         }
-//         console.log(res);
-
-//         const listOfProducts = res.results.map(item => getCardMarkup(item)).join('');
-//         refs.productsListEl.innerHTML = listOfProducts;
-//     });
-// }
 
 async function onFiltersFormSubmit(event) {
     event.preventDefault();
 
     productsQueryObj.category = refs.categorySelectEl.value.replaceAll(' ', '_');
-    if (productsQueryObj.category === 'Show All') {
+    if (productsQueryObj.category === 'Show_All') {
         productsQueryObj.category = '';
     }
     productsQueryObj.keyword = refs.searchInputEl.value.trim();
