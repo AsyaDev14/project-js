@@ -4,6 +4,7 @@ import iconsPath from '../icons/icons.svg';
 import { updateCartFromStorage, updateCartOnHeader } from './header.js';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import img from '../images/cart/success.webp';
+import { onDeleteAllClick } from './cartDelete';
 
 window.addEventListener('load', onCartPageLoad);
 
@@ -245,8 +246,6 @@ function onCloseModalBtnClick() {
   cartRefs.successModal.classList.add('is-hidden');
   enableBodyScroll(cartRefs.successModal);
 
-  localStorage.clear();
+  onDeleteAllClick();
 
-  cartRefs.cartContent.classList.add('visually-hidden');
-  cartRefs.emptyCart.classList.remove('visually-hidden');
 }
