@@ -17,6 +17,9 @@
   pointer-events: none;
 }
 .modal {
+  height: 96%;
+  overflow: auto;
+  max-height: 535px;
   padding: 40px 20px;
   position: absolute;
   top: 50%;
@@ -107,10 +110,10 @@
     max-width: 600px;
   }
   .modal {
-    /* display: flex; */
     padding-left: 40px;
     padding-right: 40px;
     width: 600px;
+    max-height: 380px;
   }
   .modal-product-name {
     font-size: 20px;
