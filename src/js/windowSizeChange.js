@@ -5,7 +5,7 @@ import { fetchPages, getProductsList } from './createPagination';
 export const queryTablet = matchMedia('(min-width: 768px)');
 export const queryDesktop = matchMedia('(min-width: 1272px)');
 
-function calcProductsPerPage() {
+export function calcProductsPerPage() {
   const width = window.innerWidth;
   let productsPerPage = 6;
   if (width >= 768 && width < 1272) {
