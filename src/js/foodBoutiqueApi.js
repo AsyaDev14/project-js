@@ -27,11 +27,9 @@ export class FoodBoutiqueAPI {
 
     if (this.byABC !== null) {
       foodBoutiqueOptions.params.byABC = this.byABC;
-    }
-    else if (this.byPrice !== null) {
+    } else if (this.byPrice !== null) {
       foodBoutiqueOptions.params.byPrice = this.byPrice;
-    }
-    else if (this.byPopularity !== null) {
+    } else if (this.byPopularity !== null) {
       foodBoutiqueOptions.params.byPopularity = this.byPopularity;
     }
 
@@ -60,6 +58,12 @@ export class FoodBoutiqueAPI {
   async fetchCategories() {
     const res = await axios.get('/api/products/categories');
     return res.data.map(mapCategory);
+  }
+
+  async fetchByIdForModal(id) {
+    const res = await axios.get(`/api/products/${id}`);
+    const data = mapProduct(res.data);
+    return data;
   }
 
   async fetchById(id) {
