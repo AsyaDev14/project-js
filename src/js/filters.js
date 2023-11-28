@@ -27,7 +27,7 @@ foodBoutiqueAPI.fetchCategories().then((res) => {
 function createMarkupForSelect(category) {
     return `<option value='${category}'>${category}</option>`
 }
-const productsQueryObj = storage.load('productsQuery') || { keyword: '', category: '', page: 1, limit: 6 }
+const productsQueryObj = storage.load('productsQuery') || { keyword: '', category: '', page: 1, limit: 6, sortCriteria: 'byABC', sortValue: true }
 
 storage.save("productsQuery", productsQueryObj);
 
