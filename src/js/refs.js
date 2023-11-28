@@ -14,6 +14,7 @@ const btnUpEl = document.querySelector('button.btn-up');
 const filtersBlockEl = document.querySelector('.filters-block');
 const paginationSectionEl = document.querySelector('#pagination-section');
 const loaderEl = document.querySelector('p.loader');
+const sortEl = document.querySelector('.sort-block-select');
 
 export default {
   allProductsWrapperEl,
@@ -31,5 +32,6 @@ export default {
   filtersBlockEl,
   paginationSectionEl,
   loaderEl,
-  productsListWithPaginationEl
+  productsListWithPaginationEl,
+  sortEl
 };

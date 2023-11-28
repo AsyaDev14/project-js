@@ -4,6 +4,7 @@ import { FoodBoutiqueAPI } from './foodBoutiqueApi';
 import { renderProductsCards } from './productsList';
 import refs from './refs';
 import Storage from './storage';
+import { calcProductsPerPage } from './windowSizeChange';
 
 const foodBoutiqueAPI = new FoodBoutiqueAPI();
 
@@ -12,11 +13,12 @@ function getRequestData() {
 }
 
 export async function fetchPages() {
-  const { keyword, category, page, limit } = getRequestData();
+  const { keyword, category, page, sortCriteria, sortValue } = getRequestData();
   foodBoutiqueAPI.query = keyword;
-  foodBoutiqueAPI.limit = limit;
+  foodBoutiqueAPI.limit = calcProductsPerPage();
   foodBoutiqueAPI.page = page;
   foodBoutiqueAPI.category = category;
+  foodBoutiqueAPI[sortCriteria] = sortValue;
   return await foodBoutiqueAPI.fetchProductsByQuery();
 }
 

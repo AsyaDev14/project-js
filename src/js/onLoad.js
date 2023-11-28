@@ -8,6 +8,7 @@ import throttle from 'lodash/throttle';
 import { manageUpBtn, scrollUp } from './scrollUp';
 import { onChangeProductsCount, queryDesktop, queryTablet, setProductsPerPage } from './windowSizeChange';
 import { fetchPages, getProductsList } from './createPagination';
+import { setSortOption } from './sort';
 
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
@@ -16,6 +17,7 @@ window.addEventListener(`DOMContentLoaded`, onDOMContentLoaded);
 function onDOMContentLoaded() {
   try {
     updateCartOnHeader();
+    setSortOption();
     setProductsPerPage();
 
     refs.loaderEl.classList.remove('is-hidden');
