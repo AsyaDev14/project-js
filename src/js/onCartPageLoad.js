@@ -1,5 +1,6 @@
 import { FoodBoutiqueAPI } from './foodBoutiqueApi';
 import cartRefs from './cartRefs.js';
+import storage from './storage';
 import iconsPath from '../icons/icons.svg';
 import { updateCartFromStorage, updateCartOnHeader } from './header.js';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
@@ -10,7 +11,18 @@ window.addEventListener('load', onCartPageLoad);
 
 const foodBoutiqueApi = new FoodBoutiqueAPI();
 
-function productTemplate({ _id: id, name, img, category, size, price }) {
+function productTemplate({
+  _id: id,
+  name,
+  img,
+  category,
+  size,
+  price,
+  counter,
+}) {
+  if (!counter) {
+    counter = 1;
+  }
   return `
         <li class="cart-list-item" data-product-id=${id}>
             <img
@@ -38,7 +50,7 @@ function productTemplate({ _id: id, name, img, category, size, price }) {
               <button class="counter-btn" type="button" data-action="decrement">
                 -
               </button>
-              <span class="counter-value">1</span>
+              <span class="counter-value">${counter}</span>
               <button class="counter-btn" type="button" data-action="increment">
                 +
               </button>
@@ -51,7 +63,7 @@ function productsTemplate(productsArr) {
   return productsArr.map(productTemplate).join('');
 }
 
-function renderProductsCards(data) {
+export function renderProductsCards(data) {
   const productsHtml = productsTemplate(data);
   cartRefs.productList.insertAdjacentHTML('beforeend', productsHtml);
 }
@@ -60,14 +72,14 @@ function calcTotalPrice(data) {
   let totalPrice = 0;
 
   for (const product of data) {
-    const quantity = product.quantity === undefined ? 1 : product.quantity;
-    totalPrice += product.price * quantity;
+    const counter = product.counter;
+    totalPrice += product.price * counter;
   }
 
   return parseFloat(totalPrice.toFixed(2));
 }
 
-function renderOrder(data) {
+export function renderOrder(data) {
   const totalPrice = calcTotalPrice(data);
   cartRefs.customerOrder.innerHTML = `
         <h2 class="order-title">Your order</h2>
@@ -95,6 +107,25 @@ function renderOrder(data) {
     `;
 }
 
+export function fakeApiForCart() {
+  const idArr = storage.load('localKey');
+  let cartArr = [];
+
+  for (let i = 0; i < idArr.length; i++) {
+    const id = idArr[i];
+    const product = storage.load(`product_${id}`);
+
+    if (!product.counter) {
+      product.counter = 1;
+      storage.save(`product_${id}`, product);
+    } else {
+      product.counter;
+    }
+    cartArr.push(product);
+  }
+  return cartArr;
+}
+
 export async function onCartPageLoad() {
   updateCartFromStorage(cartRefs.cartSpan);
   updateCartOnHeader();
@@ -115,7 +146,7 @@ export async function onCartPageLoad() {
 
     renderProductsCards(dataArray);
 
-    renderOrder(dataArray);
+    renderOrder(fakeApiForCart());
   } catch (error) {
     console.error(error);
   }
@@ -144,33 +175,39 @@ cartRefs.productList.addEventListener('click', event => {
 
     counterValue.textContent = counter;
 
-    recalculateTotal();
+    const id = listItem.dataset.productId;
+    const product = storage.load(`product_${id}`);
+    product.counter = counter;
+
+    storage.save(`product_${id}`, product);
+
+    renderOrder(fakeApiForCart());
   }
 });
 
-function recalculateTotal() {
-  const productListItems =
-    cartRefs.productList.querySelectorAll('.cart-list-item');
-  const productsData = [];
+// export function recalculateTotal() {
+//   const productListItems =
+//     cartRefs.productList.querySelectorAll('.cart-list-item');
+//   const productsData = [];
 
-  productListItems.forEach(item => {
-    const productId = item.getAttribute('data-product-id');
-    const productPrice = parseFloat(
-      item.querySelector('.cart-price').textContent.replace('$', '')
-    );
-    const quantity = parseInt(item.querySelector('.counter-value').textContent);
+//   productListItems.forEach(item => {
+//     const productId = item.getAttribute('data-product-id');
+//     const productPrice = parseFloat(
+//       item.querySelector('.cart-price').textContent.replace('$', '')
+//     );
+//     const quantity = parseInt(item.querySelector('.counter-value').textContent);
 
-    const product = {
-      _id: productId,
-      price: productPrice,
-      quantity: quantity,
-    };
+//     const product = {
+//       _id: productId,
+//       price: productPrice,
+//       quantity: quantity,
+//     };
 
-    productsData.push(product);
-  });
+//     productsData.push(product);
+//   });
 
-  renderOrder(productsData);
-}
+//   renderOrder(productsData);
+// }
 
 function cartModalMarkup(message) {
   return `<div class="success-modal">
