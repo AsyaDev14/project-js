@@ -3,7 +3,7 @@ import storage from './storage';
 import {
   renderProductsCards,
   renderOrder,
-  calcTotalPrice,
+  fakeApiForCart,
 } from './onCartPageLoad.js';
 import { updateCartFromStorage, updateCartOnHeader } from './header.js';
 
@@ -63,8 +63,7 @@ function onDeleteItemClick(e) {
   }
 
   renderProductsCards(updatedCartArr);
-
-  renderOrder(updatedCartArr);
+  renderOrder(fakeApiForCart());
 
   if (cartRefs.productList.children.length > 3) {
     cartRefs.productList.classList.add('show-scroll');

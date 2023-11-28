@@ -72,8 +72,8 @@ function calcTotalPrice(data) {
   let totalPrice = 0;
 
   for (const product of data) {
-    const quantity = product.quantity === undefined ? 1 : product.quantity;
-    totalPrice += product.price * quantity;
+    const counter = product.counter;
+    totalPrice += product.price * counter;
   }
 
   return parseFloat(totalPrice.toFixed(2));
@@ -107,6 +107,25 @@ export function renderOrder(data) {
     `;
 }
 
+export function fakeApiForCart() {
+  const idArr = storage.load('localKey');
+  let cartArr = [];
+
+  for (let i = 0; i < idArr.length; i++) {
+    const id = idArr[i];
+    const product = storage.load(`product_${id}`);
+
+    if (!product.counter) {
+      product.counter = 1;
+      storage.save(`product_${id}`, product);
+    } else {
+      product.counter;
+    }
+    cartArr.push(product);
+  }
+  return cartArr;
+}
+
 export async function onCartPageLoad() {
   updateCartFromStorage(cartRefs.cartSpan);
   updateCartOnHeader();
@@ -127,7 +146,7 @@ export async function onCartPageLoad() {
 
     renderProductsCards(dataArray);
 
-    renderOrder(dataArray);
+    renderOrder(fakeApiForCart());
   } catch (error) {
     console.error(error);
   }
@@ -162,33 +181,33 @@ cartRefs.productList.addEventListener('click', event => {
 
     storage.save(`product_${id}`, product);
 
-    recalculateTotal();
+    renderOrder(fakeApiForCart());
   }
 });
 
-function recalculateTotal() {
-  const productListItems =
-    cartRefs.productList.querySelectorAll('.cart-list-item');
-  const productsData = [];
+// export function recalculateTotal() {
+//   const productListItems =
+//     cartRefs.productList.querySelectorAll('.cart-list-item');
+//   const productsData = [];
 
-  productListItems.forEach(item => {
-    const productId = item.getAttribute('data-product-id');
-    const productPrice = parseFloat(
-      item.querySelector('.cart-price').textContent.replace('$', '')
-    );
-    const quantity = parseInt(item.querySelector('.counter-value').textContent);
+//   productListItems.forEach(item => {
+//     const productId = item.getAttribute('data-product-id');
+//     const productPrice = parseFloat(
+//       item.querySelector('.cart-price').textContent.replace('$', '')
+//     );
+//     const quantity = parseInt(item.querySelector('.counter-value').textContent);
 
-    const product = {
-      _id: productId,
-      price: productPrice,
-      quantity: quantity,
-    };
+//     const product = {
+//       _id: productId,
+//       price: productPrice,
+//       quantity: quantity,
+//     };
 
-    productsData.push(product);
-  });
+//     productsData.push(product);
+//   });
 
-  renderOrder(productsData);
-}
+//   renderOrder(productsData);
+// }
 
 function cartModalMarkup(message) {
   return `<div class="success-modal">
