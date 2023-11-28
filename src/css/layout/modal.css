@@ -96,7 +96,7 @@
   line-height: 1.29;
   margin-bottom: 40px;
   color: rgba(1, 1, 1, 0.7);
-  max-height: 256px;
+  max-height: 80px;
   overflow: auto;
 }
 .product-price {
@@ -144,6 +144,7 @@
   .product-description {
     font-size: 16px;
     line-height: 1.25;
+    max-height: 120px;
   }
   .product-info-list {
     margin-bottom: 14px;
