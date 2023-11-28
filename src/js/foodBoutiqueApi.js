@@ -7,9 +7,9 @@ export class FoodBoutiqueAPI {
     this.query = null;
 
     this.category = null;
-    this.byABC = true;
-    this.byPrice = true;
-    this.byPopularity = true;
+    this.byABC = null;
+    this.byPrice = null;
+    this.byPopularity = null;
     this.limit = 9;
 
     axios.defaults.baseURL = 'https://food-boutique.b.goit.study';
@@ -20,14 +20,25 @@ export class FoodBoutiqueAPI {
       params: {
         keyword: this.query,
         category: this.category,
-        byABC: this.byABC,
-        byPrice: this.byPrice,
-        byPopularity: this.byPopularity,
         page: this.page,
         limit: this.limit,
       },
     };
+
+    if (this.byABC !== null) {
+      foodBoutiqueOptions.params.byABC = this.byABC;
+    }
+    else if (this.byPrice !== null) {
+      foodBoutiqueOptions.params.byPrice = this.byPrice;
+    }
+    else if (this.byPopularity !== null) {
+      foodBoutiqueOptions.params.byPopularity = this.byPopularity;
+    }
+
     const res = await axios.get('/api/products', foodBoutiqueOptions);
+    this.byABC = null;
+    this.byPrice = null;
+    this.byPopularity = null;
     return mapPaginationProduct(res);
   }
 
